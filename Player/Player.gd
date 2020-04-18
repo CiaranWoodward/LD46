@@ -2,6 +2,7 @@ extends RigidBody2D
 
 export var speed : float = 5000
 
+onready var spriteRoot = get_node("SpriteRoot")
 onready var animtree = get_node("Side to Side/AnimationTree")
 onready var animsm : AnimationNodeStateMachinePlayback = animtree["parameters/playback"]
 
@@ -36,12 +37,16 @@ func _handle_input(delta):
 	elif right:
 		dirvec = Vector2(1, 0)
 		animsm.travel("Walk")
+		spriteRoot.scale.x = 1
 	elif down:
 		dirvec = Vector2(0, 1)
 	elif left:
 		dirvec = Vector2(-1, 0)
+		animsm.travel("Walk")
+		spriteRoot.scale.x = -1
 	elif animsm.is_playing():
 		animsm.travel("Idle")
+
 	
 	# Match Projection
 	dirvec.y = dirvec.y / 2.0

@@ -9,13 +9,19 @@ extents = Vector2( 29.3728, 29.595 )
 [node name="Level" type="Node2D"]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2( 407.056, 286.922 )
+position = Vector2( 675.542, 244.695 )
 mode = 2
 
+[node name="Sprite2" type="Sprite" parent="RigidBody2D"]
+position = Vector2( -0.630249, -58.6132 )
+texture = ExtResource( 1 )
+
 [node name="Sprite" type="Sprite" parent="RigidBody2D"]
+self_modulate = Color( 0.356863, 0.356863, 0.356863, 1 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 0, -59.2435 )
 shape = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]

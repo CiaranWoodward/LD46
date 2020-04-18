@@ -30,7 +30,7 @@ height = 32.0
 length = 0.3
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Side/Front leg:playing")
+tracks/0/path = NodePath("SpriteRoot/Side/Front leg:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -42,7 +42,7 @@ tracks/0/keys = {
 "values": [ false ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Side/Front leg:frame")
+tracks/1/path = NodePath("SpriteRoot/Side/Front leg:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -54,7 +54,7 @@ tracks/1/keys = {
 "values": [ 0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Side/Back leg:playing")
+tracks/2/path = NodePath("SpriteRoot/Side/Back leg:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -66,7 +66,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Side/Back leg:frame")
+tracks/3/path = NodePath("SpriteRoot/Side/Back leg:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -78,7 +78,7 @@ tracks/3/keys = {
 "values": [ 0 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Side/Lever:frame")
+tracks/4/path = NodePath("SpriteRoot/Side/Lever:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -94,7 +94,7 @@ tracks/4/keys = {
 length = 0.7
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Side/Front leg:frame")
+tracks/0/path = NodePath("SpriteRoot/Side/Front leg:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -106,7 +106,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Side/Front leg:playing")
+tracks/1/path = NodePath("SpriteRoot/Side/Front leg:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -118,7 +118,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Side/Back leg:frame")
+tracks/2/path = NodePath("SpriteRoot/Side/Back leg:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -130,7 +130,7 @@ tracks/2/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Side/Back leg:playing")
+tracks/3/path = NodePath("SpriteRoot/Side/Back leg:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -142,7 +142,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Side/Lever:frame")
+tracks/4/path = NodePath("SpriteRoot/Side/Lever:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -158,7 +158,7 @@ tracks/4/keys = {
 length = 0.3
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Side:scale")
+tracks/0/path = NodePath("SpriteRoot/Side:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -197,9 +197,9 @@ animation = "Wobble"
 [sub_resource type="AnimationNodeBlend2" id=11]
 
 [sub_resource type="AnimationNodeBlendTree" id=12]
-graph_offset = Vector2( 0, 48.75 )
+graph_offset = Vector2( 0, -144.25 )
 nodes/Animation/node = SubResource( 10 )
-nodes/Animation/position = Vector2( 60, 60 )
+nodes/Animation/position = Vector2( 80, 40 )
 "nodes/Animation 2/node" = SubResource( 9 )
 "nodes/Animation 2/position" = Vector2( 60, 160 )
 nodes/Blend2/node = SubResource( 11 )
@@ -269,27 +269,34 @@ parameters/playback = SubResource( 16 )
 parameters/Idle/Blend2/blend_amount = 0.5
 parameters/Walk/Blend2/blend_amount = 0.5
 
-[node name="Side" type="Sprite" parent="."]
+[node name="SpriteRoot" type="Node2D" parent="."]
+
+[node name="Side" type="Sprite" parent="SpriteRoot"]
 position = Vector2( 88, 88 )
 offset = Vector2( -216.596, 167.539 )
 
-[node name="Back leg" type="AnimatedSprite" parent="Side"]
+[node name="Back leg" type="AnimatedSprite" parent="SpriteRoot/Side"]
 frames = SubResource( 17 )
+frame = 6
+playing = true
 
-[node name="Back" type="Sprite" parent="Side"]
+[node name="Back" type="Sprite" parent="SpriteRoot/Side"]
 texture = ExtResource( 5 )
 
-[node name="Head" type="Sprite" parent="Side"]
+[node name="Head" type="Sprite" parent="SpriteRoot/Side"]
 texture = ExtResource( 7 )
 
-[node name="Lever" type="AnimatedSprite" parent="Side"]
+[node name="Lever" type="AnimatedSprite" parent="SpriteRoot/Side"]
 frames = SubResource( 18 )
+frame = 1
 
-[node name="Hat" type="Sprite" parent="Side"]
+[node name="Hat" type="Sprite" parent="SpriteRoot/Side"]
 texture = ExtResource( 22 )
 
-[node name="Dome" type="Sprite" parent="Side"]
+[node name="Dome" type="Sprite" parent="SpriteRoot/Side"]
 texture = ExtResource( 8 )
 
-[node name="Front leg" type="AnimatedSprite" parent="Side"]
+[node name="Front leg" type="AnimatedSprite" parent="SpriteRoot/Side"]
 frames = SubResource( 19 )
+frame = 6
+playing = true
