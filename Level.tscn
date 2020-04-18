@@ -10,6 +10,7 @@ extents = Vector2( 29.3728, 29.595 )
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 position = Vector2( 407.056, 286.922 )
+mode = 2
 
 [node name="Sprite" type="Sprite" parent="RigidBody2D"]
 texture = ExtResource( 1 )

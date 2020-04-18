@@ -36,5 +36,8 @@ func _handle_input(delta):
 	elif left:
 		dirvec = Vector2(-1, 0)
 	
+	# Match Projection
+	dirvec.y = dirvec.y / 2.0
+	
 	if dirvec != Vector2.ZERO:
 		self.apply_central_impulse(dirvec * speed * delta)
