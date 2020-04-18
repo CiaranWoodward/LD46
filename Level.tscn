@@ -19,4 +19,4 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 552, 240 )
+position = Vector2( 565.263, 196.842 )
