@@ -6,6 +6,10 @@ onready var spriteRoot = get_node("SpriteRoot")
 onready var animtree = get_node("Side to Side/AnimationTree")
 onready var animsm : AnimationNodeStateMachinePlayback = animtree["parameters/playback"]
 
+onready var sideimg = get_node("SpriteRoot/WobbleRoot/Side")
+onready var frontimg = get_node("SpriteRoot/WobbleRoot/Front")
+onready var backimg = get_node("SpriteRoot/WobbleRoot/Back")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animtree.active = true
@@ -15,6 +19,36 @@ func _ready():
 func _physics_process(delta):
 	_handle_input(delta)
 	
+func _walk_right():
+	animsm.travel("Walk")
+	sideimg.get_node("Lever").visible = true
+	sideimg.visible = true
+	frontimg.visible = false
+	backimg.visible = false
+	spriteRoot.scale.x = 1
+
+func _walk_left():
+	animsm.travel("Walk")
+	sideimg.get_node("Lever").visible = false
+	sideimg.visible = true
+	frontimg.visible = false
+	backimg.visible = false
+	spriteRoot.scale.x = -1
+
+func _walk_back():
+	animsm.travel("BackWalk")
+	sideimg.visible = false
+	frontimg.visible = false
+	backimg.visible = true
+	spriteRoot.scale.x = 1
+
+func _walk_front():
+	animsm.travel("FrontWalk")
+	sideimg.visible = false
+	frontimg.visible = true
+	backimg.visible = false
+	spriteRoot.scale.x = 1
+
 func _handle_input(delta):
 	var down = Input.is_action_pressed("player_down")
 	var up = Input.is_action_pressed("player_up")
@@ -26,26 +60,35 @@ func _handle_input(delta):
 	
 	if up && right:
 		dirvec = Vector2(deg45, -deg45)
+		_walk_right()
 	elif down && right:
 		dirvec = Vector2(deg45, deg45)
+		_walk_right()
 	elif down && left:
 		dirvec = Vector2(-deg45, deg45)
+		_walk_left()
 	elif up && left:
 		dirvec = Vector2(-deg45, -deg45)
+		_walk_left()
 	elif up:
 		dirvec = Vector2(0, -1)
+		_walk_back()
 	elif right:
 		dirvec = Vector2(1, 0)
-		animsm.travel("Walk")
-		spriteRoot.scale.x = 1
+		_walk_right()
 	elif down:
 		dirvec = Vector2(0, 1)
+		_walk_front()
 	elif left:
 		dirvec = Vector2(-1, 0)
-		animsm.travel("Walk")
-		spriteRoot.scale.x = -1
+		_walk_left()
 	elif animsm.is_playing():
-		animsm.travel("Idle")
+		if animsm.get_current_node() == "Walk":
+			animsm.travel("Idle")
+		elif animsm.get_current_node() == "FrontWalk":
+			animsm.travel("FrontIdle")
+		elif animsm.get_current_node() == "BackWalk":
+			animsm.travel("BackIdle")
 
 	
 	# Match Projection
