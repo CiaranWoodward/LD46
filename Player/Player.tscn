@@ -607,7 +607,7 @@ offset = Vector2( -216.596, 167.539 )
 
 [node name="Back leg" type="AnimatedSprite" parent="SpriteRoot/WobbleRoot/Side"]
 frames = SubResource( 17 )
-frame = 6
+frame = 5
 
 [node name="Back" type="Sprite" parent="SpriteRoot/WobbleRoot/Side"]
 texture = ExtResource( 5 )
@@ -627,7 +627,7 @@ texture = ExtResource( 8 )
 
 [node name="Front leg" type="AnimatedSprite" parent="SpriteRoot/WobbleRoot/Side"]
 frames = SubResource( 19 )
-frame = 6
+frame = 5
 
 [node name="Front" type="Sprite" parent="SpriteRoot/WobbleRoot"]
 position = Vector2( 186.989, 49.997 )

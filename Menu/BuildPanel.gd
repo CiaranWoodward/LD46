@@ -14,3 +14,9 @@ func _ready():
 
 func _on_BuildPanel_resized():
 	centerPoint.set_position(self.get_rect().size / 2)
+
+
+func _on_BuildPanel_gui_input(event : InputEvent):
+	if event is InputEventMouse:
+		var relPos = event.get_position() - centerPoint.get_position()
+		centerPoint.set_mousepos(relPos)
