@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Menu/BuildPanelCenter.gd" type="Script" id=1]
 [ext_resource path="res://Menu/BuildPanel.gd" type="Script" id=2]
 [ext_resource path="res://Menu/ItemButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://Menu/MouseGrab.gd" type="Script" id=5]
+[ext_resource path="res://Menu/EggCounter.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Menu/DesignMenu.gd" type="Script" id=7]
 
 [sub_resource type="StyleBoxFlat" id=1]
 
@@ -17,6 +20,7 @@ custom_constants/margin_right = 50
 custom_constants/margin_top = 50
 custom_constants/margin_left = 50
 custom_constants/margin_bottom = 50
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -98,50 +102,7 @@ size_flags_stretch_ratio = 2.0
 custom_styles/panel = SubResource( 2 )
 script = ExtResource( 2 )
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/BuildPanel"]
-margin_right = 71.0
-margin_bottom = 35.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-custom_constants/margin_right = 5
-custom_constants/margin_top = 5
-custom_constants/margin_left = 5
-custom_constants/margin_bottom = 5
-
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/BuildPanel/MarginContainer"]
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 66.0
-margin_bottom = 30.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/BuildPanel/MarginContainer/CenterContainer"]
-margin_right = 61.0
-margin_bottom = 25.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-
-[node name="EggCount" type="Label" parent="HBoxContainer/BuildPanel/MarginContainer/CenterContainer/HBoxContainer"]
-margin_right = 32.0
-margin_bottom = 25.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "9000"
-valign = 1
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/BuildPanel/MarginContainer/CenterContainer/HBoxContainer"]
-margin_left = 36.0
-margin_right = 61.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 25, 25 )
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = ExtResource( 4 )
-expand = true
+[node name="EggCounter" parent="HBoxContainer/BuildPanel" instance=ExtResource( 6 )]
 
 [node name="BuildPanelCenter" type="Node2D" parent="HBoxContainer/BuildPanel"]
 position = Vector2( 280, 270 )
@@ -153,5 +114,13 @@ points = PoolVector2Array( 168, -16, 232, -16, 232, -64, 288, -16, 232, 32, 232,
 width = 20.0
 default_color = Color( 0.901961, 0.156863, 0.188235, 1 )
 joint_mode = 2
+
+[node name="MouseGrab" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0.588235 )
+position = Vector2( -80, 0 )
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="MouseGrab"]
+texture = ExtResource( 4 )
 [connection signal="gui_input" from="HBoxContainer/BuildPanel" to="HBoxContainer/BuildPanel" method="_on_BuildPanel_gui_input"]
 [connection signal="resized" from="HBoxContainer/BuildPanel" to="HBoxContainer/BuildPanel" method="_on_BuildPanel_resized"]

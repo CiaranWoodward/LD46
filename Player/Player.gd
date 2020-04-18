@@ -49,6 +49,14 @@ func _walk_front():
 	backimg.visible = false
 	spriteRoot.scale.x = 1
 
+func _walk_idle():
+	if animsm.get_current_node() == "Walk":
+		animsm.travel("Idle")
+	elif animsm.get_current_node() == "FrontWalk":
+		animsm.travel("FrontIdle")
+	elif animsm.get_current_node() == "BackWalk":
+		animsm.travel("BackIdle")
+
 func _handle_input(delta):
 	var down = Input.is_action_pressed("player_down")
 	var up = Input.is_action_pressed("player_up")
@@ -83,13 +91,7 @@ func _handle_input(delta):
 		dirvec = Vector2(-1, 0)
 		_walk_left()
 	elif animsm.is_playing():
-		if animsm.get_current_node() == "Walk":
-			animsm.travel("Idle")
-		elif animsm.get_current_node() == "FrontWalk":
-			animsm.travel("FrontIdle")
-		elif animsm.get_current_node() == "BackWalk":
-			animsm.travel("BackIdle")
-
+		_walk_idle()
 	
 	# Match Projection
 	dirvec.y = dirvec.y / 2.0

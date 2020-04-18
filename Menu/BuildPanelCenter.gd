@@ -42,10 +42,9 @@ func set_mousepos(point : Vector2):
 	if mangle < 0:
 		mangle = mangle + PI * 2.0
 	
-	if point.length() > radius * 1.5:
+	if point.length() > radius * 2.0:
 		curseg = -1
 	else:
 		curseg = int(mangle / (2.0 * PI) * 8.0)
-		print(curseg)
 	if curseg != prevseg:
 		update()

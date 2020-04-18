@@ -67,10 +67,12 @@ margin_left = 134.0
 margin_top = 257.0
 margin_right = 198.0
 margin_bottom = 321.0
+rect_min_size = Vector2( 64, 64 )
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 1 )
+expand = true
 stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
@@ -126,3 +128,4 @@ rect_min_size = Vector2( 25, 25 )
 mouse_filter = 2
 texture = ExtResource( 1 )
 expand = true
+[connection signal="pressed" from="PanelContainer/Button" to="." method="_on_Button_pressed"]
