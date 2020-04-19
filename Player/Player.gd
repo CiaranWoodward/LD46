@@ -14,6 +14,7 @@ onready var backimg = get_node("SpriteRoot/WobbleRoot/Back")
 func _ready():
 	animtree.active = true
 	animsm.start("Idle")
+	get_node("AnimationPlayer").play("TestRot")
 	pass # Replace with function body.
 
 func _physics_process(delta):

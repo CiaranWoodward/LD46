@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=2]
+[gd_scene load_steps=116 format=2]
 
 [ext_resource path="res://Player/Graphics/Front/Back.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
@@ -43,12 +43,9 @@
 [ext_resource path="res://Player/Graphics/Back/Dome.png" type="Texture" id=41]
 [ext_resource path="res://Player/Graphics/Back/Hat.png" type="Texture" id=42]
 [ext_resource path="res://Player/Graphics/Back/Head.png" type="Texture" id=43]
+[ext_resource path="res://Belt Accessories/Basket.tscn" type="PackedScene" id=44]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 16.0
-height = 32.0
-
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "BackIdle"
 length = 0.2
 tracks/0/type = "value"
@@ -100,7 +97,7 @@ tracks/3/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "BackWalk"
 length = 0.7
 loop = true
@@ -129,7 +126,7 @@ tracks/1/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "FrontIdle"
 length = 0.2
 loop = true
@@ -182,7 +179,7 @@ tracks/3/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "FrontWalk"
 length = 0.7
 loop = true
@@ -211,7 +208,7 @@ tracks/1/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 length = 0.3
 loop = true
 tracks/0/type = "value"
@@ -275,7 +272,7 @@ tracks/4/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 length = 0.7
 loop = true
 tracks/0/type = "value"
@@ -315,7 +312,7 @@ tracks/2/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 length = 0.3
 loop = true
 tracks/0/type = "value"
@@ -331,127 +328,129 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.01, 1 ), Vector2( 0.995, 1.005 ) ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=9]
+[sub_resource type="AnimationNodeAnimation" id=8]
 animation = "BackIdle"
 
-[sub_resource type="AnimationNodeAnimation" id=10]
+[sub_resource type="AnimationNodeAnimation" id=9]
 animation = "Wobble"
 
-[sub_resource type="AnimationNodeBlend2" id=11]
+[sub_resource type="AnimationNodeBlend2" id=10]
 
-[sub_resource type="AnimationNodeBlendTree" id=12]
-nodes/Animation/node = SubResource( 10 )
+[sub_resource type="AnimationNodeBlendTree" id=11]
+nodes/Animation/node = SubResource( 9 )
 nodes/Animation/position = Vector2( 280, 60 )
-"nodes/Animation 2/node" = SubResource( 9 )
+"nodes/Animation 2/node" = SubResource( 8 )
 "nodes/Animation 2/position" = Vector2( 280, 180 )
-nodes/Blend2/node = SubResource( 11 )
+nodes/Blend2/node = SubResource( 10 )
 nodes/Blend2/position = Vector2( 480, 80 )
 nodes/output/position = Vector2( 680, 140 )
 node_connections = [ "output", 0, "Blend2", "Blend2", 0, "Animation", "Blend2", 1, "Animation 2" ]
 
-[sub_resource type="AnimationNodeAnimation" id=13]
+[sub_resource type="AnimationNodeAnimation" id=12]
 animation = "BackWalk"
 
-[sub_resource type="AnimationNodeAnimation" id=14]
+[sub_resource type="AnimationNodeAnimation" id=13]
 animation = "Wobble"
 
-[sub_resource type="AnimationNodeBlend2" id=15]
+[sub_resource type="AnimationNodeBlend2" id=14]
 
-[sub_resource type="AnimationNodeBlendTree" id=16]
-nodes/Animation/node = SubResource( 14 )
+[sub_resource type="AnimationNodeBlendTree" id=15]
+nodes/Animation/node = SubResource( 13 )
 nodes/Animation/position = Vector2( 199, 70 )
-"nodes/Animation 2/node" = SubResource( 13 )
+"nodes/Animation 2/node" = SubResource( 12 )
 "nodes/Animation 2/position" = Vector2( 200, 200 )
-nodes/Blend2/node = SubResource( 15 )
+nodes/Blend2/node = SubResource( 14 )
 nodes/Blend2/position = Vector2( 440, 80 )
 nodes/output/position = Vector2( 740, 120 )
 node_connections = [ "output", 0, "Blend2", "Blend2", 0, "Animation", "Blend2", 1, "Animation 2" ]
 
-[sub_resource type="AnimationNodeAnimation" id=17]
+[sub_resource type="AnimationNodeAnimation" id=16]
 animation = "FrontIdle"
 
-[sub_resource type="AnimationNodeAnimation" id=18]
+[sub_resource type="AnimationNodeAnimation" id=17]
 animation = "Wobble"
 
-[sub_resource type="AnimationNodeBlend2" id=19]
+[sub_resource type="AnimationNodeBlend2" id=18]
 
-[sub_resource type="AnimationNodeBlendTree" id=20]
-nodes/Animation/node = SubResource( 18 )
+[sub_resource type="AnimationNodeBlendTree" id=19]
+nodes/Animation/node = SubResource( 17 )
 nodes/Animation/position = Vector2( 283, 71 )
-"nodes/Animation 2/node" = SubResource( 17 )
+"nodes/Animation 2/node" = SubResource( 16 )
 "nodes/Animation 2/position" = Vector2( 280, 180 )
-nodes/Blend2/node = SubResource( 19 )
+nodes/Blend2/node = SubResource( 18 )
 nodes/Blend2/position = Vector2( 540, 100 )
 nodes/output/position = Vector2( 740, 100 )
 node_connections = [ "output", 0, "Blend2", "Blend2", 0, "Animation", "Blend2", 1, "Animation 2" ]
 
-[sub_resource type="AnimationNodeAnimation" id=21]
+[sub_resource type="AnimationNodeAnimation" id=20]
 animation = "FrontWalk"
 
-[sub_resource type="AnimationNodeAnimation" id=22]
+[sub_resource type="AnimationNodeAnimation" id=21]
 animation = "Wobble"
 
-[sub_resource type="AnimationNodeBlend2" id=23]
+[sub_resource type="AnimationNodeBlend2" id=22]
 
-[sub_resource type="AnimationNodeBlendTree" id=24]
-nodes/Animation/node = SubResource( 22 )
+[sub_resource type="AnimationNodeBlendTree" id=23]
+nodes/Animation/node = SubResource( 21 )
 nodes/Animation/position = Vector2( 380, 60 )
-"nodes/Animation 2/node" = SubResource( 21 )
+"nodes/Animation 2/node" = SubResource( 20 )
 "nodes/Animation 2/position" = Vector2( 380, 180 )
-nodes/Blend2/node = SubResource( 23 )
+nodes/Blend2/node = SubResource( 22 )
 nodes/Blend2/position = Vector2( 620, 80 )
 nodes/output/position = Vector2( 840, 140 )
 node_connections = [ "output", 0, "Blend2", "Blend2", 0, "Animation", "Blend2", 1, "Animation 2" ]
 
-[sub_resource type="AnimationNodeAnimation" id=25]
+[sub_resource type="AnimationNodeAnimation" id=24]
 animation = "Idle"
 
-[sub_resource type="AnimationNodeAnimation" id=26]
+[sub_resource type="AnimationNodeAnimation" id=25]
 animation = "Wobble"
 
-[sub_resource type="AnimationNodeBlend2" id=27]
+[sub_resource type="AnimationNodeBlend2" id=26]
 
-[sub_resource type="AnimationNodeBlendTree" id=28]
-nodes/Animation/node = SubResource( 26 )
+[sub_resource type="AnimationNodeBlendTree" id=27]
+nodes/Animation/node = SubResource( 25 )
 nodes/Animation/position = Vector2( 360, 80 )
-"nodes/Animation 2/node" = SubResource( 25 )
+"nodes/Animation 2/node" = SubResource( 24 )
 "nodes/Animation 2/position" = Vector2( 360, 200 )
-nodes/Blend2/node = SubResource( 27 )
+nodes/Blend2/node = SubResource( 26 )
 nodes/Blend2/position = Vector2( 580, 120 )
 nodes/output/position = Vector2( 800, 160 )
 node_connections = [ "output", 0, "Blend2", "Blend2", 0, "Animation", "Blend2", 1, "Animation 2" ]
 
-[sub_resource type="AnimationNodeAnimation" id=29]
+[sub_resource type="AnimationNodeAnimation" id=28]
 animation = "Walk"
 
-[sub_resource type="AnimationNodeAnimation" id=30]
+[sub_resource type="AnimationNodeAnimation" id=29]
 animation = "Wobble"
 
-[sub_resource type="AnimationNodeBlend2" id=31]
+[sub_resource type="AnimationNodeBlend2" id=30]
 
-[sub_resource type="AnimationNodeBlendTree" id=32]
+[sub_resource type="AnimationNodeBlendTree" id=31]
 graph_offset = Vector2( 0, -144.25 )
-nodes/Animation/node = SubResource( 30 )
+nodes/Animation/node = SubResource( 29 )
 nodes/Animation/position = Vector2( 80, 40 )
-"nodes/Animation 2/node" = SubResource( 29 )
+"nodes/Animation 2/node" = SubResource( 28 )
 "nodes/Animation 2/position" = Vector2( 60, 160 )
-nodes/Blend2/node = SubResource( 31 )
+nodes/Blend2/node = SubResource( 30 )
 nodes/Blend2/position = Vector2( 246.392, 106 )
 nodes/output/position = Vector2( 460, 160 )
 node_connections = [ "output", 0, "Blend2", "Blend2", 0, "Animation", "Blend2", 1, "Animation 2" ]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=35]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=36]
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=37]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=38]
 
@@ -501,28 +500,26 @@ switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=61]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=62]
-
-[sub_resource type="AnimationNodeStateMachine" id=63]
+[sub_resource type="AnimationNodeStateMachine" id=62]
 resource_local_to_scene = true
-states/BackIdle/node = SubResource( 12 )
+states/BackIdle/node = SubResource( 11 )
 states/BackIdle/position = Vector2( 681, 376.518 )
-states/BackWalk/node = SubResource( 16 )
+states/BackWalk/node = SubResource( 15 )
 states/BackWalk/position = Vector2( 423, 376.518 )
-states/FrontIdle/node = SubResource( 20 )
+states/FrontIdle/node = SubResource( 19 )
 states/FrontIdle/position = Vector2( 833, 250 )
-states/FrontWalk/node = SubResource( 24 )
+states/FrontWalk/node = SubResource( 23 )
 states/FrontWalk/position = Vector2( 251, 250 )
-states/Idle/node = SubResource( 28 )
+states/Idle/node = SubResource( 27 )
 states/Idle/position = Vector2( 681, 116 )
-states/Walk/node = SubResource( 32 )
+states/Walk/node = SubResource( 31 )
 states/Walk/position = Vector2( 423, 116 )
-transitions = [ "Idle", "Walk", SubResource( 33 ), "Walk", "Idle", SubResource( 34 ), "FrontIdle", "FrontWalk", SubResource( 35 ), "FrontWalk", "FrontIdle", SubResource( 36 ), "BackWalk", "BackIdle", SubResource( 37 ), "BackIdle", "BackWalk", SubResource( 38 ), "FrontWalk", "Idle", SubResource( 39 ), "FrontWalk", "Walk", SubResource( 40 ), "FrontWalk", "BackWalk", SubResource( 41 ), "FrontWalk", "BackIdle", SubResource( 42 ), "Walk", "FrontWalk", SubResource( 43 ), "Idle", "FrontWalk", SubResource( 44 ), "BackWalk", "FrontWalk", SubResource( 45 ), "BackIdle", "FrontWalk", SubResource( 46 ), "BackWalk", "FrontIdle", SubResource( 47 ), "FrontIdle", "BackWalk", SubResource( 48 ), "FrontIdle", "Walk", SubResource( 49 ), "Walk", "FrontIdle", SubResource( 50 ), "Walk", "BackIdle", SubResource( 51 ), "BackIdle", "Walk", SubResource( 52 ), "BackWalk", "Idle", SubResource( 53 ), "Idle", "BackWalk", SubResource( 54 ), "Idle", "BackIdle", SubResource( 55 ), "BackIdle", "Idle", SubResource( 56 ), "Idle", "FrontIdle", SubResource( 57 ), "FrontIdle", "Idle", SubResource( 58 ), "FrontIdle", "BackIdle", SubResource( 59 ), "BackIdle", "FrontIdle", SubResource( 60 ), "Walk", "BackWalk", SubResource( 61 ), "BackWalk", "Walk", SubResource( 62 ) ]
+transitions = [ "Idle", "Walk", SubResource( 32 ), "Walk", "Idle", SubResource( 33 ), "FrontIdle", "FrontWalk", SubResource( 34 ), "FrontWalk", "FrontIdle", SubResource( 35 ), "BackWalk", "BackIdle", SubResource( 36 ), "BackIdle", "BackWalk", SubResource( 37 ), "FrontWalk", "Idle", SubResource( 38 ), "FrontWalk", "Walk", SubResource( 39 ), "FrontWalk", "BackWalk", SubResource( 40 ), "FrontWalk", "BackIdle", SubResource( 41 ), "Walk", "FrontWalk", SubResource( 42 ), "Idle", "FrontWalk", SubResource( 43 ), "BackWalk", "FrontWalk", SubResource( 44 ), "BackIdle", "FrontWalk", SubResource( 45 ), "BackWalk", "FrontIdle", SubResource( 46 ), "FrontIdle", "BackWalk", SubResource( 47 ), "FrontIdle", "Walk", SubResource( 48 ), "Walk", "FrontIdle", SubResource( 49 ), "Walk", "BackIdle", SubResource( 50 ), "BackIdle", "Walk", SubResource( 51 ), "BackWalk", "Idle", SubResource( 52 ), "Idle", "BackWalk", SubResource( 53 ), "Idle", "BackIdle", SubResource( 54 ), "BackIdle", "Idle", SubResource( 55 ), "Idle", "FrontIdle", SubResource( 56 ), "FrontIdle", "Idle", SubResource( 57 ), "FrontIdle", "BackIdle", SubResource( 58 ), "BackIdle", "FrontIdle", SubResource( 59 ), "Walk", "BackWalk", SubResource( 60 ), "BackWalk", "Walk", SubResource( 61 ) ]
 graph_offset = Vector2( 0, 165.695 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=64]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=63]
 
-[sub_resource type="SpriteFrames" id=65]
+[sub_resource type="SpriteFrames" id=64]
 animations = [ {
 "frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 10 ), ExtResource( 17 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 21 ) ],
 "loop": true,
@@ -530,7 +527,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=66]
+[sub_resource type="SpriteFrames" id=65]
 animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 6 ) ],
 "loop": true,
@@ -538,7 +535,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=67]
+[sub_resource type="SpriteFrames" id=66]
 animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 16 ) ],
 "loop": true,
@@ -546,7 +543,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=68]
+[sub_resource type="SpriteFrames" id=67]
 animations = [ {
 "frames": [ ExtResource( 27 ), ExtResource( 26 ), ExtResource( 34 ), ExtResource( 31 ), ExtResource( 39 ), ExtResource( 33 ), ExtResource( 28 ) ],
 "loop": true,
@@ -554,7 +551,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=69]
+[sub_resource type="SpriteFrames" id=68]
 animations = [ {
 "frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 35 ), ExtResource( 37 ), ExtResource( 36 ), ExtResource( 32 ), ExtResource( 38 ) ],
 "loop": true,
@@ -562,32 +559,102 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="CapsuleShape2D" id=69]
+radius = 27.3812
+height = 25.6777
+
+[sub_resource type="Curve2D" id=70]
+_data = {
+"points": PoolVector2Array( 0, 0, -17.3613, 1.90261, 0, 0, 3.09174, 15.6965, 4.99434, -18.3126, -42.0475, -30.7327, -10.7022, -0.475652, 29.7282, 3.09174, 0.999001, -59.2718, -2.61608, -10.94, -7.61043, 19.0261, 44.0455, -26.9275, 17.1235, -0.237826, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Animation" id=71]
+resource_name = "TestRot"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("BeltPath/PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("BeltPath/PathFollow2D/Basket")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ 0 ],
+"method": "set_rotsprite"
+}, {
+"args": [ 1 ],
+"method": "set_rotsprite"
+}, {
+"args": [ 2 ],
+"method": "set_rotsprite"
+}, {
+"args": [ 3 ],
+"method": "set_rotsprite"
+}, {
+"args": [ 4 ],
+"method": "set_rotsprite"
+}, {
+"args": [ 5 ],
+"method": "set_rotsprite"
+}, {
+"args": [ 6 ],
+"method": "set_rotsprite"
+}, {
+"args": [ 7 ],
+"method": "set_rotsprite"
+}, {
+"args": [ 0 ],
+"method": "set_rotsprite"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BeltPath/PathFollow2D/Basket:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 3 ),
+"transitions": PoolRealArray( 1, 2.88929e+10, 1 ),
+"update": 1,
+"values": [ 0, -1, 0 ]
+}
+
 [node name="Player" type="RigidBody2D"]
 mode = 2
 linear_damp = 13.528
 angular_damp = 100.0
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-rotation = 1.5708
-shape = SubResource( 1 )
-
 [node name="Side to Side" type="AnimationPlayer" parent="."]
 method_call_mode = 1
-anims/BackIdle = SubResource( 2 )
-anims/BackWalk = SubResource( 3 )
-anims/FrontIdle = SubResource( 4 )
-anims/FrontWalk = SubResource( 5 )
-anims/Idle = SubResource( 6 )
-anims/Walk = SubResource( 7 )
-anims/Wobble = SubResource( 8 )
+anims/BackIdle = SubResource( 1 )
+anims/BackWalk = SubResource( 2 )
+anims/FrontIdle = SubResource( 3 )
+anims/FrontWalk = SubResource( 4 )
+anims/Idle = SubResource( 5 )
+anims/Walk = SubResource( 6 )
+anims/Wobble = SubResource( 7 )
 
 [node name="AnimationTree" type="AnimationTree" parent="Side to Side"]
-tree_root = SubResource( 63 )
+tree_root = SubResource( 62 )
 anim_player = NodePath("..")
 active = true
-parameters/playback = SubResource( 64 )
+parameters/playback = SubResource( 63 )
 parameters/BackIdle/Blend2/blend_amount = 0.5
 parameters/BackWalk/Blend2/blend_amount = 0.5
 parameters/FrontIdle/Blend2/blend_amount = 0.5
@@ -596,6 +663,9 @@ parameters/Idle/Blend2/blend_amount = 0.5
 parameters/Walk/Blend2/blend_amount = 0.5
 
 [node name="SpriteRoot" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="WobbleRoot" type="Node2D" parent="SpriteRoot"]
 scale = Vector2( 0.996746, 1.00442 )
@@ -606,7 +676,7 @@ scale = Vector2( 0.995, 1.005 )
 offset = Vector2( -216.596, 167.539 )
 
 [node name="Back leg" type="AnimatedSprite" parent="SpriteRoot/WobbleRoot/Side"]
-frames = SubResource( 65 )
+frames = SubResource( 64 )
 frame = 5
 
 [node name="Back" type="Sprite" parent="SpriteRoot/WobbleRoot/Side"]
@@ -616,7 +686,7 @@ texture = ExtResource( 5 )
 texture = ExtResource( 7 )
 
 [node name="Lever" type="AnimatedSprite" parent="SpriteRoot/WobbleRoot/Side"]
-frames = SubResource( 66 )
+frames = SubResource( 65 )
 frame = 1
 
 [node name="Hat" type="Sprite" parent="SpriteRoot/WobbleRoot/Side"]
@@ -626,7 +696,8 @@ texture = ExtResource( 22 )
 texture = ExtResource( 8 )
 
 [node name="Front leg" type="AnimatedSprite" parent="SpriteRoot/WobbleRoot/Side"]
-frames = SubResource( 67 )
+position = Vector2( 0.278702, 2.37321 )
+frames = SubResource( 66 )
 frame = 5
 
 [node name="Front" type="Sprite" parent="SpriteRoot/WobbleRoot"]
@@ -635,7 +706,7 @@ position = Vector2( 1.52588e-05, 0 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Right leg" type="AnimatedSprite" parent="SpriteRoot/WobbleRoot/Front"]
-frames = SubResource( 68 )
+frames = SubResource( 67 )
 
 [node name="Back" type="Sprite" parent="SpriteRoot/WobbleRoot/Front"]
 texture = ExtResource( 1 )
@@ -650,7 +721,7 @@ texture = ExtResource( 25 )
 texture = ExtResource( 24 )
 
 [node name="Left leg" type="AnimatedSprite" parent="SpriteRoot/WobbleRoot/Front"]
-frames = SubResource( 69 )
+frames = SubResource( 68 )
 
 [node name="Back" type="Sprite" parent="SpriteRoot/WobbleRoot"]
 visible = false
@@ -658,7 +729,7 @@ visible = false
 [node name="Right leg" type="AnimatedSprite" parent="SpriteRoot/WobbleRoot/Back"]
 position = Vector2( 1.72295, 0.625895 )
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 68 )
+frames = SubResource( 67 )
 
 [node name="Back" type="Sprite" parent="SpriteRoot/WobbleRoot/Back"]
 position = Vector2( 1.72295, 0.625895 )
@@ -683,4 +754,27 @@ texture = ExtResource( 41 )
 [node name="Left leg" type="AnimatedSprite" parent="SpriteRoot/WobbleRoot/Back"]
 position = Vector2( 1.72296, 0.625895 )
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 69 )
+frames = SubResource( 68 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -32 )
+rotation = 1.5708
+shape = SubResource( 69 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BeltPath" type="Path2D" parent="."]
+curve = SubResource( 70 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="BeltPath"]
+offset = 230.758
+rotate = false
+
+[node name="Basket" parent="BeltPath/PathFollow2D" instance=ExtResource( 44 )]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/TestRot = SubResource( 71 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true

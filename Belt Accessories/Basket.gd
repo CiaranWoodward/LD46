@@ -10,5 +10,6 @@ func set_rotsprite(dir : int):
 	if dir == cur_rotsprite:
 		return
 	assert(dir >= 0 && dir <= 7)
-	for i in range(7):
+	for i in range(8):
 		self.get_node(str(i)).visible = (i == dir)
+	cur_rotsprite = dir
