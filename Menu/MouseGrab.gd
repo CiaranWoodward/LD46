@@ -4,6 +4,7 @@ onready var sprite : Sprite = get_node("Sprite")
 
 var cost = 0
 var active : bool = false
+var scene : PackedScene = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,9 +14,10 @@ func _set_active(aactive: bool):
 	self.active = aactive
 	self.visible = aactive
 
-func bind(acost : int, texture : Texture):
+func bind(acost : int, texture : Texture, ascene : PackedScene):
 	unbind()
 	self.cost = acost
+	scene = ascene
 	sprite.set_texture(texture)
 	_set_active(true)
 

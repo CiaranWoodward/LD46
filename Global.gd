@@ -2,10 +2,11 @@ extends Node
 
 signal eggcount_change
 
-var eggcount = 10
+var eggcount = 0 setget set_eggcount, get_eggcount
+var beltitems = [null, null, null, null, null, null, null, null]
 
 func reset():
-	eggcount = 10
+	eggcount = 0
 	emit_signal("eggcount_change")
 
 func set_eggcount(count : int):
@@ -18,3 +19,18 @@ func get_eggcount() -> int:
 func mod_eggcount(delta : int):
 	eggcount = eggcount + delta
 	emit_signal("eggcount_change", eggcount)
+
+func get_networth() -> int:
+	var worth = eggcount
+	for item in beltitems:
+		if is_instance_valid(item):
+			var temp = item.instance()
+			worth = worth + temp.cost
+			temp.queue_free()
+	return worth
+
+func get_beltitem(index : int):
+	return beltitems[index]
+
+func set_beltitem(index : int, item):
+	beltitems[index] = item

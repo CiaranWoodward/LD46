@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Menu/BuildPanelCenter.gd" type="Script" id=1]
 [ext_resource path="res://Menu/BuildPanel.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Menu/MouseGrab.gd" type="Script" id=5]
 [ext_resource path="res://Menu/EggCounter.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Menu/DesignMenu.gd" type="Script" id=7]
+[ext_resource path="res://Menu/EggCome.gd" type="Script" id=8]
+[ext_resource path="res://Belt Accessories/Basket.tscn" type="PackedScene" id=9]
 
 [sub_resource type="StyleBoxFlat" id=1]
 
@@ -54,8 +56,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 294.0
 margin_bottom = 86.0
-description = "Egg Basket"
-cost = 5
+sceneTarget = ExtResource( 9 )
 
 [node name="Shield" parent="HBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
@@ -63,8 +64,6 @@ anchor_bottom = 0.0
 margin_top = 84.0
 margin_right = 294.0
 margin_bottom = 170.0
-description = "Shield"
-cost = 10
 
 [node name="Peashooter" parent="HBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
@@ -72,8 +71,6 @@ anchor_bottom = 0.0
 margin_top = 168.0
 margin_right = 294.0
 margin_bottom = 254.0
-description = "Peashooter"
-cost = 20
 
 [node name="Machine" parent="HBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
@@ -81,8 +78,6 @@ anchor_bottom = 0.0
 margin_top = 252.0
 margin_right = 294.0
 margin_bottom = 338.0
-description = "Machine Gun"
-cost = 50
 
 [node name="Flamethrow" parent="HBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
@@ -90,7 +85,6 @@ anchor_bottom = 0.0
 margin_top = 336.0
 margin_right = 294.0
 margin_bottom = 422.0
-cost = 70
 
 [node name="BuildPanel" type="PanelContainer" parent="HBoxContainer"]
 margin_left = 334.0
@@ -101,8 +95,6 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 custom_styles/panel = SubResource( 2 )
 script = ExtResource( 2 )
-
-[node name="EggCounter" parent="HBoxContainer/BuildPanel" instance=ExtResource( 6 )]
 
 [node name="BuildPanelCenter" type="Node2D" parent="HBoxContainer/BuildPanel"]
 position = Vector2( 280, 270 )
@@ -115,6 +107,31 @@ width = 20.0
 default_color = Color( 0.901961, 0.156863, 0.188235, 1 )
 joint_mode = 2
 
+[node name="EggCounter" parent="HBoxContainer/BuildPanel" instance=ExtResource( 6 )]
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/BuildPanel"]
+margin_left = 480.0
+margin_top = 460.0
+margin_right = 590.0
+margin_bottom = 500.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="BattleButton" type="Button" parent="HBoxContainer/BuildPanel/MarginContainer"]
+margin_left = 4.99999
+margin_top = 5.0
+margin_right = 105.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 100, 30 )
+size_flags_horizontal = 8
+size_flags_vertical = 8
+custom_constants/hseparation = 5
+text = "Into Battle!"
+
 [node name="MouseGrab" type="Node2D" parent="."]
 modulate = Color( 1, 1, 1, 0.588235 )
 position = Vector2( -80, 0 )
@@ -122,5 +139,22 @@ script = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="MouseGrab"]
 texture = ExtResource( 4 )
+
+[node name="EggCome" type="AcceptDialog" parent="."]
+margin_left = 376.0
+margin_top = 237.0
+margin_right = 647.0
+margin_bottom = 363.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+window_title = "Universal Basic Eggcome"
+dialog_text = "Oh chicken... looks like you're running a
+bit short on eggs!
+
+Here's a few extra so you don't
+feel left out..."
+script = ExtResource( 8 )
 [connection signal="gui_input" from="HBoxContainer/BuildPanel" to="HBoxContainer/BuildPanel" method="_on_BuildPanel_gui_input"]
 [connection signal="resized" from="HBoxContainer/BuildPanel" to="HBoxContainer/BuildPanel" method="_on_BuildPanel_resized"]
+[connection signal="pressed" from="HBoxContainer/BuildPanel/MarginContainer/BattleButton" to="." method="_on_BattleButton_pressed"]
+[connection signal="confirmed" from="EggCome" to="EggCome" method="_on_EggCome_confirmed"]

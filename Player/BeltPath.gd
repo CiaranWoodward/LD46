@@ -1,13 +1,23 @@
 extends Path2D
 
-onready var temppf = get_node("PathFollow2D")
+var pfs = Array()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	for i in range(8):
+		var newpf = PathFollow2D.new()
+		newpf.set_rotate(false)
+		add_child(newpf, true)
+		pfs.push_back(newpf)
+		if is_instance_valid(Global.get_beltitem(i)):
+			newpf.add_child(Global.get_beltitem(i).instance())
 
 func set_belt_angle(angle : float):
-	_set_belt_pos(temppf, angle - (PI/2))
+	var angle_offset = -(PI/4)
+	for i in range(8):
+		if pfs[i].visible:
+			_set_belt_pos(pfs[i], angle + angle_offset)
+		angle_offset += PI/4
 
 func _set_belt_pos(pf : PathFollow2D, angle : float):
 	if angle < 0:
@@ -24,7 +34,7 @@ func _set_belt_pos(pf : PathFollow2D, angle : float):
 		pf.z_index = -1
 	
 	#Sprite
-	var item = pf.get_children()[0]
+	var item = pf.get_children().pop_front()
 	if is_instance_valid(item) && item.has_method("set_rotsprite"):
 		if ratio < 0.175:
 			item.set_rotsprite(0)

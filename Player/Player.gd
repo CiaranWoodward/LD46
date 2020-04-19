@@ -59,7 +59,8 @@ func _walk_idle():
 		animsm.travel("BackIdle")
 
 func _handle_aim(delta):
-	belt.set_belt_angle(get_local_mouse_position().angle())
+	var mousepos = get_local_mouse_position()
+	belt.set_belt_angle(mousepos.angle())
 
 func _handle_input(delta):
 	var down = Input.is_action_pressed("player_down")

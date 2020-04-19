@@ -2,9 +2,10 @@ extends MarginContainer
 
 signal item_bought
 
-export var description : String = "Flamethrower"
-export var cost : int = 100
-export var texture : Texture = null
+export var sceneTarget : PackedScene = null
+var description : String = "Invalid"
+var cost : int = 999999
+var texture : Texture = null
 
 onready var nameLabel = get_node("PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/NameLabel")
 onready var costLabel = get_node("PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/CostLabel")
@@ -13,6 +14,13 @@ onready var button = get_node("PanelContainer/Button")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if is_instance_valid(sceneTarget):
+		var tscene = sceneTarget.instance()
+		description = tscene.description
+		cost = tscene.cost
+		texture = tscene.icon_texture
+		tscene.queue_free()
+	
 	nameLabel.text = description
 	costLabel.text = str(cost)
 	if is_instance_valid(texture):

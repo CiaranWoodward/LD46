@@ -8,7 +8,6 @@ export var selectcolor : Color = Color.aqua
 export var weaponcolor : Color = Color.palevioletred
 export var selectweaponcolor : Color = Color.coral
 
-
 const segcount = 8
 
 var curseg : int = -1
@@ -73,11 +72,11 @@ func remove_item():
 		Global.mod_eggcount(costs[curseg])
 		costs[curseg] = 0
 
-func place_item(tex : Texture, cost : int) -> bool:
-	if curseg != -1:
+func place_item(tex : Texture, cost : int, seg : int = curseg) -> bool:
+	if seg != -1:
 		remove_item()
-		costs[curseg] = cost
-		sprites[curseg].texture = tex
-		sprites[curseg].visible = true
+		costs[seg] = cost
+		sprites[seg].texture = tex
+		sprites[seg].visible = true
 		return true
 	return false
