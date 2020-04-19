@@ -2,6 +2,7 @@ extends RigidBody2D
 
 export var speed : float = 5000
 
+onready var belt = get_node("BeltPath")
 onready var spriteRoot = get_node("SpriteRoot")
 onready var animtree = get_node("Side to Side/AnimationTree")
 onready var animsm : AnimationNodeStateMachinePlayback = animtree["parameters/playback"]
@@ -14,7 +15,6 @@ onready var backimg = get_node("SpriteRoot/WobbleRoot/Back")
 func _ready():
 	animtree.active = true
 	animsm.start("Idle")
-	get_node("AnimationPlayer").play("TestRot")
 	pass # Replace with function body.
 
 func _physics_process(delta):
@@ -57,6 +57,9 @@ func _walk_idle():
 		animsm.travel("FrontIdle")
 	elif animsm.get_current_node() == "BackWalk":
 		animsm.travel("BackIdle")
+
+func _handle_aim(delta):
+	belt.set_belt_angle(get_local_mouse_position().angle())
 
 func _handle_input(delta):
 	var down = Input.is_action_pressed("player_down")
@@ -101,3 +104,5 @@ func _handle_input(delta):
 		self.apply_central_impulse(dirvec * speed * delta)
 	else:
 		pass
+	
+	_handle_aim(delta)
