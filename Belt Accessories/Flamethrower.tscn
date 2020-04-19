@@ -33,9 +33,9 @@ position = Vector2( 294.949, 5.38506 )
 position = Vector2( 8.28117, 9.20129 )
 texture = ExtResource( 4 )
 
-[node name="Fire" type="CPUParticles2D" parent="0"]
+[node name="P0" type="CPUParticles2D" parent="."]
 modulate = Color( 1, 1, 1, 0.780392 )
-position = Vector2( 31.5365, -0.222839 )
+position = Vector2( 39.8177, 8.97845 )
 emitting = false
 amount = 20
 lifetime = 1.8
