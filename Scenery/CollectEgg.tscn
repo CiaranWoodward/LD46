@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Menu/Graphics/Curency Egg.png" type="Texture" id=1]
 [ext_resource path="res://Belt Accessories/Graphics/Machine Gun/Casing.png" type="Texture" id=2]
+[ext_resource path="res://Scenery/Graphics/Shadow_@0.5x.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Jiggle"
@@ -151,6 +152,12 @@ parameters/Blend2/blend_amount = 0.5
 position = Vector2( -5.09526, -9.07847 )
 rotation = 3.14159
 scale = Vector2( 0.5, 0.5 )
+
+[node name="Shadow_05x" type="Sprite" parent="Currency Egg"]
+position = Vector2( -10.3592, -29.4608 )
+rotation = -3.14159
+scale = Vector2( 0.166834, 0.0924451 )
+texture = ExtResource( 3 )
 
 [node name="Egg" type="Sprite" parent="Currency Egg"]
 position = Vector2( -10.3676, -26.7002 )
