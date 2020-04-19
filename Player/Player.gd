@@ -70,13 +70,13 @@ func _handle_fire(delta):
 	
 	if is_instance_valid(lwep):
 		if Input.is_action_just_pressed("player_leftshoot"):
-			lwep.begin_fire()
+			lwep.begin_fire(self)
 		if Input.is_action_just_released("player_leftshoot"):
 			lwep.end_fire()
 	
 	if is_instance_valid(rwep):
 		if Input.is_action_just_pressed("player_rightshoot"):
-			rwep.begin_fire()
+			rwep.begin_fire(self)
 		if Input.is_action_just_released("player_rightshoot"):
 			rwep.end_fire()
 

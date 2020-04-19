@@ -28,7 +28,7 @@ func set_rotsprite(dir : int):
 
 	.set_rotsprite(dir)
 
-func begin_fire():
+func begin_fire(body : RigidBody2D):
 	isfiring = true
 	self.get_node("P" + str(cur_rotsprite)).emitting = true
 	fireTimer.start()

@@ -44,7 +44,7 @@ func get_cost() -> int:
 func set_cost(acost : int):
 	cost = acost
 
-func begin_fire():
+func begin_fire(body : RigidBody2D):
 	pass
 
 func end_fire():

@@ -9,6 +9,7 @@ onready var fireTimer = get_node("FireTimer")
 onready var playerBullet = preload("res://Player/PlayerBullet.tscn")
 
 var isfiring : bool = false
+var parent : RigidBody2D = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,7 +24,8 @@ func set_rotsprite(dir : int):
 
 	.set_rotsprite(dir)
 
-func begin_fire():
+func begin_fire(body : RigidBody2D):
+	parent = body
 	animp.play("Fire")
 	isfiring = true
 	self.get_node(str(cur_rotsprite) + "P").emitting = true
@@ -49,6 +51,9 @@ func _shoot():
 	newBullet.mass = bulletmass
 	newBullet.linear_velocity = newforce
 	newBullet.set_dir(newforce.angle())
+	
+	if is_instance_valid(parent):
+		parent.apply_central_impulse(newforce * -bulletmass)
 
 func _on_FireTimer_timeout():
 	if isfiring:
