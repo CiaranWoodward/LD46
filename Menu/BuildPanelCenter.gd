@@ -5,6 +5,8 @@ export var thickness : float = 10
 export var linecolor : Color = Color.gray
 export var fillcolor : Color = Color.skyblue
 export var selectcolor : Color = Color.aqua
+export var weaponcolor : Color = Color.palevioletred
+export var selectweaponcolor : Color = Color.coral
 
 
 const segcount = 8
@@ -12,6 +14,7 @@ const segcount = 8
 var curseg : int = -1
 var sprites = Array()
 var costs = Array()
+var weaponsegs = [1, 5]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,8 +29,13 @@ func _ready():
 
 func _draw():
 	draw_circle(Vector2.ZERO, radius, fillcolor)
+	for i in weaponsegs:
+		draw_circle_arc_poly(Vector2.ZERO, i, weaponcolor)
 	if(curseg != -1):
-		draw_circle_arc_poly(Vector2.ZERO, curseg, selectcolor)
+		var color = selectcolor
+		if weaponsegs.has(curseg):
+			color = selectweaponcolor
+		draw_circle_arc_poly(Vector2.ZERO, curseg, color)
 	draw_arc(Vector2.ZERO, radius, 0, PI * 2, 40, linecolor, 10, true)
 
 func draw_circle_arc_poly(center, segno, color):
