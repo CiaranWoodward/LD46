@@ -9,6 +9,7 @@ length = 5.4001
 collision_layer = 16
 collision_mask = 6
 mode = 2
+mass = 0.1
 continuous_cd = 1
 linear_damp = 0.0
 script = ExtResource( 1 )

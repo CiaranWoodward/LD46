@@ -2,6 +2,9 @@ extends Path2D
 
 var pfs = Array()
 
+const lweapon = 1
+const rweapon = 5
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for i in range(8):
@@ -21,6 +24,17 @@ func set_belt_angle(angle : float):
 		if pfs[i].visible:
 			_set_belt_pos(pfs[i], angle + angle_offset, i == 5)
 		angle_offset += PI/4
+
+func get_left_weapon() -> BeltItem:
+	return _get_item(lweapon)
+
+func get_right_weapon() -> BeltItem:
+	return _get_item(rweapon)
+
+func _get_item(slotno : int) -> BeltItem:
+	if pfs[slotno].visible:
+		return pfs[slotno].get_children().front()
+	return null
 
 func _set_belt_pos(pf : PathFollow2D, angle : float, flipped := false):
 	if angle < 0:

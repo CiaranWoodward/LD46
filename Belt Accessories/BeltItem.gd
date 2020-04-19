@@ -6,7 +6,7 @@ export var cost : int = 5
 export var is_weapon : bool = false
 export var icon_texture : Texture = null
 
-var cur_rotsprite = 0 setget set_rotsprite, get_rotsprite
+var cur_rotsprite = -1 setget set_rotsprite, get_rotsprite
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,3 +29,9 @@ func get_cost() -> int:
 
 func set_cost(acost : int):
 	cost = acost
+
+func begin_fire():
+	pass
+
+func end_fire():
+	pass

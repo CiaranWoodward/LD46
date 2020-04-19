@@ -63,6 +63,17 @@ func _handle_aim(delta):
 	var mousepos = aimPoint.get_local_mouse_position()
 	belt.set_belt_angle(mousepos.angle())
 
+func _handle_fire(delta):
+	if Input.is_action_just_pressed("player_leftshoot"):
+		belt.get_left_weapon().begin_fire()
+	if Input.is_action_just_released("player_leftshoot"):
+		belt.get_left_weapon().end_fire()
+	
+	if Input.is_action_just_pressed("player_rightshoot"):
+		belt.get_right_weapon().begin_fire()
+	if Input.is_action_just_released("player_rightshoot"):
+		belt.get_right_weapon().end_fire()
+
 func _handle_input(delta):
 	var down = Input.is_action_pressed("player_down")
 	var up = Input.is_action_pressed("player_up")
@@ -108,3 +119,4 @@ func _handle_input(delta):
 		pass
 	
 	_handle_aim(delta)
+	_handle_fire(delta)

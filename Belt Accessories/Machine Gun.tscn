@@ -113,102 +113,6 @@ tracks/7/keys = {
 "update": 0,
 "values": [ 0.0, -4.05142 ]
 }
-tracks/8/type = "value"
-tracks/8/path = NodePath("0/0:emitting")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("1/1:emitting")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("2/2:emitting")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/11/type = "value"
-tracks/11/path = NodePath("3/3:emitting")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/12/type = "value"
-tracks/12/path = NodePath("4/4:emitting")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/13/type = "value"
-tracks/13/path = NodePath("5/5:emitting")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/14/type = "value"
-tracks/14/path = NodePath("6/6:emitting")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/15/type = "value"
-tracks/15/path = NodePath("7/7:emitting")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
 
 [sub_resource type="Animation" id=2]
 resource_name = "Idle"
@@ -309,102 +213,6 @@ tracks/7/keys = {
 "update": 0,
 "values": [ 0.0 ]
 }
-tracks/8/type = "value"
-tracks/8/path = NodePath("0/0:emitting")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("1/1:emitting")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("2/2:emitting")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/11/type = "value"
-tracks/11/path = NodePath("3/3:emitting")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/12/type = "value"
-tracks/12/path = NodePath("4/4:emitting")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/13/type = "value"
-tracks/13/path = NodePath("5/5:emitting")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/14/type = "value"
-tracks/14/path = NodePath("6/6:emitting")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/15/type = "value"
-tracks/15/path = NodePath("7/7:emitting")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
 
 [sub_resource type="Gradient" id=3]
 colors = PoolColorArray( 0.878431, 0.67451, 0.196078, 1, 0.878431, 0.67451, 0.196078, 0.192157 )
@@ -425,8 +233,8 @@ position = Vector2( -0.160507, 0.0945873 )
 texture = ExtResource( 8 )
 offset = Vector2( 14.5145, 12.4192 )
 
-[node name="0" type="CPUParticles2D" parent="0"]
-position = Vector2( -15.4595, 8.24279 )
+[node name="0P" type="CPUParticles2D" parent="."]
+position = Vector2( -15.62, 8.33738 )
 emitting = false
 amount = 10
 lifetime = 0.5
@@ -447,8 +255,8 @@ position = Vector2( 0.043396, 0.298494 )
 texture = ExtResource( 4 )
 offset = Vector2( 3.26907, 14.7916 )
 
-[node name="1" type="CPUParticles2D" parent="1"]
-position = Vector2( -12.1586, -3.72729 )
+[node name="1P" type="CPUParticles2D" parent="."]
+position = Vector2( -12.1152, -3.4288 )
 emitting = false
 amount = 10
 lifetime = 0.5
@@ -469,8 +277,8 @@ position = Vector2( 0.043396, -0.10932 )
 texture = ExtResource( 7 )
 offset = Vector2( -5.93223, 14.0953 )
 
-[node name="2" type="CPUParticles2D" parent="2"]
-position = Vector2( -5.64966, -8.82704 )
+[node name="2P" type="CPUParticles2D" parent="."]
+position = Vector2( -5.60626, -8.93636 )
 emitting = false
 amount = 10
 lifetime = 0.5
@@ -491,8 +299,8 @@ position = Vector2( 0.247307, 0.0945873 )
 texture = ExtResource( 6 )
 offset = Vector2( -9.81666, -1.75082 )
 
-[node name="3" type="CPUParticles2D" parent="3"]
-position = Vector2( 11.1698, -8.53026 )
+[node name="3P" type="CPUParticles2D" parent="."]
+position = Vector2( 11.4171, -8.43567 )
 emitting = false
 amount = 10
 lifetime = 0.5
@@ -513,8 +321,8 @@ position = Vector2( 0.45121, 0.0945873 )
 texture = ExtResource( 3 )
 offset = Vector2( -9.65251, -8.0077 )
 
-[node name="4" type="CPUParticles2D" parent="4"]
-position = Vector2( 17.2245, -3.27303 )
+[node name="4P" type="CPUParticles2D" parent="."]
+position = Vector2( 17.6757, -3.17844 )
 emitting = false
 amount = 10
 lifetime = 0.5
@@ -535,8 +343,8 @@ position = Vector2( 0.043396, 0.1586 )
 texture = ExtResource( 5 )
 offset = Vector2( -0.411453, -9.91198 )
 
-[node name="5" type="CPUParticles2D" parent="5"]
-position = Vector2( 11.3737, 5.92568 )
+[node name="5P" type="CPUParticles2D" parent="."]
+position = Vector2( 11.4171, 6.08428 )
 emitting = false
 amount = 10
 lifetime = 0.5
@@ -557,8 +365,8 @@ position = Vector2( -0.160507, 0.1586 )
 texture = ExtResource( 1 )
 offset = Vector2( 4.57713, -6.78354 )
 
-[node name="6" type="CPUParticles2D" parent="6"]
-position = Vector2( 7.07146, 14.9381 )
+[node name="6P" type="CPUParticles2D" parent="."]
+position = Vector2( 6.91095, 15.0967 )
 emitting = false
 amount = 10
 lifetime = 0.5
@@ -579,8 +387,8 @@ position = Vector2( -0.364418, -0.0453072 )
 texture = ExtResource( 2 )
 offset = Vector2( 13.6143, 4.82998 )
 
-[node name="7" type="CPUParticles2D" parent="7"]
-position = Vector2( -5.49218, 19.3978 )
+[node name="7P" type="CPUParticles2D" parent="."]
+position = Vector2( -5.8566, 19.3525 )
 emitting = false
 amount = 10
 lifetime = 0.5
