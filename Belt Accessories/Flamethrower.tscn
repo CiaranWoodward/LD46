@@ -36,7 +36,6 @@ texture = ExtResource( 4 )
 [node name="P0" type="CPUParticles2D" parent="."]
 modulate = Color( 1, 1, 1, 0.780392 )
 position = Vector2( 39.8177, 8.97845 )
-emitting = false
 amount = 20
 lifetime = 1.8
 preprocess = 0.1
@@ -62,36 +61,225 @@ scale_amount_curve = SubResource( 1 )
 color_ramp = SubResource( 2 )
 
 [node name="1" type="Sprite" parent="."]
-visible = false
 position = Vector2( -4.41662, 8.09714 )
 texture = ExtResource( 8 )
 
+[node name="P1" type="CPUParticles2D" parent="."]
+modulate = Color( 1, 1, 1, 0.780392 )
+position = Vector2( 8.30529, 25.9952 )
+rotation = 1.01612
+amount = 18
+lifetime = 1.8
+preprocess = 0.1
+lifetime_randomness = 0.1
+local_coords = false
+texture = ExtResource( 9 )
+emission_shape = 2
+emission_rect_extents = Vector2( 0, 5 )
+direction = Vector2( 10, 0 )
+spread = 8.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 85.0
+initial_velocity_random = 0.05
+angular_velocity = 100.0
+angular_velocity_random = 1.0
+linear_accel = -10.0
+damping = 2.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 10.0
+scale_amount_random = 0.2
+scale_amount_curve = SubResource( 1 )
+color_ramp = SubResource( 2 )
+
 [node name="2" type="Sprite" parent="."]
-visible = false
 position = Vector2( -4.2326, 5.52078 )
 texture = ExtResource( 5 )
 
+[node name="P2" type="CPUParticles2D" parent="."]
+modulate = Color( 1, 1, 1, 0.780392 )
+position = Vector2( -4.29967, 23.4741 )
+rotation = 1.58602
+amount = 12
+lifetime = 1.8
+preprocess = 0.1
+lifetime_randomness = 0.1
+local_coords = false
+texture = ExtResource( 9 )
+emission_shape = 2
+emission_rect_extents = Vector2( 0, 5 )
+direction = Vector2( 10, 0 )
+spread = 8.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 75.0
+initial_velocity_random = 0.05
+angular_velocity = 100.0
+angular_velocity_random = 1.0
+linear_accel = -10.0
+damping = 2.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 10.0
+scale_amount_random = 0.2
+scale_amount_curve = SubResource( 1 )
+color_ramp = SubResource( 2 )
+
 [node name="3" type="Sprite" parent="."]
-visible = false
 position = Vector2( -11.0416, -2.20831 )
 texture = ExtResource( 3 )
 
+[node name="P3" type="CPUParticles2D" parent="."]
+modulate = Color( 1, 1, 1, 0.780392 )
+position = Vector2( -31.4003, 10.8692 )
+rotation = 2.68488
+amount = 18
+lifetime = 1.8
+preprocess = 0.1
+lifetime_randomness = 0.1
+local_coords = false
+texture = ExtResource( 9 )
+emission_shape = 2
+emission_rect_extents = Vector2( 0, 5 )
+direction = Vector2( 10, 0 )
+spread = 8.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+initial_velocity_random = 0.05
+angular_velocity = 100.0
+angular_velocity_random = 1.0
+linear_accel = -10.0
+damping = 2.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 10.0
+scale_amount_random = 0.2
+scale_amount_curve = SubResource( 1 )
+color_ramp = SubResource( 2 )
+
 [node name="4" type="Sprite" parent="."]
-visible = false
 position = Vector2( -6.62494, -4.60065 )
 texture = ExtResource( 7 )
 
+[node name="P4" type="CPUParticles2D" parent="."]
+modulate = Color( 1, 1, 1, 0.780392 )
+position = Vector2( -30.7701, -7.40799 )
+rotation = 3.05888
+amount = 20
+lifetime = 1.8
+preprocess = 0.1
+lifetime_randomness = 0.1
+local_coords = false
+texture = ExtResource( 9 )
+emission_shape = 2
+emission_rect_extents = Vector2( 0, 5 )
+direction = Vector2( 10, 0 )
+spread = 8.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 150.0
+initial_velocity_random = 0.05
+angular_velocity = 100.0
+angular_velocity_random = 1.0
+linear_accel = -10.0
+damping = 2.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 10.0
+scale_amount_random = 0.2
+scale_amount_curve = SubResource( 1 )
+color_ramp = SubResource( 2 )
+
 [node name="5" type="Sprite" parent="."]
-visible = false
 position = Vector2( -0.184029, -10.4895 )
 texture = ExtResource( 2 )
 
+[node name="P5" type="CPUParticles2D" parent="."]
+modulate = Color( 1, 1, 1, 0.780392 )
+position = Vector2( -15.0139, -24.4247 )
+rotation = -2.30778
+amount = 17
+lifetime = 1.8
+preprocess = 0.1
+lifetime_randomness = 0.1
+local_coords = false
+texture = ExtResource( 9 )
+emission_shape = 2
+emission_rect_extents = Vector2( 0, 5 )
+direction = Vector2( 10, 0 )
+spread = 8.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 80.0
+initial_velocity_random = 0.05
+angular_velocity = 100.0
+angular_velocity_random = 1.0
+linear_accel = -10.0
+damping = 2.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 10.0
+scale_amount_random = 0.2
+scale_amount_curve = SubResource( 1 )
+color_ramp = SubResource( 2 )
+
 [node name="6" type="Sprite" parent="."]
-visible = false
 position = Vector2( 5.52077, -5.15273 )
 texture = ExtResource( 1 )
 
+[node name="P6" type="CPUParticles2D" parent="."]
+modulate = Color( 1, 1, 1, 0.780392 )
+position = Vector2( 7.67503, -17.492 )
+rotation = -1.46801
+amount = 15
+lifetime = 1.8
+preprocess = 0.1
+lifetime_randomness = 0.1
+local_coords = false
+texture = ExtResource( 9 )
+emission_shape = 2
+emission_rect_extents = Vector2( 0, 5 )
+direction = Vector2( 10, 0 )
+spread = 8.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 75.0
+initial_velocity_random = 0.05
+angular_velocity = 100.0
+angular_velocity_random = 1.0
+linear_accel = -10.0
+damping = 2.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 10.0
+scale_amount_random = 0.2
+scale_amount_curve = SubResource( 1 )
+color_ramp = SubResource( 2 )
+
 [node name="7" type="Sprite" parent="."]
-visible = false
 position = Vector2( 8.09715, 3.68052 )
 texture = ExtResource( 6 )
+
+[node name="P7" type="CPUParticles2D" parent="."]
+modulate = Color( 1, 1, 1, 0.780392 )
+position = Vector2( 22.801, -13.0802 )
+rotation = -0.746557
+amount = 20
+lifetime = 1.8
+preprocess = 0.1
+lifetime_randomness = 0.1
+local_coords = false
+texture = ExtResource( 9 )
+emission_shape = 2
+emission_rect_extents = Vector2( 0, 5 )
+direction = Vector2( 10, 0 )
+spread = 8.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 90.0
+initial_velocity_random = 0.05
+angular_velocity = 100.0
+angular_velocity_random = 1.0
+linear_accel = -10.0
+damping = 2.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 10.0
+scale_amount_random = 0.2
+scale_amount_curve = SubResource( 1 )
+color_ramp = SubResource( 2 )
