@@ -117,7 +117,7 @@ func _handle_input(delta):
 		_walk_idle()
 	
 	# Match Projection
-	dirvec.y = dirvec.y / 2.0
+	# dirvec.y = dirvec.y / 2.0
 	
 	if dirvec != Vector2.ZERO:
 		self.apply_central_impulse(dirvec * speed * delta)

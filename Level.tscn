@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Menu/EggCounter.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player/PlayerBullet.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenery/CollectEgg.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Menu/EggContentCounter.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.524, 31.0884 )
@@ -44,8 +45,56 @@ smoothing_enabled = true
 position = Vector2( 393.495, 242.761 )
 
 [node name="CollectEgg" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 244.348, 158.667 )
+position = Vector2( 848.792, 173.74 )
+
+[node name="CollectEgg2" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 780.961, 60.6899 )
+
+[node name="CollectEgg3" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 254.899, 51.6458 )
+
+[node name="CollectEgg4" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 116.224, 170.726 )
+
+[node name="CollectEgg5" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 295.598, 255.137 )
+
+[node name="CollectEgg6" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 455.376, 7.93295 )
+
+[node name="CollectEgg7" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 135.82, 276.24 )
+
+[node name="CollectEgg8" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 345.34, -35.78 )
+
+[node name="CollectEgg9" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 168.981, -20.7065 )
+
+[node name="CollectEgg10" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 934.71, 365.173 )
+
+[node name="CollectEgg11" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 212.694, 404.364 )
+
+[node name="CollectEgg12" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( -14.9146, 428.481 )
+
+[node name="CollectEgg13" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( -73.7008, 253.63 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="EggCounter" parent="CanvasLayer" instance=ExtResource( 3 )]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EggCounter" parent="CanvasLayer/VBoxContainer" instance=ExtResource( 3 )]
+
+[node name="EggContentCounter" parent="CanvasLayer/VBoxContainer" instance=ExtResource( 6 )]
+margin_top = 39.0
+margin_right = 84.0
+margin_bottom = 74.0

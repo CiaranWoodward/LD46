@@ -21,7 +21,7 @@ func set_rotsprite(dir : int):
 	assert(dir >= 0 && dir <= 7)
 	for i in range(8):
 		if i == dir && isfiring:
-			self.get_node("P" + str(i)).preprocess = 1.9 - fireTimer.time_left
+			#self.get_node("P" + str(i)).preprocess = 1.9 - fireTimer.time_left
 			self.get_node("P" + str(i)).emitting = true
 		else:
 			self.get_node("P" + str(i)).emitting = false
@@ -36,8 +36,8 @@ func begin_fire():
 func end_fire():
 	isfiring = false
 	self.get_node("P" + str(cur_rotsprite)).emitting = false
-	for i in range(8):
-		self.get_node("P" + str(i)).preprocess = 0.1
+	#for i in range(8):
+		#self.get_node("P" + str(i)).preprocess = 0.1
 
 func _shoot():
 	pass

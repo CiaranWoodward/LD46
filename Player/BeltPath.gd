@@ -31,6 +31,19 @@ func get_left_weapon() -> BeltItem:
 func get_right_weapon() -> BeltItem:
 	return _get_item(rweapon)
 
+func _add_egg() -> bool:
+	var potentials = Array()
+	for i in range(8):
+		var item = _get_item(i)
+		if is_instance_valid(item):
+			if item.egg_capacity > item.egg_content:
+				potentials.push_back(item)
+	if potentials.size() == 0:
+		return false
+	var i = randi() % potentials.size()
+	potentials[i].egg_content = potentials[i].egg_content + 1
+	return true
+
 func _get_item(slotno : int) -> BeltItem:
 	if pfs[slotno].visible:
 		return pfs[slotno].get_children().front()
@@ -76,3 +89,8 @@ func _set_belt_pos(pf : PathFollow2D, angle : float, flipped := false):
 			var currot = item.get_rotsprite()
 			currot = (8 - currot) % 8
 			item.set_rotsprite(currot)
+
+
+func _on_EggCollect_area_entered(area):
+	if area.has_method("collect") && _add_egg():
+		area.collect()

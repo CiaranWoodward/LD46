@@ -5,13 +5,27 @@ export var description : String = "Basket"
 export var cost : int = 5
 export var is_weapon : bool = false
 export var icon_texture : Texture = null
+export var egg_capacity : int = 0
 
 var cur_rotsprite = -1 setget set_rotsprite, get_rotsprite
+var egg_content = 0 setget set_eggcontent, get_eggcontent
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_rotsprite(0)
 	pass # Replace with function body.
+
+func set_eggcontent(eggc : int):
+	var diff = eggc - egg_content
+	egg_content = eggc
+	Global.mod_eggcontent(diff)
+
+func mod_eggcontent(eggd):
+	egg_content = egg_content + eggd
+	Global.mod_eggcontent(eggd)
+
+func get_eggcontent() -> int:
+	return egg_content
 
 func set_rotsprite(dir : int):
 	if dir == cur_rotsprite:
