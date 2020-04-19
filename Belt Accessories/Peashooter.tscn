@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Belt Accessories/Graphics/Peashooter/0_Outer_@0.5x.png" type="Texture" id=1]
 [ext_resource path="res://Belt Accessories/Graphics/Peashooter/1_Outer_@0.5x.png" type="Texture" id=2]
@@ -16,8 +16,14 @@
 [ext_resource path="res://Belt Accessories/Graphics/Peashooter/7_Inner_@0.5x.png" type="Texture" id=14]
 [ext_resource path="res://Belt Accessories/Graphics/Peashooter/4_Inner_@0.5x.png" type="Texture" id=15]
 [ext_resource path="res://Belt Accessories/Graphics/Peashooter/3_Inner_@0.5x.png" type="Texture" id=16]
+[ext_resource path="res://Belt Accessories/Peashooter.gd" type="Script" id=17]
+[ext_resource path="res://Belt Accessories/Graphics/Icons/Peashooter Icon.png" type="Texture" id=18]
 
 [node name="Peashooter" type="Node2D"]
+script = ExtResource( 17 )
+description = "Peashooter"
+cost = 20
+icon_texture = ExtResource( 18 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 

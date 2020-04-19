@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Menu/BuildPanelCenter.gd" type="Script" id=1]
 [ext_resource path="res://Menu/BuildPanel.gd" type="Script" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://Menu/DesignMenu.gd" type="Script" id=7]
 [ext_resource path="res://Menu/EggCome.gd" type="Script" id=8]
 [ext_resource path="res://Belt Accessories/Basket.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Belt Accessories/Peashooter.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Belt Accessories/Machine Gun.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Belt Accessories/Shield.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Belt Accessories/Flamethrower.tscn" type="PackedScene" id=13]
 
 [sub_resource type="StyleBoxFlat" id=1]
 
@@ -64,6 +68,7 @@ anchor_bottom = 0.0
 margin_top = 84.0
 margin_right = 294.0
 margin_bottom = 170.0
+sceneTarget = ExtResource( 12 )
 
 [node name="Peashooter" parent="HBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
@@ -71,6 +76,7 @@ anchor_bottom = 0.0
 margin_top = 168.0
 margin_right = 294.0
 margin_bottom = 254.0
+sceneTarget = ExtResource( 10 )
 
 [node name="Machine" parent="HBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
@@ -78,6 +84,7 @@ anchor_bottom = 0.0
 margin_top = 252.0
 margin_right = 294.0
 margin_bottom = 338.0
+sceneTarget = ExtResource( 11 )
 
 [node name="Flamethrow" parent="HBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
@@ -85,6 +92,7 @@ anchor_bottom = 0.0
 margin_top = 336.0
 margin_right = 294.0
 margin_bottom = 422.0
+sceneTarget = ExtResource( 13 )
 
 [node name="BuildPanel" type="PanelContainer" parent="HBoxContainer"]
 margin_left = 334.0
@@ -147,6 +155,7 @@ margin_right = 647.0
 margin_bottom = 363.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+popup_exclusive = true
 window_title = "Universal Basic Eggcome"
 dialog_text = "Oh chicken... looks like you're running a
 bit short on eggs!

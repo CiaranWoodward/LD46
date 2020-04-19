@@ -36,21 +36,21 @@ func _set_belt_pos(pf : PathFollow2D, angle : float):
 	#Sprite
 	var item = pf.get_children().pop_front()
 	if is_instance_valid(item) && item.has_method("set_rotsprite"):
-		if ratio < 0.175:
+		if ratio < 1.0/9.0:
 			item.set_rotsprite(0)
-		elif ratio < 0.225:
+		elif ratio < 2.0/9.0:
 			item.set_rotsprite(1)
-		elif ratio < 0.275:
+		elif ratio < 3.0/9.0:
 			item.set_rotsprite(2)
-		elif ratio < 0.325:
+		elif ratio < 4.0/9.0:
 			item.set_rotsprite(3)
-		elif ratio < 0.675:
+		elif ratio < 5.0/9.0:
 			item.set_rotsprite(4)
-		elif ratio < 0.725:
+		elif ratio < 6.0/9.0:
 			item.set_rotsprite(5)
-		elif ratio < 0.775:
+		elif ratio < 7.0/9.0:
 			item.set_rotsprite(6)
-		elif ratio < 0.825:
+		elif ratio < 8.0/9.0:
 			item.set_rotsprite(7)
 		else:
 			item.set_rotsprite(0)

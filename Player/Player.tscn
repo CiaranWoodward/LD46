@@ -701,3 +701,6 @@ __meta__ = {
 [node name="BeltPath" type="Path2D" parent="."]
 curve = SubResource( 70 )
 script = ExtResource( 45 )
+
+[node name="AimPoint" type="Node2D" parent="."]
+position = Vector2( 0, -31.8858 )

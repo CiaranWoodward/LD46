@@ -2,6 +2,7 @@ extends RigidBody2D
 
 export var speed : float = 5000
 
+onready var aimPoint = get_node("AimPoint")
 onready var belt = get_node("BeltPath")
 onready var spriteRoot = get_node("SpriteRoot")
 onready var animtree = get_node("Side to Side/AnimationTree")
@@ -59,7 +60,7 @@ func _walk_idle():
 		animsm.travel("BackIdle")
 
 func _handle_aim(delta):
-	var mousepos = get_local_mouse_position()
+	var mousepos = aimPoint.get_local_mouse_position()
 	belt.set_belt_angle(mousepos.angle())
 
 func _handle_input(delta):
