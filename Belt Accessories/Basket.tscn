@@ -42,34 +42,37 @@ texture = ExtResource( 9 )
 visible = false
 
 [node name="Back" type="Sprite" parent="2"]
-position = Vector2( 0, 1.499 )
+position = Vector2( -5.24615, 0.899436 )
 texture = ExtResource( 3 )
 
 [node name="Front" type="Sprite" parent="2"]
-position = Vector2( 0, 2.848 )
+position = Vector2( -5.69583, 3.14778 )
 texture = ExtResource( 2 )
 
 [node name="3" type="Sprite" parent="."]
 visible = false
+position = Vector2( -1.94857, -3.44748 )
 texture = ExtResource( 13 )
 
 [node name="4" type="Sprite" parent="."]
 visible = false
+position = Vector2( 0.599556, -7.49451 )
 texture = ExtResource( 8 )
 
 [node name="5" type="Sprite" parent="."]
 visible = false
+position = Vector2( 2.39824, -2.39825 )
 texture = ExtResource( 11 )
 
 [node name="6" type="Node2D" parent="."]
 visible = false
 
 [node name="Back" type="Sprite" parent="6"]
-position = Vector2( 0.899345, 3.74755 )
+position = Vector2( 4.94638, 3.29788 )
 texture = ExtResource( 5 )
 
 [node name="Front" type="Sprite" parent="6"]
-position = Vector2( -7.62939e-06, 5.24615 )
+position = Vector2( 3.89714, 5.99561 )
 texture = ExtResource( 10 )
 
 [node name="7" type="Node2D" parent="."]
