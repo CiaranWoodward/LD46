@@ -1,16 +1,46 @@
 extends BeltItem
 
+export var bulletforce : float = 900
+export var spread : float = 0.2
+export var bulletmass : float = 0.3
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var animp = get_node("AnimationPlayer")
+onready var fireTimer = get_node("FireTimer")
+onready var playerBullet = preload("res://Player/PlayerBullet.tscn")
 
+var isfiring : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
+func begin_fire():
+	animp.play("Fire")
+	isfiring = true
+	if fireTimer.is_stopped():
+		fireTimer.start()
+		_shoot()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func end_fire():
+	animp.play("Idle")
+	isfiring = false
+
+func _shoot():
+	var fp = self.get_node("FP" + str(cur_rotsprite)).get_global_position()
+	var newBullet = playerBullet.instance()
+	if !is_instance_valid(Global.bulletField):
+		return
+	Global.bulletField.add_child(newBullet)
+	newBullet.set_global_position(fp)
+	var newforce = newBullet.get_local_mouse_position().normalized() * bulletforce
+	newforce.x = newforce.x * (1 + rand_range(-spread, spread))
+	newforce.y = newforce.y * (1 + rand_range(-spread, spread))
+	newBullet.mass = bulletmass
+	newBullet.linear_velocity = newforce
+	newBullet.set_dir(newforce.angle())
+
+func _on_FireTimer_timeout():
+	if isfiring:
+		_shoot()
+	else:
+		fireTimer.stop()

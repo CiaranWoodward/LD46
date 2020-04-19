@@ -2,6 +2,7 @@ extends BeltItem
 
 export var bulletforce : float = 900
 export var spread : float = 0.2
+export var bulletmass : float = 0.1
 
 onready var animp = get_node("AnimationPlayer")
 onready var fireTimer = get_node("FireTimer")
@@ -45,7 +46,7 @@ func _shoot():
 	var newforce = newBullet.get_local_mouse_position().normalized() * bulletforce
 	newforce.x = newforce.x * (1 + rand_range(-spread, spread))
 	newforce.y = newforce.y * (1 + rand_range(-spread, spread))
-	#newBullet.apply_central_impulse(newforce)
+	newBullet.mass = bulletmass
 	newBullet.linear_velocity = newforce
 	newBullet.set_dir(newforce.angle())
 

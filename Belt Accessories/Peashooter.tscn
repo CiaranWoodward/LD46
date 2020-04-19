@@ -25,8 +25,12 @@ description = "Peashooter"
 cost = 20
 is_weapon = true
 icon_texture = ExtResource( 18 )
+spread = 0.15
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="FireTimer" type="Timer" parent="."]
+wait_time = 0.7
 
 [node name="0" type="Node2D" parent="."]
 visible = false
@@ -39,6 +43,9 @@ texture = ExtResource( 4 )
 position = Vector2( -0.149895, 5.99561 )
 texture = ExtResource( 1 )
 
+[node name="FP0" type="Position2D" parent="."]
+position = Vector2( 18.0345, 11.7777 )
+
 [node name="1" type="Node2D" parent="."]
 visible = false
 
@@ -49,6 +56,9 @@ texture = ExtResource( 3 )
 [node name="Outer" type="Sprite" parent="1"]
 position = Vector2( -3.29759, 4.19693 )
 texture = ExtResource( 2 )
+
+[node name="FP1" type="Position2D" parent="."]
+position = Vector2( -2.57637, 18.4026 )
 
 [node name="2" type="Node2D" parent="."]
 visible = false
@@ -61,6 +71,9 @@ texture = ExtResource( 5 )
 position = Vector2( -4.49671, 2.24835 )
 texture = ExtResource( 6 )
 
+[node name="FP2" type="Position2D" parent="."]
+position = Vector2( -8.64922, 11.5936 )
+
 [node name="3" type="Node2D" parent="."]
 visible = false
 
@@ -71,6 +84,9 @@ texture = ExtResource( 16 )
 [node name="Outer" type="Sprite" parent="3"]
 position = Vector2( -7.49451, -6.44528 )
 texture = ExtResource( 8 )
+
+[node name="FP3" type="Position2D" parent="."]
+position = Vector2( -17.8505, -2.39234 )
 
 [node name="4" type="Node2D" parent="."]
 visible = false
@@ -83,6 +99,9 @@ texture = ExtResource( 15 )
 position = Vector2( -0.149887, -4.6466 )
 texture = ExtResource( 7 )
 
+[node name="FP4" type="Position2D" parent="."]
+position = Vector2( -15.2742, -4.04857 )
+
 [node name="5" type="Node2D" parent="."]
 visible = false
 
@@ -93,6 +112,9 @@ texture = ExtResource( 13 )
 [node name="Outer" type="Sprite" parent="5"]
 position = Vector2( 7.04485, -8.84353 )
 texture = ExtResource( 9 )
+
+[node name="FP5" type="Position2D" parent="."]
+position = Vector2( -0.368057, -17.6665 )
 
 [node name="6" type="Node2D" parent="."]
 visible = false
@@ -105,8 +127,10 @@ texture = ExtResource( 12 )
 position = Vector2( 4.6466, 0.299782 )
 texture = ExtResource( 10 )
 
+[node name="FP6" type="Position2D" parent="."]
+position = Vector2( 8.28117, -9.75338 )
+
 [node name="7" type="Node2D" parent="."]
-visible = false
 
 [node name="Inner" type="Sprite" parent="7"]
 position = Vector2( 14.0897, 0.59956 )
@@ -115,3 +139,7 @@ texture = ExtResource( 14 )
 [node name="Outer" type="Sprite" parent="7"]
 position = Vector2( 2.99781, 5.24616 )
 texture = ExtResource( 11 )
+
+[node name="FP7" type="Position2D" parent="."]
+position = Vector2( 16.3783, -1.10416 )
+[connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]
