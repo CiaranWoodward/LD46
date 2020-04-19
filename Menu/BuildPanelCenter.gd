@@ -6,13 +6,23 @@ export var linecolor : Color = Color.gray
 export var fillcolor : Color = Color.skyblue
 export var selectcolor : Color = Color.aqua
 
+
 const segcount = 8
 
 var curseg : int = -1
+var sprites = Array()
+var costs = Array()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	for i in range(segcount):
+		var segangle = ((i * 2 * PI) / segcount) + (PI/4)
+		var sprite = Sprite.new()
+		sprites.push_back(sprite)
+		costs.push_back(0)
+		add_child(sprite, true)
+		sprite.set_position(Vector2(cos(segangle), sin(segangle)) * radius * 1.5)
+		sprite.visible = false
 
 func _draw():
 	draw_circle(Vector2.ZERO, radius, fillcolor)
@@ -48,3 +58,18 @@ func set_mousepos(point : Vector2):
 		curseg = int(mangle / (2.0 * PI) * 8.0)
 	if curseg != prevseg:
 		update()
+
+func remove_item():
+	if curseg != -1 && sprites[curseg].visible:
+		sprites[curseg].visible = false
+		Global.mod_eggcount(costs[curseg])
+		costs[curseg] = 0
+
+func place_item(tex : Texture, cost : int) -> bool:
+	if curseg != -1:
+		remove_item()
+		costs[curseg] = cost
+		sprites[curseg].texture = tex
+		sprites[curseg].visible = true
+		return true
+	return false

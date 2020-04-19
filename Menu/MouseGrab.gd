@@ -9,13 +9,13 @@ var active : bool = false
 func _ready():
 	_set_active(false)
 
-func _set_active(active: bool):
-	self.active = active
-	self.visible = active
+func _set_active(aactive: bool):
+	self.active = aactive
+	self.visible = aactive
 
-func bind(cost : int, texture : Texture):
+func bind(acost : int, texture : Texture):
 	unbind()
-	self.cost = cost
+	self.cost = acost
 	sprite.set_texture(texture)
 	_set_active(true)
 
@@ -23,6 +23,13 @@ func unbind():
 	if(self.active):
 		_set_active(false)
 		Global.mod_eggcount(self.cost)
+
+func drop():
+	if(self.active):
+		_set_active(false)
+
+func get_texture() -> Texture:
+	return sprite.texture
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
