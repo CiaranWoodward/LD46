@@ -10,16 +10,19 @@ func _ready():
 		add_child(newpf, true)
 		pfs.push_back(newpf)
 		if is_instance_valid(Global.get_beltitem(i)):
-			newpf.add_child(Global.get_beltitem(i).instance())
+			var newitem = Global.get_beltitem(i).instance()
+			if i == 5:
+				newitem.scale.x = -1
+			newpf.add_child(newitem)
 
 func set_belt_angle(angle : float):
 	var angle_offset = -(PI/4)
 	for i in range(8):
 		if pfs[i].visible:
-			_set_belt_pos(pfs[i], angle + angle_offset)
+			_set_belt_pos(pfs[i], angle + angle_offset, i == 5)
 		angle_offset += PI/4
 
-func _set_belt_pos(pf : PathFollow2D, angle : float):
+func _set_belt_pos(pf : PathFollow2D, angle : float, flipped := false):
 	if angle < 0:
 		angle = angle + 2*PI
 	
@@ -54,3 +57,8 @@ func _set_belt_pos(pf : PathFollow2D, angle : float):
 			item.set_rotsprite(7)
 		else:
 			item.set_rotsprite(0)
+		
+		if flipped:
+			var currot = item.get_rotsprite()
+			currot = (8 - currot) % 8
+			item.set_rotsprite(currot)
