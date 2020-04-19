@@ -16,6 +16,7 @@ onready var backimg = get_node("SpriteRoot/WobbleRoot/Back")
 func _ready():
 	animtree.active = true
 	animsm.start("Idle")
+	Global.bulletField = get_parent()
 	pass # Replace with function body.
 
 func _physics_process(delta):
@@ -64,15 +65,20 @@ func _handle_aim(delta):
 	belt.set_belt_angle(mousepos.angle())
 
 func _handle_fire(delta):
-	if Input.is_action_just_pressed("player_leftshoot"):
-		belt.get_left_weapon().begin_fire()
-	if Input.is_action_just_released("player_leftshoot"):
-		belt.get_left_weapon().end_fire()
+	var lwep = belt.get_left_weapon()
+	var rwep = belt.get_right_weapon()
 	
-	if Input.is_action_just_pressed("player_rightshoot"):
-		belt.get_right_weapon().begin_fire()
-	if Input.is_action_just_released("player_rightshoot"):
-		belt.get_right_weapon().end_fire()
+	if is_instance_valid(lwep):
+		if Input.is_action_just_pressed("player_leftshoot"):
+			lwep.begin_fire()
+		if Input.is_action_just_released("player_leftshoot"):
+			lwep.end_fire()
+	
+	if is_instance_valid(rwep):
+		if Input.is_action_just_pressed("player_rightshoot"):
+			rwep.begin_fire()
+		if Input.is_action_just_released("player_rightshoot"):
+			rwep.end_fire()
 
 func _handle_input(delta):
 	var down = Input.is_action_pressed("player_down")

@@ -215,7 +215,8 @@ tracks/7/keys = {
 }
 
 [sub_resource type="Gradient" id=3]
-colors = PoolColorArray( 0.878431, 0.67451, 0.196078, 1, 0.878431, 0.67451, 0.196078, 0.192157 )
+offsets = PoolRealArray( 0, 0.798817, 1 )
+colors = PoolColorArray( 1, 0.496399, 0.128906, 1, 0.576471, 0.454902, 0.160784, 0.772549, 0.878431, 0.67451, 0.196078, 0.192157 )
 
 [node name="Machine Gun" type="Node2D"]
 script = ExtResource( 10 )
@@ -223,10 +224,15 @@ description = "Machine Gun"
 cost = 60
 is_weapon = true
 icon_texture = ExtResource( 11 )
+bulletforce = 1000.0
+spread = 0.2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Fire = SubResource( 1 )
 anims/Idle = SubResource( 2 )
+
+[node name="FireTimer" type="Timer" parent="."]
+wait_time = 0.1
 
 [node name="0" type="Sprite" parent="."]
 position = Vector2( -0.160507, 0.0945873 )
@@ -236,19 +242,24 @@ offset = Vector2( 14.5145, 12.4192 )
 [node name="0P" type="CPUParticles2D" parent="."]
 position = Vector2( -15.62, 8.33738 )
 emitting = false
-amount = 10
-lifetime = 0.5
+amount = 7
+lifetime = 0.7
 local_coords = false
 texture = ExtResource( 9 )
 emission_shape = 2
 emission_rect_extents = Vector2( 1, 2 )
 direction = Vector2( -1, -2 )
 spread = 0.0
-gravity = Vector2( 0, 500 )
-initial_velocity = 150.0
-initial_velocity_random = 0.3
-scale_amount = 0.5
+gravity = Vector2( 0, 900 )
+initial_velocity = 179.41
+initial_velocity_random = 0.22
+angular_velocity = 28.23
+angular_velocity_random = 1.0
+scale_amount = 1.5
 color_ramp = SubResource( 3 )
+
+[node name="0FP" type="Position2D" parent="."]
+position = Vector2( 45.2331, 11.7142 )
 
 [node name="1" type="Sprite" parent="."]
 position = Vector2( 0.043396, 0.298494 )
@@ -258,19 +269,24 @@ offset = Vector2( 3.26907, 14.7916 )
 [node name="1P" type="CPUParticles2D" parent="."]
 position = Vector2( -12.1152, -3.4288 )
 emitting = false
-amount = 10
-lifetime = 0.5
+amount = 7
+lifetime = 0.7
 local_coords = false
 texture = ExtResource( 9 )
 emission_shape = 2
 emission_rect_extents = Vector2( 1, 2 )
 direction = Vector2( -1, -2 )
 spread = 0.0
-gravity = Vector2( 0, 500 )
+gravity = Vector2( 0, 900 )
 initial_velocity = 150.0
 initial_velocity_random = 0.3
-scale_amount = 0.5
+angular_velocity = 28.23
+angular_velocity_random = 1.0
+scale_amount = 1.5
 color_ramp = SubResource( 3 )
+
+[node name="1FP" type="Position2D" parent="."]
+position = Vector2( 20.4129, 40.3618 )
 
 [node name="2" type="Sprite" parent="."]
 position = Vector2( 0.043396, -0.10932 )
@@ -280,19 +296,24 @@ offset = Vector2( -5.93223, 14.0953 )
 [node name="2P" type="CPUParticles2D" parent="."]
 position = Vector2( -5.60626, -8.93636 )
 emitting = false
-amount = 10
-lifetime = 0.5
+amount = 7
+lifetime = 0.7
 local_coords = false
 texture = ExtResource( 9 )
 emission_shape = 2
 emission_rect_extents = Vector2( 1, 2 )
 direction = Vector2( -0.4, -2 )
 spread = 0.0
-gravity = Vector2( 0, 500 )
+gravity = Vector2( 0, 900 )
 initial_velocity = 150.0
 initial_velocity_random = 0.3
-scale_amount = 0.5
+angular_velocity = 28.23
+angular_velocity_random = 1.0
+scale_amount = 1.5
 color_ramp = SubResource( 3 )
+
+[node name="2FP" type="Position2D" parent="."]
+position = Vector2( -3.47947, 38.7381 )
 
 [node name="3" type="Sprite" parent="."]
 position = Vector2( 0.247307, 0.0945873 )
@@ -302,19 +323,24 @@ offset = Vector2( -9.81666, -1.75082 )
 [node name="3P" type="CPUParticles2D" parent="."]
 position = Vector2( 11.4171, -8.43567 )
 emitting = false
-amount = 10
-lifetime = 0.5
+amount = 7
+lifetime = 0.7
 local_coords = false
 texture = ExtResource( 9 )
 emission_shape = 2
 emission_rect_extents = Vector2( 1, 2 )
 direction = Vector2( 1, -2 )
 spread = 0.0
-gravity = Vector2( 0, 500 )
+gravity = Vector2( 0, 900 )
 initial_velocity = 150.0
 initial_velocity_random = 0.3
-scale_amount = 0.5
+angular_velocity = 28.23
+angular_velocity_random = 1.0
+scale_amount = 1.5
 color_ramp = SubResource( 3 )
+
+[node name="3FP" type="Position2D" parent="."]
+position = Vector2( -28.4157, 9.74252 )
 
 [node name="4" type="Sprite" parent="."]
 position = Vector2( 0.45121, 0.0945873 )
@@ -324,19 +350,24 @@ offset = Vector2( -9.65251, -8.0077 )
 [node name="4P" type="CPUParticles2D" parent="."]
 position = Vector2( 17.6757, -3.17844 )
 emitting = false
-amount = 10
-lifetime = 0.5
+amount = 7
+lifetime = 0.7
 local_coords = false
 texture = ExtResource( 9 )
 emission_shape = 2
 emission_rect_extents = Vector2( 1, 2 )
 direction = Vector2( 1.5, -2 )
 spread = 0.0
-gravity = Vector2( 0, 500 )
+gravity = Vector2( 0, 900 )
 initial_velocity = 150.0
 initial_velocity_random = 0.3
-scale_amount = 0.5
+angular_velocity = 28.23
+angular_velocity_random = 1.0
+scale_amount = 1.5
 color_ramp = SubResource( 3 )
+
+[node name="4FP" type="Position2D" parent="."]
+position = Vector2( -36.6504, -1.39179 )
 
 [node name="5" type="Sprite" parent="."]
 position = Vector2( 0.043396, 0.1586 )
@@ -346,19 +377,24 @@ offset = Vector2( -0.411453, -9.91198 )
 [node name="5P" type="CPUParticles2D" parent="."]
 position = Vector2( 11.4171, 6.08428 )
 emitting = false
-amount = 10
-lifetime = 0.5
+amount = 7
+lifetime = 0.7
 local_coords = false
 texture = ExtResource( 9 )
 emission_shape = 2
 emission_rect_extents = Vector2( 1, 2 )
 direction = Vector2( 1, -0.5 )
 spread = 0.0
-gravity = Vector2( 0, 500 )
+gravity = Vector2( 0, 900 )
 initial_velocity = 150.0
 initial_velocity_random = 0.3
-scale_amount = 0.5
+angular_velocity = 28.23
+angular_velocity_random = 1.0
+scale_amount = 1.5
 color_ramp = SubResource( 3 )
+
+[node name="5FP" type="Position2D" parent="."]
+position = Vector2( -13.1941, -26.3788 )
 
 [node name="6" type="Sprite" parent="."]
 position = Vector2( -0.160507, 0.1586 )
@@ -368,19 +404,24 @@ offset = Vector2( 4.57713, -6.78354 )
 [node name="6P" type="CPUParticles2D" parent="."]
 position = Vector2( 6.91095, 15.0967 )
 emitting = false
-amount = 10
-lifetime = 0.5
+amount = 7
+lifetime = 0.7
 local_coords = false
 texture = ExtResource( 9 )
 emission_shape = 2
 emission_rect_extents = Vector2( 1, 2 )
 direction = Vector2( 1, -2 )
 spread = 0.0
-gravity = Vector2( 0, 500 )
+gravity = Vector2( 0, 900 )
 initial_velocity = 150.0
 initial_velocity_random = 0.3
-scale_amount = 0.5
+angular_velocity = 28.23
+angular_velocity_random = 1.0
+scale_amount = 1.5
 color_ramp = SubResource( 3 )
+
+[node name="6FP" type="Position2D" parent="."]
+position = Vector2( -1.0451, -30.6389 )
 
 [node name="7" type="Sprite" parent="."]
 position = Vector2( -0.364418, -0.0453072 )
@@ -390,16 +431,22 @@ offset = Vector2( 13.6143, 4.82998 )
 [node name="7P" type="CPUParticles2D" parent="."]
 position = Vector2( -5.8566, 19.3525 )
 emitting = false
-amount = 10
-lifetime = 0.5
+amount = 7
+lifetime = 0.7
 local_coords = false
 texture = ExtResource( 9 )
 emission_shape = 2
 emission_rect_extents = Vector2( 1, 2 )
 direction = Vector2( -1, -2 )
 spread = 0.0
-gravity = Vector2( 0, 500 )
+gravity = Vector2( 0, 900 )
 initial_velocity = 150.0
 initial_velocity_random = 0.3
-scale_amount = 0.5
+angular_velocity = 28.23
+angular_velocity_random = 1.0
+scale_amount = 1.5
 color_ramp = SubResource( 3 )
+
+[node name="7FP" type="Position2D" parent="."]
+position = Vector2( 36.1908, -15.8076 )
+[connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]

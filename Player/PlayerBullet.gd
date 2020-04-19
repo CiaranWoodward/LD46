@@ -8,6 +8,11 @@ func _ready():
 
 func _physics_process(delta):
 	line.set_rotation(linear_velocity.angle())
+	if linear_velocity.length_squared() < 20:
+		self.queue_free()
 
 func _on_Timer_timeout():
 	self.queue_free()
+
+func set_dir(angle : float):
+	line.set_rotation(angle)

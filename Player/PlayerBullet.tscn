@@ -15,11 +15,12 @@ linear_damp = 0.0
 script = ExtResource( 1 )
 
 [node name="Line2D" type="Line2D" parent="."]
-points = PoolVector2Array( -9.90376, -0.0901718, 9.08437, -0.0901718 )
-width = 5.0
+points = PoolVector2Array( -5, 0, 5, 0 )
+width = 3.0
 default_color = Color( 0.886275, 0.670588, 0.164706, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -4, 0 )
 rotation = -1.5708
 shape = SubResource( 1 )
 
