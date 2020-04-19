@@ -10,7 +10,7 @@ func _ready():
 	for i in range(8):
 		if is_instance_valid(Global.get_beltitem(i)):
 			var item = Global.get_beltitem(i).instance()
-			centerPoint.place_item(item.icon_texture, item.cost, i)
+			centerPoint.place_item(item.icon_texture, item.cost, item.is_weapon, i)
 			item.queue_free()
 
 func _on_BuildPanel_resized():
@@ -21,7 +21,7 @@ func _on_BuildPanel_gui_input(event : InputEvent):
 		var relPos = event.get_position() - centerPoint.get_position()
 		centerPoint.set_mousepos(relPos)
 		if event.is_action_released("ui_accept") && mouseGrab.visible:
-			if centerPoint.place_item(mouseGrab.get_texture(), mouseGrab.cost):
+			if centerPoint.place_item(mouseGrab.get_texture(), mouseGrab.cost, mouseGrab.is_weapon):
 				mouseGrab.drop()
 				Global.set_beltitem(centerPoint.curseg, mouseGrab.scene)
 		if event.is_action_released("ui_cancel") && !mouseGrab.visible:

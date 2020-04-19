@@ -6,6 +6,7 @@ export var sceneTarget : PackedScene = null
 var description : String = "Invalid"
 var cost : int = 999999
 var texture : Texture = null
+var is_weapon : bool = false
 
 onready var nameLabel = get_node("PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/NameLabel")
 onready var costLabel = get_node("PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/CostLabel")
@@ -19,6 +20,7 @@ func _ready():
 		description = tscene.description
 		cost = tscene.cost
 		texture = tscene.icon_texture
+		is_weapon = tscene.is_weapon
 		tscene.queue_free()
 	
 	nameLabel.text = description

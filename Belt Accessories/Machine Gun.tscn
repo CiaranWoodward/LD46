@@ -413,6 +413,7 @@ colors = PoolColorArray( 0.878431, 0.67451, 0.196078, 1, 0.878431, 0.67451, 0.19
 script = ExtResource( 10 )
 description = "Machine Gun"
 cost = 60
+is_weapon = true
 icon_texture = ExtResource( 11 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

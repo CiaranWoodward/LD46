@@ -23,6 +23,7 @@
 script = ExtResource( 17 )
 description = "Peashooter"
 cost = 20
+is_weapon = true
 icon_texture = ExtResource( 18 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

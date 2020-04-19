@@ -12,7 +12,7 @@ func _ready():
 		get_node("EggCome").popup_centered()
 
 func _on_item_bought(itemButton):
-	mouseGrab.bind(itemButton.cost, itemButton.texture, itemButton.sceneTarget)
+	mouseGrab.bind(itemButton.cost, itemButton.texture, itemButton.sceneTarget, itemButton.is_weapon)
 
 func _on_BattleButton_pressed():
 	get_tree().change_scene_to(nextScene)

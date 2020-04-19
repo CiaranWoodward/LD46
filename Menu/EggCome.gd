@@ -6,4 +6,4 @@ func _ready():
 	self.get_close_button().visible = false
 
 func _on_EggCome_confirmed():
-	Global.mod_eggcount(25)
+	Global.mod_eggcount(250)
