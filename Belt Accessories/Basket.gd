@@ -12,10 +12,12 @@ func set_eggcontent(eggc : int):
 		var newsplode = eggsplode.instance()
 		add_child(newsplode)
 	
-#	if eggc > 0:
-#		area.disabled = false
-#	else:
-#		area.disabled = true
+	if eggc > 0:
+		self.collision_layer = 1
+		self.collision_mask = 32
+	else:
+		self.collision_layer = 0
+		self.collision_mask = 0
 	
 	eggparts.amount = eggc
 	eggparts.restart()
