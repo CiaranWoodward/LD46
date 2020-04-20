@@ -15,6 +15,7 @@ export var health : float = 100.0
 export var speed : float = 5000
 export var perceived_range : float = 600.0
 export var sight_range : float = 1100.0
+export var pathlen_threshold : float = 1600.0
 
 onready var sensetimer = get_node("SenseTimer")
 onready var firetimer = get_node("FireTimer")
@@ -30,6 +31,7 @@ onready var blood = preload("res://Enemies/Blood.tscn")
 
 var cur_state = ai_state.idle
 var path_to_player : PoolVector2Array = PoolVector2Array()
+var pathlen : float = INF
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -91,7 +93,9 @@ func _move_to_player(delta : float):
 	
 	var nextp = path_to_player[0]
 	var dirvec = get_position().direction_to(nextp)
-	self.apply_central_impulse(dirvec * speed * delta)
+	
+	if pathlen < pathlen_threshold:
+		self.apply_central_impulse(dirvec * speed * delta)
 	
 	if self.linear_velocity.y > 10:
 		frontsprite.visible = true
@@ -113,6 +117,18 @@ func _can_see_player() -> bool:
 	# Is there hard scenery between us and player?
 	var space_state = get_world_2d().direct_space_state
 	return space_state.intersect_ray(firepoint.get_global_position(), Global.player.get_heartpos(), [self], (1<<1)).empty()
+
+func _get_pathlen() -> float:
+	if path_to_player.empty():
+		return INF
+	
+	var prev : Vector2 = Vector2.INF
+	var count = 0
+	for p in path_to_player:
+		if prev != Vector2.INF:
+			count = count + prev.distance_to(p)
+		prev = p
+	return count
 
 func _can_sense_player() -> bool:
 	# Is player really close?
@@ -202,6 +218,7 @@ func _repath():
 		return
 
 	path_to_player = Global.navmesh.get_simple_path(self.position, Global.player.position)
+	pathlen = _get_pathlen()
 
 func _on_FireTimer_timeout():
 	_shoot()
