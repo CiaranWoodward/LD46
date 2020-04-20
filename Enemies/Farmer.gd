@@ -13,7 +13,10 @@ export var spread : float = 0.2
 export var bulletmass : float = 0.1
 export var health : float = 100.0
 export var speed : float = 5000
+export var perceived_range : float = 600.0
+export var sight_range : float = 1100.0
 
+onready var sensetimer = get_node("SenseTimer")
 onready var firetimer = get_node("FireTimer")
 onready var pathtimer = get_node("RepathTimer")
 onready var firepoint = get_node("Farmer/Flipper/FirePoint")
@@ -27,8 +30,9 @@ var path_to_player : PoolVector2Array = PoolVector2Array()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_change_ai_state(ai_state.towards)
-	pass # Replace with function body.
+	
+	#we start in idle
+	sensetimer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -47,28 +51,28 @@ func _change_ai_state(newstate):
 	var prev_state = cur_state
 	
 	if prev_state == ai_state.idle:
-		pass
-	if prev_state == ai_state.towards:
+		sensetimer.stop()
+	elif prev_state == ai_state.towards:
 		pathtimer.stop()
 		animp.stop(false)
-	if prev_state == ai_state.shoot:
-		firetimer.start()
-	if prev_state == ai_state.runaway:
+	elif prev_state == ai_state.shoot:
+		firetimer.stop()
+	elif prev_state == ai_state.runaway:
 		pass
-	if prev_state == ai_state.dead:
+	elif prev_state == ai_state.dead:
 		pass
 	
 	if newstate == ai_state.idle:
-		pass
-	if newstate == ai_state.towards:
+		sensetimer.start()
+	elif newstate == ai_state.towards:
 		_repath()
 		pathtimer.start()
 		animp.play("Walk")
-	if newstate == ai_state.shoot:
-		firetimer.stop()
-	if newstate == ai_state.runaway:
+	elif newstate == ai_state.shoot:
+		firetimer.start()
+	elif newstate == ai_state.runaway:
 		pass
-	if newstate == ai_state.dead:
+	elif newstate == ai_state.dead:
 		_die()
 	
 	cur_state = newstate
@@ -84,10 +88,47 @@ func _move_to_player(delta : float):
 	if get_position().distance_to(nextp) < max(10, (self.linear_velocity.length() * delta * 1.2)):
 		path_to_player.remove(0)
 	
+	if _can_see_player():
+		_change_ai_state(ai_state.shoot)
+
+func _can_see_player() -> bool:
+	# Is player too far away?
+	if firepoint.get_global_position().distance_to(Global.player.get_global_position()) > perceived_range:
+		return false
+	# Is there hard scenery between us and player?
+	var space_state = get_world_2d().direct_space_state
+	return space_state.intersect_ray(firepoint.get_global_position(), Global.player.get_global_position(), [self], (1<<1)).empty()
+
+func _can_sense_player() -> bool:
+	# Is player really close?
+	var playerdist = firepoint.get_global_position().distance_to(Global.player.get_global_position()) 
+	if playerdist < perceived_range:
+		return true
+	
+	#Is Player too far away to reasonably see?
+	if playerdist > sight_range:
+		return false
+		
+	# Is there hard scenery between us and player?
+	var space_state = get_world_2d().direct_space_state
+	return space_state.intersect_ray(firepoint.get_global_position(), Global.player.get_global_position(), [self], (1<<1)).empty()
+	
+
+func _sense():
+	if cur_state != ai_state.idle:
+		return
+		
+	if _can_sense_player():
+		_change_ai_state(ai_state.towards)
 
 func _shoot():
 	if cur_state != ai_state.shoot:
 		return
+	
+	if !_can_see_player():
+		_change_ai_state(ai_state.towards)
+		return
+	
 	var fp = firepoint.get_global_position()
 	var newBullet = enemybullet.instance()
 	if !is_instance_valid(Global.bulletField):
@@ -98,6 +139,7 @@ func _shoot():
 	# Extrapolate player's future position
 	var timetoplayer = toplayer.length() / bulletforce
 	toplayer = toplayer + timetoplayer * Global.player.linear_velocity
+	
 	var newforce = toplayer.normalized() * bulletforce
 	newforce.x = newforce.x * (1 + rand_range(-spread, spread))
 	newforce.y = newforce.y * (1 + rand_range(-spread, spread))
@@ -125,6 +167,9 @@ func _die():
 	animp.play("Death")
 
 func _repath():
+	if cur_state != ai_state.towards:
+		return
+
 	path_to_player = Global.navmesh.get_simple_path(self.position, Global.player.position)
 
 func _on_FireTimer_timeout():
@@ -132,3 +177,6 @@ func _on_FireTimer_timeout():
 
 func _on_RepathTimer_timeout():
 	_repath()
+
+func _on_SenseTimer_timeout():
+	_sense()

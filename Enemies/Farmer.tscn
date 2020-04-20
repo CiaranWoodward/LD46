@@ -292,5 +292,8 @@ wait_time = 0.6
 [node name="RepathTimer" type="Timer" parent="."]
 process_mode = 0
 wait_time = 2.0
+
+[node name="SenseTimer" type="Timer" parent="."]
 [connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]
 [connection signal="timeout" from="RepathTimer" to="." method="_on_RepathTimer_timeout"]
+[connection signal="timeout" from="SenseTimer" to="." method="_on_SenseTimer_timeout"]
