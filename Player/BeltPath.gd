@@ -2,8 +2,8 @@ extends Path2D
 
 var pfs = Array()
 
-const lweapon = 1
-const rweapon = 5
+const lweapon = 5
+const rweapon = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

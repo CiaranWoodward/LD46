@@ -16,3 +16,12 @@ func _on_Timer_timeout():
 
 func set_dir(angle : float):
 	line.set_rotation(angle)
+
+
+func _on_PlayerBullet_body_entered(body : Node):
+	if body.has_method("damage"):
+		body.damage(self.linear_velocity.length() * self.mass)
+	self.queue_free()
+
+func _on_PlayerBullet_body_exited(body : Node):
+	_on_PlayerBullet_body_entered(body)
