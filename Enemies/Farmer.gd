@@ -77,6 +77,7 @@ func _change_ai_state(newstate):
 		pathtimer.start()
 		animp.play("Walk")
 	elif newstate == ai_state.shoot:
+		_shoot()
 		firetimer.start()
 	elif newstate == ai_state.runaway:
 		pass

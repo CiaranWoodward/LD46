@@ -1,11 +1,10 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Menu/EggCounter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Menu/HUD.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player/PlayerBullet.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenery/CollectEgg.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Menu/EggContentCounter.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenery/Hay.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenery/WaterTrough.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenery/Graphics/Ground/Barn_Floor_@0.5x.png" type="Texture" id=9]
@@ -178,18 +177,4 @@ position = Vector2( 687.1, -281.887 )
 [node name="Crate3" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 428.704, -302.442 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="EggCounter" parent="CanvasLayer/VBoxContainer" instance=ExtResource( 3 )]
-
-[node name="EggContentCounter" parent="CanvasLayer/VBoxContainer" instance=ExtResource( 6 )]
-margin_top = 39.0
-margin_right = 84.0
-margin_bottom = 74.0
+[node name="HUD" parent="." instance=ExtResource( 3 )]

@@ -2,6 +2,7 @@ extends Node
 
 signal eggcount_change
 signal eggcontent_change
+signal playerhealth_change
 
 var eggcount = 0 setget set_eggcount, get_eggcount
 var beltitems = [null, null, null, null, null, null, null, null]
@@ -10,6 +11,7 @@ var player : RigidBody2D = null
 var navmesh : Navigation2D = null
 var eggcapacity = 0
 var eggcontent = 0
+var playerhealth : int = 100 setget set_playerhealth, get_playerhealth
 
 func reset():
 	eggcount = 0
@@ -17,6 +19,13 @@ func reset():
 	eggcontent = 0
 	emit_signal("eggcount_change", 0)
 	emit_signal("eggcontent_change")
+
+func set_playerhealth(health : int):
+	playerhealth = health
+	emit_signal("playerhealth_change")
+
+func get_playerhealth() -> int:
+	return playerhealth
 
 func set_eggcount(count : int):
 	eggcount = count

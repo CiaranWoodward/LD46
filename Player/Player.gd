@@ -1,26 +1,69 @@
 extends RigidBody2D
 
 export var speed : float = 5000
+export var maxhealth : float = 200
 
 onready var aimPoint = get_node("AimPoint")
 onready var belt = get_node("BeltPath")
 onready var spriteRoot = get_node("SpriteRoot")
 onready var animtree = get_node("Side to Side/AnimationTree")
 onready var animsm : AnimationNodeStateMachinePlayback = animtree["parameters/playback"]
+onready var smoke = get_node("Smoke")
+onready var smoke2 = get_node("Smoke2")
+onready var smoke3 = get_node("Smoke3")
+onready var smoke4 = get_node("Smoke4")
 
 onready var sideimg = get_node("SpriteRoot/WobbleRoot/Side")
 onready var frontimg = get_node("SpriteRoot/WobbleRoot/Front")
 onready var backimg = get_node("SpriteRoot/WobbleRoot/Back")
+onready var hitparts = preload("res://Player/HitParts.tscn")
+
+var health : float
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animtree.active = true
 	animsm.start("Idle")
+	health = maxhealth
 	Global.bulletField = get_parent()
 	Global.player = self
+	Global.playerhealth = 100
+
+func _die():
+	var lwep = belt.get_left_weapon()
+	var rwep = belt.get_right_weapon()
+	
+	if is_instance_valid(lwep):
+		lwep.end_fire()
+	if is_instance_valid(rwep):
+		rwep.end_fire()
+	if animsm.is_playing():
+		_walk_idle()
+
+func damage(damage : float, gpos : Vector2):
+	health = health - damage
+	
+	if health < 0:
+		health = 0
+		_die()
+	
+	var healthfrac : float = health/maxhealth
+	Global.playerhealth = int(healthfrac * 100)
+	
+	smoke.emitting = (healthfrac < 0.8)
+	smoke2.emitting = (healthfrac < 0.55)
+	smoke3.emitting = (healthfrac < 0.35)
+	smoke4.emitting = (healthfrac < 0.15)
+	
+	if gpos != Vector2.INF:
+		var hp = hitparts.instance()
+		add_child(hp)
+		hp.set_global_position(gpos)
+		hp.emitting = true
 
 func _physics_process(delta):
-	_handle_input(delta)
+	if health > 0:
+		_handle_input(delta)
 	
 func _walk_right():
 	animsm.travel("Walk")
