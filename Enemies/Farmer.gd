@@ -21,6 +21,9 @@ onready var firetimer = get_node("FireTimer")
 onready var pathtimer = get_node("RepathTimer")
 onready var firepoint = get_node("Farmer/Flipper/FirePoint")
 onready var animp = get_node("AnimationPlayer")
+onready var frontsprite = get_node("Farmer/Flipper/Front_05x")
+onready var backsprite = get_node("Farmer/Flipper/Back_05x")
+onready var flipper = get_node("Farmer/Flipper")
 
 onready var enemybullet = preload("res://Enemies/EnemyBullet.tscn")
 onready var blood = preload("res://Enemies/Blood.tscn")
@@ -62,6 +65,8 @@ func _change_ai_state(newstate):
 	elif prev_state == ai_state.dead:
 		pass
 	
+	cur_state = newstate
+	
 	if newstate == ai_state.idle:
 		sensetimer.start()
 	elif newstate == ai_state.towards:
@@ -75,7 +80,6 @@ func _change_ai_state(newstate):
 	elif newstate == ai_state.dead:
 		_die()
 	
-	cur_state = newstate
 
 func _move_to_player(delta : float):
 	if path_to_player.empty():
@@ -84,6 +88,13 @@ func _move_to_player(delta : float):
 	var nextp = path_to_player[0]
 	var dirvec = get_position().direction_to(nextp)
 	self.apply_central_impulse(dirvec * speed * delta)
+	
+	if self.linear_velocity.y > 10:
+		frontsprite.visible = true
+		backsprite.visible = false
+	elif self.linear_velocity.y < -10:
+		frontsprite.visible = false
+		backsprite.visible = true
 	
 	if get_position().distance_to(nextp) < max(10, (self.linear_velocity.length() * delta * 1.2)):
 		path_to_player.remove(0)
@@ -121,10 +132,18 @@ func _sense():
 	if _can_sense_player():
 		_change_ai_state(ai_state.towards)
 
+func _aim():
+	var toplayer = Global.player.get_global_position() - firepoint.get_global_position()
+	if toplayer.x > 50:
+		flipper.scale.x = 1
+	elif toplayer.x < -50:
+		flipper.scale.x = -1
+
 func _shoot():
 	if cur_state != ai_state.shoot:
 		return
-	
+
+	_aim()
 	if !_can_see_player():
 		_change_ai_state(ai_state.towards)
 		return
@@ -136,6 +155,14 @@ func _shoot():
 	Global.bulletField.add_child(newBullet)
 	newBullet.set_global_position(fp)
 	var toplayer = Global.player.get_global_position() - firepoint.get_global_position()
+	
+	if toplayer.y > 50:
+		frontsprite.visible = true
+		backsprite.visible = false
+	elif toplayer.y < -50:
+		frontsprite.visible = false
+		backsprite.visible = true
+	
 	# Extrapolate player's future position
 	var timetoplayer = toplayer.length() / bulletforce
 	toplayer = toplayer + timetoplayer * Global.player.linear_velocity
