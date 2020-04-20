@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenery/Graphics/Shadow_@0.5x.png" type="Texture" id=1]
+[ext_resource path="res://Scenery/Graphics/BatteryFarm/BackWallTop_@0.5x.png" type="Texture" id=2]
+[ext_resource path="res://Scenery/Graphics/BatteryFarm/BackWall_@0.5x.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 42.9581, 55.2743 )
+
+[node name="SideWallFront" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 117
+
+[node name="Shadow_05x" type="Sprite" parent="."]
+position = Vector2( -1.22772, 0 )
+scale = Vector2( 0.727273, 0.83423 )
+texture = ExtResource( 1 )
+offset = Vector2( 1.32817, 68.0897 )
+
+[node name="MidWall" type="TextureRect" parent="."]
+margin_left = -40.2618
+margin_top = -159.197
+margin_right = 39.7382
+margin_bottom = 56.8025
+rect_pivot_offset = Vector2( 39.0341, 159.197 )
+texture = ExtResource( 3 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.22772, -60.1591 )
+shape = SubResource( 1 )
+
+[node name="MidWallTop" type="TextureRect" parent="."]
+margin_left = -40.2618
+margin_top = -195.028
+margin_right = 39.7382
+margin_bottom = -154.028
+rect_pivot_offset = Vector2( 39.0341, 195.028 )
+texture = ExtResource( 2 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Position2D" type="Position2D" parent="."]
+visible = false
+position = Vector2( 0, 60 )

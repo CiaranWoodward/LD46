@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenery/Graphics/BatteryFarm/BackWallTop_@0.5x.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 38.1339, 176.264 )
+
+[node name="SideWall" type="StaticBody2D"]
+z_index = 1000
+collision_layer = 2
+collision_mask = 119
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -40.0
+margin_top = -216.989
+margin_right = 40.0
+margin_bottom = 135.011
+texture = ExtResource( 1 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
