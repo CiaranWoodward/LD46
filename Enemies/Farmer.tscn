@@ -6,11 +6,10 @@
 [ext_resource path="res://Scenery/Graphics/Shadow_@0.5x.png" type="Texture" id=5]
 [ext_resource path="res://Enemies/Farmer.gd" type="Script" id=6]
 
-[sub_resource type="PhysicsMaterial" id=7]
+[sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 
-[sub_resource type="Animation" id=1]
-resource_name = "Death"
+[sub_resource type="Animation" id=2]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Farmer:rotation_degrees")
 tracks/0/interp = 1
@@ -132,7 +131,7 @@ tracks/9/keys = {
 "values": [ Vector2( 0, 60 ), Vector2( 0, 60 ), Vector2( 35, 54 ) ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Farmer/Flipper/Front_05x:rotation_degrees")
@@ -171,7 +170,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -211,7 +210,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Farmer:scale")
@@ -235,7 +234,7 @@ collision_layer = 4
 collision_mask = 87
 mode = 2
 mass = 2.0
-physics_material_override = SubResource( 7 )
+physics_material_override = SubResource( 1 )
 script = ExtResource( 6 )
 speed = 3000.0
 
@@ -248,10 +247,10 @@ texture = ExtResource( 1 )
 offset = Vector2( -9.58101, -33.9429 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Death = SubResource( 1 )
-anims/Idle = SubResource( 2 )
-anims/Walk = SubResource( 3 )
-anims/Wobble = SubResource( 4 )
+anims/Death = SubResource( 2 )
+anims/Idle = SubResource( 3 )
+anims/Walk = SubResource( 4 )
+anims/Wobble = SubResource( 5 )
 
 [node name="Farmer" type="Node2D" parent="."]
 position = Vector2( 0, 60 )
@@ -287,9 +286,11 @@ z_index = -4
 texture = ExtResource( 5 )
 
 [node name="FireTimer" type="Timer" parent="."]
+process_mode = 0
 wait_time = 0.6
-autostart = true
 
 [node name="RepathTimer" type="Timer" parent="."]
+process_mode = 0
 wait_time = 2.0
 [connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]
+[connection signal="timeout" from="RepathTimer" to="." method="_on_RepathTimer_timeout"]

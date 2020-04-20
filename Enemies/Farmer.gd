@@ -4,7 +4,6 @@ enum ai_state{
 	idle,
 	towards,
 	shoot,
-	followpath,
 	runaway,
 	dead
 	}
@@ -16,18 +15,19 @@ export var health : float = 100.0
 export var speed : float = 5000
 
 onready var firetimer = get_node("FireTimer")
+onready var pathtimer = get_node("RepathTimer")
 onready var firepoint = get_node("Farmer/Flipper/FirePoint")
 onready var animp = get_node("AnimationPlayer")
 
 onready var enemybullet = preload("res://Enemies/EnemyBullet.tscn")
 onready var blood = preload("res://Enemies/Blood.tscn")
 
-var cur_state = ai_state.towards
+var cur_state = ai_state.idle
 var path_to_player : PoolVector2Array = PoolVector2Array()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	animp.play("Walk")
+	_change_ai_state(ai_state.towards)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,8 +35,6 @@ func _physics_process(delta):
 	if cur_state == ai_state.idle:
 		pass
 	elif cur_state == ai_state.towards:
-		if path_to_player.empty():
-			path_to_player = Global.navmesh.get_simple_path(self.position, Global.player.position)
 		_move_to_player(delta)
 	elif cur_state == ai_state.shoot:
 		pass
@@ -46,22 +44,34 @@ func _physics_process(delta):
 func _change_ai_state(newstate):
 	if cur_state == newstate:
 		return
+	var prev_state = cur_state
+	
+	if prev_state == ai_state.idle:
+		pass
+	if prev_state == ai_state.towards:
+		pathtimer.stop()
+		animp.stop(false)
+	if prev_state == ai_state.shoot:
+		firetimer.start()
+	if prev_state == ai_state.runaway:
+		pass
+	if prev_state == ai_state.dead:
+		pass
 	
 	if newstate == ai_state.idle:
 		pass
 	if newstate == ai_state.towards:
-		pass
+		_repath()
+		pathtimer.start()
+		animp.play("Walk")
 	if newstate == ai_state.shoot:
-		pass
-	if newstate == ai_state.followpath:
-		pass
+		firetimer.stop()
 	if newstate == ai_state.runaway:
 		pass
 	if newstate == ai_state.dead:
 		_die()
 	
 	cur_state = newstate
-	
 
 func _move_to_player(delta : float):
 	if path_to_player.empty():
@@ -114,5 +124,11 @@ func _die():
 	self.z_index = -2
 	animp.play("Death")
 
+func _repath():
+	path_to_player = Global.navmesh.get_simple_path(self.position, Global.player.position)
+
 func _on_FireTimer_timeout():
 	_shoot()
+
+func _on_RepathTimer_timeout():
+	_repath()
