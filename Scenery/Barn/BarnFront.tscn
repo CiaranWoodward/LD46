@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenery/Graphics/Shadow_@0.5x.png" type="Texture" id=1]
-[ext_resource path="res://Scenery/Graphics/Barn/Barn_Front_@0.5x.png" type="Texture" id=2]
+[ext_resource path="res://Scenery/Graphics/Barn/BarnFullSize/Barn_Front.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 88.4037, 10 )
+extents = Vector2( 176.118, 20.2635 )
 
 [node name="BarnFront" type="StaticBody2D"]
 rotation = -0.000117261
@@ -12,8 +12,8 @@ collision_layer = 2
 collision_mask = 66
 
 [node name="Shadow_05x" type="Sprite" parent="."]
-position = Vector2( 0, 23.079 )
-scale = Vector2( 2.00101, 0.694139 )
+position = Vector2( -0.324511, 65.4321 )
+scale = Vector2( 3.52457, 0.694139 )
 z_index = -3
 texture = ExtResource( 1 )
 

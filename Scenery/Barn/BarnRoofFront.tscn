@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Scenery/Graphics/Barn/Barn_Roof_Front_@0.5x.png" type="Texture" id=1]
+[ext_resource path="res://Scenery/Graphics/Barn/BarnFullSize/Barn_Roof_Front.png" type="Texture" id=1]
 
 [node name="BarnRoofFront" type="Sprite"]
 z_index = 4000
