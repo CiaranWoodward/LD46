@@ -66,6 +66,18 @@ func get_networth() -> int:
 func get_beltitem(index : int):
 	return beltitems[index]
 
+func destroy_beltitem(index: int):
+	#defensive scripting
+	if index < 0 || index > 7:
+		return
+	if is_instance_valid(beltitems[index]):
+		var titem = beltitems[index].instance()
+		if titem.egg_capacity > 0:
+			eggcapacity = eggcapacity - titem.egg_capacity
+			emit_signal("eggcontent_change")
+		titem.queue_free()
+	beltitems[index] = null
+
 func set_beltitem(index : int, item):
 	var egcc = false
 	if is_instance_valid(beltitems[index]):

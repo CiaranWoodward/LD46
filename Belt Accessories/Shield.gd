@@ -1,16 +1,16 @@
 extends BeltItem
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+export var health : float = 50.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
+func _die():
+	Global.destroy_beltitem(slotno)
+	self.queue_free()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func damage(damage : float, gpos : Vector2):
+	health = health - damage
+	if health < 0:
+		_die()

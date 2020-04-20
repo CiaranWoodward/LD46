@@ -9,6 +9,7 @@ export var egg_capacity : int = 0
 
 var cur_rotsprite = -1 setget set_rotsprite, get_rotsprite
 var egg_content = 0 setget set_eggcontent, get_eggcontent
+var slotno : int = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

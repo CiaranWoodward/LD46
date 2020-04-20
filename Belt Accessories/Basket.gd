@@ -24,5 +24,4 @@ func set_eggcontent(eggc : int):
 	.set_eggcontent(eggc)
 
 func damage(damage : float, gpos : Vector2):
-	print("yo")
 	set_eggcontent(egg_content - 1)

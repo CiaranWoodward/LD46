@@ -3,6 +3,7 @@ extends BeltItem
 export var bulletforce : float = 900
 export var spread : float = 0.2
 export var bulletmass : float = 0.1
+export var damage : float = 8.0
 
 onready var animp = get_node("AnimationPlayer")
 onready var fireTimer = get_node("FireTimer")
@@ -50,6 +51,7 @@ func _shoot():
 	newforce.y = newforce.y * (1 + rand_range(-spread, spread))
 	newBullet.mass = bulletmass
 	newBullet.linear_velocity = newforce
+	newBullet.damage = damage
 	newBullet.set_dir(newforce.angle())
 	
 	if is_instance_valid(parent):

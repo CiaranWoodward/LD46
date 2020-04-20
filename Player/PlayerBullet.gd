@@ -4,7 +4,7 @@ onready var line = get_node("Line2D")
 onready var shadow = get_node("Shadow")
 onready var timer = get_node("Timer")
 
-var multiplier : float = 1
+export var damage = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,7 +29,7 @@ func set_timeout(timeout : float):
 
 func _on_PlayerBullet_body_entered(body : Node):
 	if body.has_method("damage"):
-		body.damage(linear_velocity.length() * mass * multiplier, self.get_global_position())
+		body.damage(damage, self.get_global_position())
 	self.queue_free()
 
 func _on_PlayerBullet_body_exited(body : Node):

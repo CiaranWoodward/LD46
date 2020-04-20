@@ -11,7 +11,7 @@ enum ai_state{
 export var bulletforce : float = 900
 export var spread : float = 0.2
 export var bulletmass : float = 0.1
-export var health : float = 100.0
+export var health : float = 70.0
 export var speed : float = 5000
 export var perceived_range : float = 600.0
 export var sight_range : float = 1100.0

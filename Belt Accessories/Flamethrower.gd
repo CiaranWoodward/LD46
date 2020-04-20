@@ -4,6 +4,7 @@ export var damagemultiplier : float = 5
 export var bulletforce : float = 300
 export var spread : float = 0.5
 export var bulletmass : float = 0.03
+export var damage : float = 15
 
 onready var flame = get_node("Flame")
 onready var fireTimer = get_node("FireTimer")
@@ -54,7 +55,7 @@ func _shoot():
 	newBullet.linear_velocity = newforce
 	newBullet.set_dir(newforce.angle())
 	newBullet.set_timeout(0.5)
-	newBullet.multiplier = damagemultiplier
+	newBullet.damage = damage
 	newBullet.visible = false
 
 func _on_FireTimer_timeout():

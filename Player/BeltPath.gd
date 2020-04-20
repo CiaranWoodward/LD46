@@ -14,6 +14,7 @@ func _ready():
 		pfs.push_back(newpf)
 		if is_instance_valid(Global.get_beltitem(i)):
 			var newitem = Global.get_beltitem(i).instance()
+			newitem.slotno = i
 			if i == 5:
 				newitem.scale.x = -1
 			newpf.add_child(newitem)
