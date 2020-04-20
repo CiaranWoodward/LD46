@@ -26,10 +26,6 @@ cost = 50
 is_weapon = true
 icon_texture = ExtResource( 11 )
 
-[node name="FireTimer" type="Timer" parent="."]
-wait_time = 1.8
-one_shot = true
-
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 294.949, 5.38506 )
 
@@ -37,10 +33,11 @@ position = Vector2( 294.949, 5.38506 )
 position = Vector2( 8.28117, 9.20129 )
 texture = ExtResource( 4 )
 
-[node name="P0" type="CPUParticles2D" parent="."]
+[node name="Flame" type="CPUParticles2D" parent="."]
 modulate = Color( 1, 1, 1, 0.780392 )
 position = Vector2( 39.8177, 8.97845 )
 z_index = 1
+emitting = false
 amount = 20
 lifetime = 1.8
 speed_scale = 2.0
@@ -69,229 +66,54 @@ color_ramp = SubResource( 2 )
 position = Vector2( -4.41662, 8.09714 )
 texture = ExtResource( 8 )
 
-[node name="P1" type="CPUParticles2D" parent="."]
-modulate = Color( 1, 1, 1, 0.780392 )
-position = Vector2( 8.30529, 25.9952 )
-rotation = 1.01612
-z_index = 1
-amount = 20
-lifetime = 1.8
-speed_scale = 2.0
-lifetime_randomness = 0.1
-local_coords = false
-texture = ExtResource( 9 )
-emission_shape = 2
-emission_rect_extents = Vector2( 0, 5 )
-direction = Vector2( 10, 0 )
-spread = 8.0
-gravity = Vector2( 0, 0 )
-initial_velocity = 150.0
-initial_velocity_random = 0.05
-angular_velocity = 100.0
-angular_velocity_random = 1.0
-linear_accel = -10.0
-damping = 2.0
-angle = 720.0
-angle_random = 1.0
-scale_amount = 10.0
-scale_amount_random = 0.2
-scale_amount_curve = SubResource( 1 )
-color_ramp = SubResource( 2 )
-
 [node name="2" type="Sprite" parent="."]
 position = Vector2( -4.2326, 5.52078 )
 texture = ExtResource( 5 )
-
-[node name="P2" type="CPUParticles2D" parent="."]
-modulate = Color( 1, 1, 1, 0.780392 )
-position = Vector2( -4.29967, 23.4741 )
-rotation = 1.58602
-z_index = 1
-amount = 20
-lifetime = 1.8
-speed_scale = 2.0
-lifetime_randomness = 0.1
-local_coords = false
-texture = ExtResource( 9 )
-emission_shape = 2
-emission_rect_extents = Vector2( 0, 5 )
-direction = Vector2( 10, 0 )
-spread = 8.0
-gravity = Vector2( 0, 0 )
-initial_velocity = 150.0
-initial_velocity_random = 0.05
-angular_velocity = 100.0
-angular_velocity_random = 1.0
-linear_accel = -10.0
-damping = 2.0
-angle = 720.0
-angle_random = 1.0
-scale_amount = 10.0
-scale_amount_random = 0.2
-scale_amount_curve = SubResource( 1 )
-color_ramp = SubResource( 2 )
 
 [node name="3" type="Sprite" parent="."]
 position = Vector2( -11.0416, -2.20831 )
 texture = ExtResource( 3 )
 
-[node name="P3" type="CPUParticles2D" parent="."]
-modulate = Color( 1, 1, 1, 0.780392 )
-position = Vector2( -31.4003, 10.8692 )
-rotation = 2.68488
-z_index = 1
-amount = 20
-lifetime = 1.8
-speed_scale = 2.0
-lifetime_randomness = 0.1
-local_coords = false
-texture = ExtResource( 9 )
-emission_shape = 2
-emission_rect_extents = Vector2( 0, 5 )
-direction = Vector2( 10, 0 )
-spread = 8.0
-gravity = Vector2( 0, 0 )
-initial_velocity = 150.0
-initial_velocity_random = 0.05
-angular_velocity = 100.0
-angular_velocity_random = 1.0
-linear_accel = -10.0
-damping = 2.0
-angle = 720.0
-angle_random = 1.0
-scale_amount = 10.0
-scale_amount_random = 0.2
-scale_amount_curve = SubResource( 1 )
-color_ramp = SubResource( 2 )
-
 [node name="4" type="Sprite" parent="."]
 position = Vector2( -6.62494, -4.60065 )
 texture = ExtResource( 7 )
-
-[node name="P4" type="CPUParticles2D" parent="."]
-modulate = Color( 1, 1, 1, 0.780392 )
-position = Vector2( -30.7701, -7.40799 )
-rotation = 3.05888
-z_index = 1
-amount = 20
-lifetime = 1.8
-speed_scale = 2.0
-lifetime_randomness = 0.1
-local_coords = false
-texture = ExtResource( 9 )
-emission_shape = 2
-emission_rect_extents = Vector2( 0, 5 )
-direction = Vector2( 10, 0 )
-spread = 8.0
-gravity = Vector2( 0, 0 )
-initial_velocity = 150.0
-initial_velocity_random = 0.05
-angular_velocity = 100.0
-angular_velocity_random = 1.0
-linear_accel = -10.0
-damping = 2.0
-angle = 720.0
-angle_random = 1.0
-scale_amount = 10.0
-scale_amount_random = 0.2
-scale_amount_curve = SubResource( 1 )
-color_ramp = SubResource( 2 )
 
 [node name="5" type="Sprite" parent="."]
 position = Vector2( -0.184029, -10.4895 )
 texture = ExtResource( 2 )
 
-[node name="P5" type="CPUParticles2D" parent="."]
-modulate = Color( 1, 1, 1, 0.780392 )
-position = Vector2( -15.0139, -24.4247 )
-rotation = -2.30778
-z_index = 1
-amount = 20
-lifetime = 1.8
-speed_scale = 2.0
-lifetime_randomness = 0.1
-local_coords = false
-texture = ExtResource( 9 )
-emission_shape = 2
-emission_rect_extents = Vector2( 0, 5 )
-direction = Vector2( 10, 0 )
-spread = 8.0
-gravity = Vector2( 0, 0 )
-initial_velocity = 150.0
-initial_velocity_random = 0.05
-angular_velocity = 100.0
-angular_velocity_random = 1.0
-linear_accel = -10.0
-damping = 2.0
-angle = 720.0
-angle_random = 1.0
-scale_amount = 10.0
-scale_amount_random = 0.2
-scale_amount_curve = SubResource( 1 )
-color_ramp = SubResource( 2 )
-
 [node name="6" type="Sprite" parent="."]
 position = Vector2( 5.52077, -5.15273 )
 texture = ExtResource( 1 )
-
-[node name="P6" type="CPUParticles2D" parent="."]
-modulate = Color( 1, 1, 1, 0.780392 )
-position = Vector2( 7.67503, -17.492 )
-rotation = -1.46801
-z_index = 1
-amount = 20
-lifetime = 1.8
-speed_scale = 2.0
-lifetime_randomness = 0.1
-local_coords = false
-texture = ExtResource( 9 )
-emission_shape = 2
-emission_rect_extents = Vector2( 0, 5 )
-direction = Vector2( 10, 0 )
-spread = 8.0
-gravity = Vector2( 0, 0 )
-initial_velocity = 150.0
-initial_velocity_random = 0.05
-angular_velocity = 100.0
-angular_velocity_random = 1.0
-linear_accel = -10.0
-damping = 2.0
-angle = 720.0
-angle_random = 1.0
-scale_amount = 10.0
-scale_amount_random = 0.2
-scale_amount_curve = SubResource( 1 )
-color_ramp = SubResource( 2 )
 
 [node name="7" type="Sprite" parent="."]
 position = Vector2( 8.09715, 3.68052 )
 texture = ExtResource( 6 )
 
-[node name="P7" type="CPUParticles2D" parent="."]
-modulate = Color( 1, 1, 1, 0.780392 )
-position = Vector2( 22.801, -13.0802 )
-rotation = -0.746557
-z_index = 1
-amount = 20
-lifetime = 1.8
-speed_scale = 2.0
-lifetime_randomness = 0.1
-local_coords = false
-texture = ExtResource( 9 )
-emission_shape = 2
-emission_rect_extents = Vector2( 0, 5 )
-direction = Vector2( 10, 0 )
-spread = 8.0
-gravity = Vector2( 0, 0 )
-initial_velocity = 150.0
-initial_velocity_random = 0.05
-angular_velocity = 100.0
-angular_velocity_random = 1.0
-linear_accel = -10.0
-damping = 2.0
-angle = 720.0
-angle_random = 1.0
-scale_amount = 10.0
-scale_amount_random = 0.2
-scale_amount_curve = SubResource( 1 )
-color_ramp = SubResource( 2 )
+[node name="FP0" type="Position2D" parent="."]
+position = Vector2( 37.7247, 9.0344 )
+
+[node name="FP1" type="Position2D" parent="."]
+position = Vector2( 6.83685, 23.4406 )
+
+[node name="FP2" type="Position2D" parent="."]
+position = Vector2( -3.90677, 20.2664 )
+
+[node name="FP3" type="Position2D" parent="."]
+position = Vector2( -29.3008, 7.44728 )
+
+[node name="FP4" type="Position2D" parent="."]
+position = Vector2( -30.6437, -8.05771 )
+
+[node name="FP5" type="Position2D" parent="."]
+position = Vector2( -14.6504, -23.929 )
+
+[node name="FP6" type="Position2D" parent="."]
+position = Vector2( 7.32519, -15.3829 )
+
+[node name="FP7" type="Position2D" parent="."]
+position = Vector2( 20.8768, -10.2553 )
+
+[node name="FireTimer" type="Timer" parent="."]
+wait_time = 0.1
+[connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]

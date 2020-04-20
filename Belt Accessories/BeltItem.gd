@@ -12,7 +12,6 @@ var egg_content = 0 setget set_eggcontent, get_eggcontent
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_rotsprite(0)
 	pass # Replace with function body.
 
 func set_eggcontent(eggc : int):

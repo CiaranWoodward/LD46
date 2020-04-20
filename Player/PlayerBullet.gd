@@ -1,6 +1,9 @@
 extends RigidBody2D
 
 onready var line = get_node("Line2D")
+onready var timer = get_node("Timer")
+
+var multiplier : float = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,9 +20,12 @@ func _on_Timer_timeout():
 func set_dir(angle : float):
 	line.set_rotation(angle)
 
+func set_timeout(timeout : float):
+	timer.start(timeout)
+
 func _on_PlayerBullet_body_entered(body : Node):
 	if body.has_method("damage"):
-		body.damage(self.linear_velocity.length() * self.mass, self.get_global_position())
+		body.damage(linear_velocity.length() * mass * multiplier, self.get_global_position())
 	self.queue_free()
 
 func _on_PlayerBullet_body_exited(body : Node):
