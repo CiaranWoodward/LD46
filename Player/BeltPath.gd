@@ -45,8 +45,9 @@ func _add_egg() -> bool:
 	return true
 
 func _get_item(slotno : int) -> BeltItem:
-	if pfs[slotno].visible:
-		return pfs[slotno].get_children().front()
+	var slot = pfs[slotno]
+	if slot.visible && slot.get_child_count() > 0:
+		return slot.get_children().front()
 	return null
 
 func _set_belt_pos(pf : PathFollow2D, angle : float, flipped := false):
@@ -64,7 +65,9 @@ func _set_belt_pos(pf : PathFollow2D, angle : float, flipped := false):
 		pf.z_index = -1
 	
 	#Sprite
-	var item = pf.get_children().pop_front()
+	var item = null
+	if pf.get_child_count() > 0:
+		item = pf.get_children().front()
 	if is_instance_valid(item) && item.has_method("set_rotsprite"):
 		if ratio < 1.0/9.0:
 			item.set_rotsprite(0)
