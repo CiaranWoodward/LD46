@@ -17,7 +17,7 @@ func _ready():
 	animtree.active = true
 	animsm.start("Idle")
 	Global.bulletField = get_parent()
-	pass # Replace with function body.
+	Global.player = self
 
 func _physics_process(delta):
 	_handle_input(delta)

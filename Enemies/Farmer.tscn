@@ -118,24 +118,12 @@ tracks/8/keys = {
 "values": [ true ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("CPUParticles2D:emitting")
+tracks/9/path = NodePath("Shadow_05x:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("Shadow_05x:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
 "times": PoolRealArray( 0, 0.4, 0.7 ),
 "transitions": PoolRealArray( 0.406126, 0.353553, 0.392292 ),
 "update": 0,
@@ -241,8 +229,8 @@ offsets = PoolRealArray( 0, 0.324138, 1 )
 colors = PoolColorArray( 0.462745, 0, 0, 1, 0.462745, 0, 0, 0.789247, 0.462745, 0, 0, 0 )
 
 [sub_resource type="CapsuleShape2D" id=6]
-radius = 14.562
-height = 58.3025
+radius = 25.444
+height = 22.4862
 
 [node name="Farmer" type="RigidBody2D"]
 collision_layer = 4
@@ -252,7 +240,6 @@ mass = 2.0
 script = ExtResource( 6 )
 
 [node name="Dead_05x" type="Sprite" parent="."]
-visible = false
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 0, 30 )
 scale = Vector2( 1.5, 1.5 )
@@ -266,8 +253,7 @@ anims/Walk = SubResource( 3 )
 anims/Wobble = SubResource( 4 )
 
 [node name="Farmer" type="Node2D" parent="."]
-position = Vector2( 0, 57.617 )
-rotation = -0.046207
+position = Vector2( 0, 60 )
 
 [node name="Flipper" type="Node2D" parent="Farmer"]
 
@@ -284,13 +270,12 @@ texture = ExtResource( 2 )
 [node name="FirePoint" type="Position2D" parent="Farmer/Flipper"]
 position = Vector2( 76.7107, -54.1315 )
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="Blood" type="CPUParticles2D" parent="."]
 position = Vector2( 0, -10 )
 emitting = false
-amount = 10
 lifetime = 0.8
 one_shot = true
-explosiveness = 0.76
+explosiveness = 1.0
 lifetime_randomness = 0.32
 local_coords = false
 texture = ExtResource( 4 )
@@ -325,3 +310,8 @@ position = Vector2( 0, 60 )
 scale = Vector2( 1, 0.804405 )
 z_index = -4
 texture = ExtResource( 5 )
+
+[node name="FireTimer" type="Timer" parent="."]
+wait_time = 0.6
+autostart = true
+[connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]
