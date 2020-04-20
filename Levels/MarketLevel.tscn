@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenery/Graphics/Market/MarketGround.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -13,6 +13,9 @@
 [ext_resource path="res://Scenery/Graphics/Shadow_@0.5x.png" type="Texture" id=11]
 [ext_resource path="res://LevelNavMesh.gd" type="Script" id=12]
 [ext_resource path="res://Enemies/Farmer.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Chicks/GuideChick.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenery/Truck.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Chicks/MechChick.tscn" type="PackedScene" id=16]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 1000, 1280, 600, 1200, 4520, 1200, 1040, 1280, 4400, 1600, 2280, 1600, 3440, 1520, 4400, 1520, 3120, 1520, 640, 1280, 600, 1520, 640, 1480, 4520, 880, 600, 880, 4040, 560, 4080, 560, 3600, 560, 2402.28, 560, 1280, 2280, 760, 2280, 1120, 1920, 1280, 2000, 1120, 1520, 1000, 1480, 2320, 1280, 2320, 1520, 1760, 1480, 1760, 1280, 2360, 360, 2040, 360, 2040, 320, 2400, 320, 2360, 560, 4520, 320, 4640, 320, 4640, 560, 4520, 360, 5480, 560, 5480, 1600, 4520, 560, 4760, 1520, 3560, 320, 4080, 360, 4760, 1600, 3440, 1280, 3000, 1520, 3000, 1280, 3120, 1280, 2680, 1520, 2280, 1880, 4400, 1880, 4400, 1960, 4720, 1960, 4720, 1840, 5560, 1840, 5560, 1960, 5800, 1960, 5800, 1840, 5960, 1840, 5960, 2000, 5760, 2000, 5760, 2080, 5680, 2080, 5680, 2000, 1480, 1280, 1480, 1480, 1440, 1480, 1440, 1280, 600, 560, 1040, 1480, 3560, 560, 3600, 360, 4040, 360, 2680, 1280, 2640, 1280, 2640, 1520 )
@@ -67,7 +70,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 280, 480 )
+position = Vector2( 6442.08, 1921.13 )
 
 [node name="Camera2D" type="Camera2D" parent="YSort/Player"]
 current = true
@@ -1276,6 +1279,33 @@ position = Vector2( 1040, 1360 )
 
 [node name="Farmer8" parent="YSort" instance=ExtResource( 13 )]
 position = Vector2( 1480, 1360 )
+
+[node name="Truck" parent="YSort" instance=ExtResource( 15 )]
+position = Vector2( -241.599, 491.543 )
+
+[node name="Truck2" parent="YSort" instance=ExtResource( 15 )]
+position = Vector2( 6853.2, 1825.34 )
+
+[node name="GuideChick" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( -20.9294, 604.754 )
+
+[node name="GuideChick2" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( 6557.93, 1981.77 )
+
+[node name="MechChick" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( -38.5124, 382.357 )
+
+[node name="MechChick2" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( 6502.46, 1776.03 )
+
+[node name="FenceSide21" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( -63.8822, 302.155 )
+
+[node name="FenceSide22" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 6599.26, 2073.07 )
+
+[node name="FenceSide23" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 6599.26, 1956.54 )
 
 [node name="LevelNavMesh" type="Navigation2D" parent="."]
 script = ExtResource( 12 )

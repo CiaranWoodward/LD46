@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenery/Graphics/BatteryFarm/Floor_@0.5x.png" type="Texture" id=2]
@@ -9,8 +9,12 @@
 [ext_resource path="res://Scenery/Cage.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenery/Crate.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenery/SmallCrate.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Chicks/GuideChick.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenery/Truck.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Chicks/MechChick.tscn" type="PackedScene" id=12]
 
 [node name="BatteryFarmLevel" type="Node2D"]
+position = Vector2( -273.98, -47.8173 )
 
 [node name="Bottom" type="Node2D" parent="."]
 z_index = -1000
@@ -35,10 +39,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect2" type="TextureRect" parent="Bottom"]
+margin_left = 2880.0
+margin_top = 600.0
+margin_right = 3840.0
+margin_bottom = 1072.0
+texture = ExtResource( 2 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 2976, 888 )
+position = Vector2( 3893.49, 675.744 )
 
 [node name="Camera2D" type="Camera2D" parent="YSort/Player"]
 current = true
@@ -47,6 +62,9 @@ smoothing_enabled = true
 
 [node name="WallFront" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 499.856, -43.1694 )
+
+[node name="WallFront10" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( -415.799, -44.1394 )
 
 [node name="WallFront2" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 1459.28, -43.1694 )
@@ -66,8 +84,11 @@ position = Vector2( 2422.36, 2579.84 )
 [node name="WallFront7" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 2420.36, 1627.54 )
 
-[node name="SideWallFront" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 2882.11, 575.842 )
+[node name="WallFront8" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 3345.15, 1268.91 )
+
+[node name="WallFront9" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 3343.8, 596.946 )
 
 [node name="SideWallFront2" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 1959.57, 1218.86 )
@@ -95,6 +116,9 @@ position = Vector2( 40.9783, 1947.09 )
 
 [node name="SideWall17" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 38.873, 667.087 )
+
+[node name="SideWall20" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 38.7086, 387.714 )
 
 [node name="SideWall10" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 2881.22, 1631.83 )
@@ -127,7 +151,7 @@ position = Vector2( 1959.82, 1945.14 )
 position = Vector2( 1960.34, 2265.81 )
 
 [node name="SideWall7" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 2882.83, 285.376 )
+position = Vector2( 3806.44, 961.8 )
 
 [node name="Cage" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 1368, 104 )
@@ -393,6 +417,42 @@ position = Vector2( 2344, 328 )
 [node name="Crate20" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 2768, 440 )
 
+[node name="Crate21" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 3696, 968 )
+
+[node name="Crate22" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 3696, 872 )
+
+[node name="Crate23" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 3568, 968 )
+
+[node name="Crate24" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 3568, 872 )
+
+[node name="Crate28" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 3448, 968 )
+
+[node name="Crate27" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 3448, 872 )
+
+[node name="Crate26" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 3320, 968 )
+
+[node name="Crate25" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 3320, 872 )
+
+[node name="Crate32" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 3192, 968 )
+
+[node name="Crate31" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 3192, 872 )
+
+[node name="Crate30" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 3064, 968 )
+
+[node name="Crate29" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 3064, 872 )
+
 [node name="Crate19" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 2624, 440 )
 
@@ -500,3 +560,21 @@ position = Vector2( 2104, 360 )
 
 [node name="SmallCrate23" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 2104, 400 )
+
+[node name="Truck" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 4118.85, 668.728 )
+
+[node name="Truck2" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( -268.974, 197.584 )
+
+[node name="GuideChick" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( 3631.34, 620.167 )
+
+[node name="GuideChick2" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( -39.5322, 95.4538 )
+
+[node name="MechChick" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 3550.4, 626.819 )
+
+[node name="MechChick2" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( -41.0762, 30.5847 )
