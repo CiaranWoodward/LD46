@@ -9,7 +9,7 @@ extents = Vector2( 74.6921, 44.0648 )
 
 [node name="Cage" type="RigidBody2D"]
 collision_layer = 64
-collision_mask = 87
+collision_mask = 86
 mode = 2
 mass = 10.0
 
