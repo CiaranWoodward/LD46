@@ -12,6 +12,8 @@ onready var smoke = get_node("Smoke")
 onready var smoke2 = get_node("Smoke2")
 onready var smoke3 = get_node("Smoke3")
 onready var smoke4 = get_node("Smoke4")
+onready var ding1 = get_node("Ding")
+onready var ding2 = get_node("Ding2")
 
 onready var sideimg = get_node("SpriteRoot/WobbleRoot/Side")
 onready var frontimg = get_node("SpriteRoot/WobbleRoot/Front")
@@ -45,6 +47,13 @@ func damage(damage : float, gpos : Vector2):
 	if health < 0:
 		health = 0
 		_die()
+	
+	if randi()% 2 == 0:
+		ding1.pitch_scale = rand_range(0.8, 1.2)
+		ding1.play()
+	else:
+		ding2.play()
+		ding2.pitch_scale = rand_range(0.8, 1.2)
 	
 	var healthfrac : float = health/maxhealth
 	Global.playerhealth = int(healthfrac * 100)

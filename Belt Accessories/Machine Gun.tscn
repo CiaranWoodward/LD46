@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Belt Accessories/Graphics/Machine Gun/6_@0.5x.png" type="Texture" id=1]
 [ext_resource path="res://Belt Accessories/Graphics/Machine Gun/7_@0.5x.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Belt Accessories/Graphics/Machine Gun/Casing.png" type="Texture" id=9]
 [ext_resource path="res://Belt Accessories/Machine Gun.gd" type="Script" id=10]
 [ext_resource path="res://Belt Accessories/Graphics/Icons/Machine Gun Icon.png" type="Texture" id=11]
+[ext_resource path="res://Sounds/Shot.wav" type="AudioStream" id=12]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fire"
@@ -225,7 +226,6 @@ cost = 60
 is_weapon = true
 icon_texture = ExtResource( 11 )
 bulletforce = 1000.0
-spread = 0.2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Fire = SubResource( 1 )
@@ -449,4 +449,7 @@ color_ramp = SubResource( 3 )
 
 [node name="7FP" type="Position2D" parent="."]
 position = Vector2( 36.1908, -15.8076 )
+
+[node name="bang" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
 [connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]

@@ -8,6 +8,7 @@ export var damage : float = 15
 onready var animp = get_node("AnimationPlayer")
 onready var fireTimer = get_node("FireTimer")
 onready var playerBullet = preload("res://Player/PlayerBullet.tscn")
+onready var bang = get_node("Bang")
 
 var isfiring : bool = false
 var parent : RigidBody2D = null
@@ -42,6 +43,9 @@ func _shoot():
 	newBullet.linear_velocity = newforce
 	newBullet.damage = 10
 	newBullet.set_dir(newforce.angle())
+	
+	bang.pitch_scale = rand_range(0.8, 1.2)
+	bang.play()
 	
 	if is_instance_valid(parent):
 		parent.apply_central_impulse(newforce * -bulletmass)

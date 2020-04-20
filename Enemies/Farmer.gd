@@ -25,6 +25,8 @@ onready var animp = get_node("AnimationPlayer")
 onready var frontsprite = get_node("Farmer/Flipper/Front_05x")
 onready var backsprite = get_node("Farmer/Flipper/Back_05x")
 onready var flipper = get_node("Farmer/Flipper")
+onready var bang = get_node("Bang")
+onready var thud = get_node("Thud")
 
 onready var enemybullet = preload("res://Enemies/EnemyBullet.tscn")
 onready var blood = preload("res://Enemies/Blood.tscn")
@@ -194,6 +196,9 @@ func _shoot():
 	newBullet.linear_velocity = newforce
 	newBullet.set_dir(newforce.angle())
 	animp.play("Wobble")
+	
+	bang.pitch_scale = rand_range(0.8, 1.2)
+	bang.play()
 
 func damage(damage : float, gpos : Vector2):
 	health = health - damage
@@ -205,6 +210,9 @@ func damage(damage : float, gpos : Vector2):
 		hp.emitting = true
 		if health <= 0:
 			_change_ai_state(ai_state.dead)
+	
+	thud.pitch_scale = rand_range(0.8, 1.2)
+	thud.play()
 
 func _die():
 	self.mass = 20
