@@ -62,7 +62,7 @@ func _set_belt_pos(pf : PathFollow2D, angle : float, flipped := false):
 	if ratio < 0.25 || ratio > 0.75:
 		pf.z_index = 0
 	else:
-		pf.z_index = -1
+		pf.z_index = -2
 	
 	#Sprite
 	var item = null

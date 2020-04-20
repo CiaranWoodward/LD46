@@ -20,8 +20,7 @@ func set_eggcontent(eggc : int):
 	Global.mod_eggcontent(diff)
 
 func mod_eggcontent(eggd):
-	egg_content = egg_content + eggd
-	Global.mod_eggcontent(eggd)
+	set_eggcontent(egg_content + eggd)
 
 func get_eggcontent() -> int:
 	return egg_content
