@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenery/Graphics/Market/MarketGround.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -11,11 +11,22 @@
 [ext_resource path="res://Scenery/Graphics/Ground/Grass_@0.5x.png" type="Texture" id=9]
 [ext_resource path="res://Scenery/Graphics/Bush_@0.5x.png" type="Texture" id=10]
 [ext_resource path="res://Scenery/Graphics/Shadow_@0.5x.png" type="Texture" id=11]
+[ext_resource path="res://LevelNavMesh.gd" type="Script" id=12]
+[ext_resource path="res://Enemies/Farmer.tscn" type="PackedScene" id=13]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 1000, 1280, 600, 1200, 4520, 1200, 1040, 1280, 4400, 1600, 2280, 1600, 3440, 1520, 4400, 1520, 3120, 1520, 640, 1280, 600, 1520, 640, 1480, 4520, 880, 600, 880, 4040, 560, 4080, 560, 3600, 560, 2402.28, 560, 1280, 2280, 760, 2280, 1120, 1920, 1280, 2000, 1120, 1520, 1000, 1480, 2320, 1280, 2320, 1520, 1760, 1480, 1760, 1280, 2360, 360, 2040, 360, 2040, 320, 2400, 320, 2360, 560, 4520, 320, 4640, 320, 4640, 560, 4520, 360, 5480, 560, 5480, 1600, 4520, 560, 4760, 1520, 3560, 320, 4080, 360, 4760, 1600, 3440, 1280, 3000, 1520, 3000, 1280, 3120, 1280, 2680, 1520, 2280, 1880, 4400, 1880, 4400, 1960, 4720, 1960, 4720, 1840, 5560, 1840, 5560, 1960, 5800, 1960, 5800, 1840, 5960, 1840, 5960, 2000, 5760, 2000, 5760, 2080, 5680, 2080, 5680, 2000, 1480, 1280, 1480, 1480, 1440, 1480, 1440, 1280, 600, 560, 1040, 1480, 3560, 560, 3600, 360, 4040, 360, 2680, 1280, 2640, 1280, 2640, 1520 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7 ), PoolIntArray( 8, 6, 5 ), PoolIntArray( 1, 0, 9 ), PoolIntArray( 10, 1, 9, 11 ), PoolIntArray( 12, 13, 14, 15 ), PoolIntArray( 16, 14, 13, 17 ), PoolIntArray( 18, 19, 20, 21 ), PoolIntArray( 22, 10, 11, 23 ), PoolIntArray( 24, 25, 26, 27 ), PoolIntArray( 28, 29, 30, 31 ), PoolIntArray( 28, 31, 17, 32 ), PoolIntArray( 33, 34, 35, 36 ), PoolIntArray( 35, 37, 38 ), PoolIntArray( 39, 35, 38, 40, 12 ), PoolIntArray( 35, 39, 36 ), PoolIntArray( 41, 33, 36, 42 ), PoolIntArray( 38, 43, 40 ), PoolIntArray( 7, 6, 44 ), PoolIntArray( 45, 46, 47, 8 ), PoolIntArray( 45, 8, 5 ), PoolIntArray( 48, 45, 5 ), PoolIntArray( 49, 50, 51, 21 ), PoolIntArray( 52, 53, 54, 55 ), PoolIntArray( 56, 57, 58, 59 ), PoolIntArray( 56, 59, 60, 55 ), PoolIntArray( 60, 61, 62, 63 ), PoolIntArray( 55, 60, 63 ), PoolIntArray( 55, 63, 21, 52 ), PoolIntArray( 51, 52, 21 ), PoolIntArray( 64, 65, 66, 67 ), PoolIntArray( 13, 68, 32, 17 ), PoolIntArray( 22, 5, 49, 21, 20 ), PoolIntArray( 5, 22, 23, 69 ), PoolIntArray( 40, 7, 44, 2 ), PoolIntArray( 16, 17, 70 ), PoolIntArray( 16, 70, 41, 71 ), PoolIntArray( 72, 71, 41 ), PoolIntArray( 72, 41, 42 ), PoolIntArray( 72, 42, 15, 14 ), PoolIntArray( 12, 15, 39 ), PoolIntArray( 2, 12, 40 ), PoolIntArray( 2, 44, 47 ), PoolIntArray( 65, 26, 25, 5 ), PoolIntArray( 2, 47, 46 ), PoolIntArray( 2, 46, 73 ), PoolIntArray( 74, 2, 73 ), PoolIntArray( 74, 73, 48, 75 ), PoolIntArray( 75, 48, 5 ), PoolIntArray( 25, 75, 5 ), PoolIntArray( 66, 65, 5 ), PoolIntArray( 69, 66, 5 ), PoolIntArray( 69, 23, 0, 3 ), PoolIntArray( 67, 3, 2 ), PoolIntArray( 64, 67, 2 ), PoolIntArray( 2, 74, 24 ), PoolIntArray( 2, 24, 27 ), PoolIntArray( 64, 2, 27 ), PoolIntArray( 64, 27, 64 ) ]
+outlines = [ PoolVector2Array( 600, 560, 600, 880, 4520, 880, 4520, 1200, 600, 1200, 600, 1520, 1120, 1520, 1120, 1920, 760, 2280, 1280, 2280, 1280, 2000, 5680, 2000, 5680, 2080, 5760, 2080, 5760, 2000, 5960, 2000, 5960, 1840, 5800, 1840, 5800, 1960, 5560, 1960, 5560, 1840, 4720, 1840, 4720, 1960, 4400, 1960, 4400, 1880, 2280, 1880, 2280, 1600, 4400, 1600, 4400, 1520, 4760, 1520, 4760, 1600, 5480, 1600, 5480, 560, 4640, 560, 4640, 320, 4520, 320, 3560, 320, 3560, 560, 2402.28, 560, 2400, 320, 2040, 320, 2040, 360, 2360, 360, 2360, 560 ), PoolVector2Array( 3600, 360, 3600, 560, 4040, 560, 4040, 360 ), PoolVector2Array( 4080, 360, 4080, 560, 4520, 560, 4520, 360 ), PoolVector2Array( 3120, 1280, 3440, 1280, 3440, 1520, 3120, 1520 ), PoolVector2Array( 3000, 1280, 2680, 1280, 2680, 1520, 3000, 1520 ), PoolVector2Array( 2640, 1280, 2320, 1280, 2320, 1520, 2640, 1520 ), PoolVector2Array( 1040, 1280, 1440, 1280, 1440, 1480, 1040, 1480 ), PoolVector2Array( 1000, 1280, 640, 1280, 640, 1480, 1000, 1480 ), PoolVector2Array( 1480, 1280, 1760, 1280, 1760, 1480, 1480, 1480, 1480, 1280 ) ]
 
 [node name="MarketLevel" type="Node2D"]
 
 [node name="Node2D" type="Node2D" parent="."]
 z_index = -1000
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="Grass" type="TextureRect" parent="Node2D"]
 margin_left = -3229.0
@@ -50,13 +61,18 @@ scale = Vector2( 5.17855, 2.58915 )
 texture = ExtResource( 11 )
 
 [node name="YSort" type="YSort" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="Player" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 5162.82, 1880.94 )
+position = Vector2( 280, 480 )
 
 [node name="Camera2D" type="Camera2D" parent="YSort/Player"]
 current = true
 zoom = Vector2( 1.5, 1.5 )
+process_mode = 0
 smoothing_enabled = true
 
 [node name="MarketStall" parent="YSort" instance=ExtResource( 3 )]
@@ -1224,3 +1240,45 @@ texture = ExtResource( 10 )
 [node name="Sprite10" type="Sprite" parent="YSort"]
 position = Vector2( 6258.06, 2177.32 )
 texture = ExtResource( 10 )
+
+[node name="Farmer" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 5680, 2040 )
+
+[node name="Farmer2" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 5800, 1840 )
+
+[node name="Farmer3" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 4720, 1840 )
+
+[node name="Farmer4" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 2920, 2000 )
+
+[node name="Farmer5" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 760, 2280 )
+
+[node name="Farmer6" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 3120, 1320 )
+
+[node name="Farmer9" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 3720, 360 )
+
+[node name="Farmer10" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 4400, 360 )
+
+[node name="Farmer11" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 2080, 360 )
+
+[node name="Farmer12" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 2960, 520 )
+
+[node name="Farmer7" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 1040, 1360 )
+
+[node name="Farmer8" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 1480, 1360 )
+
+[node name="LevelNavMesh" type="Navigation2D" parent="."]
+script = ExtResource( 12 )
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="LevelNavMesh"]
+navpoly = SubResource( 1 )

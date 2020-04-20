@@ -131,6 +131,7 @@ position = Vector2( -170.971, -1640.37 )
 position = Vector2( 11.1426, 0 )
 current = true
 zoom = Vector2( 1.5, 1.5 )
+process_mode = 0
 smoothing_enabled = true
 
 [node name="BarnSide" parent="YSort" instance=ExtResource( 2 )]
