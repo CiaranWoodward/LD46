@@ -7,6 +7,7 @@ var eggcount = 0 setget set_eggcount, get_eggcount
 var beltitems = [null, null, null, null, null, null, null, null]
 var bulletField = null
 var player = null
+var navmesh : Navigation2D = null
 var eggcapacity = 0
 var eggcontent = 0
 
