@@ -144,7 +144,7 @@ tracks/10/keys = {
 [sub_resource type="Animation" id=2]
 length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("Farmer/Front_05x:rotation_degrees")
+tracks/0/path = NodePath("Farmer/Flipper/Front_05x:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -156,7 +156,7 @@ tracks/0/keys = {
 "values": [ 0.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Farmer/Back_05x:rotation_degrees")
+tracks/1/path = NodePath("Farmer/Flipper/Back_05x:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -222,7 +222,6 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=4]
 length = 0.3
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Farmer:scale")
 tracks/0/interp = 1
@@ -265,19 +264,23 @@ anims/Walk = SubResource( 3 )
 anims/Wobble = SubResource( 4 )
 
 [node name="Farmer" type="Node2D" parent="."]
-position = Vector2( 0, 55.0038 )
-rotation = 0.0207605
-scale = Vector2( 0.956162, 1.04384 )
+position = Vector2( 0, 57.617 )
+rotation = -0.046207
 
-[node name="Back_05x" type="Sprite" parent="Farmer"]
+[node name="Flipper" type="Node2D" parent="Farmer"]
+
+[node name="Back_05x" type="Sprite" parent="Farmer/Flipper"]
 position = Vector2( 7.008, -60 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 3 )
 
-[node name="Front_05x" type="Sprite" parent="Farmer"]
+[node name="Front_05x" type="Sprite" parent="Farmer/Flipper"]
 position = Vector2( 7.008, -60 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
+
+[node name="FirePoint" type="Position2D" parent="Farmer/Flipper"]
+position = Vector2( 76.7107, -54.1315 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2( 0, -10 )
@@ -307,7 +310,7 @@ hue_variation = 0.1
 hue_variation_random = 0.8
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 0, 30 )
+position = Vector2( 0, 60 )
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

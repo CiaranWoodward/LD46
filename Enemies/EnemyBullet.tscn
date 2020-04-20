@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Enemies/EnemyBullet.gd" type="Script" id=1]
+
+[sub_resource type="RayShape2D" id=1]
+length = 5.4001
+
+[node name="EnemyBullet" type="RigidBody2D"]
+collision_layer = 32
+collision_mask = 3
+mode = 2
+mass = 0.1
+continuous_cd = 1
+contacts_reported = 1
+contact_monitor = true
+linear_damp = 0.0
+script = ExtResource( 1 )
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PoolVector2Array( -5, 0, 5, 0 )
+width = 3.0
+default_color = Color( 0.819608, 0.180392, 0.054902, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -4, 0 )
+rotation = -1.5708
+shape = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+[connection signal="body_entered" from="." to="." method="_on_EnemyBullet_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_EnemyBullet_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
