@@ -5,19 +5,19 @@
 [ext_resource path="res://Scenery/Graphics/Shadow_@0.5x.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 52.1754, 26.9835 )
+extents = Vector2( 27.9586, 19.1288 )
 
 [node name="SmallCrate" type="RigidBody2D"]
-collision_layer = 2
-collision_mask = 0
+collision_layer = 64
+collision_mask = 71
 mode = 2
-mass = 10.0
+mass = 5.0
 script = ExtResource( 1 )
 health = 100.0
 
 [node name="Shadow_05x" type="Sprite" parent="."]
-position = Vector2( 0.154587, 79.7322 )
-scale = Vector2( 1.22032, 1.51853 )
+position = Vector2( 0, 61.053 )
+scale = Vector2( 0.818953, 0.874427 )
 z_index = -3
 texture = ExtResource( 3 )
 

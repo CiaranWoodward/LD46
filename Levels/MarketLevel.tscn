@@ -1,32 +1,58 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenery/Graphics/Market/MarketGround.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenery/MarketStall.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenery/Fence/FenceSide.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenery/Fence/FenceFront.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenery/Crate.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenery/SmallCrate.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenery/CollectEgg.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenery/Graphics/Ground/Grass_@0.5x.png" type="Texture" id=9]
+[ext_resource path="res://Scenery/Graphics/Bush_@0.5x.png" type="Texture" id=10]
+[ext_resource path="res://Scenery/Graphics/Shadow_@0.5x.png" type="Texture" id=11]
 
 [node name="MarketLevel" type="Node2D"]
 
 [node name="Node2D" type="Node2D" parent="."]
-visible = false
 z_index = -1000
 
-[node name="TextureRect" type="TextureRect" parent="Node2D"]
+[node name="Grass" type="TextureRect" parent="Node2D"]
+margin_left = -3229.0
+margin_top = -1488.0
+margin_right = 9649.0
+margin_bottom = 3902.0
+texture = ExtResource( 9 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Brick" type="TextureRect" parent="Node2D"]
 margin_left = 499.0
 margin_top = 257.0
 margin_right = 5578.0
-margin_bottom = 3115.0
+margin_bottom = 3948.0
 texture = ExtResource( 1 )
 stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Shadow" type="Sprite" parent="Node2D"]
+position = Vector2( 326.762, 789.44 )
+scale = Vector2( 3.40083, 3.37073 )
+texture = ExtResource( 11 )
+
+[node name="Shadow2" type="Sprite" parent="Node2D"]
+position = Vector2( 6125.18, 2180.95 )
+scale = Vector2( 5.17855, 2.58915 )
+texture = ExtResource( 11 )
+
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 165.486, 403.738 )
+position = Vector2( 5162.82, 1880.94 )
 
 [node name="Camera2D" type="Camera2D" parent="YSort/Player"]
 current = true
@@ -55,7 +81,7 @@ position = Vector2( 1872, 432 )
 position = Vector2( 2080, 432 )
 
 [node name="MarketStall12" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 2296, 432 )
+position = Vector2( 2243.16, 432 )
 
 [node name="MarketStall10" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 2704, 432 )
@@ -64,16 +90,7 @@ position = Vector2( 2704, 432 )
 position = Vector2( 2912, 432 )
 
 [node name="MarketStall72" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 637.036, 1736 )
-
-[node name="MarketStall71" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 845.036, 1736 )
-
-[node name="MarketStall70" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 1045.04, 1736 )
-
-[node name="MarketStall69" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 1253.04, 1736 )
+position = Vector2( 1458.19, 2300.06 )
 
 [node name="MarketStall63" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 2544, 1736 )
@@ -150,18 +167,6 @@ position = Vector2( 3898.28, 2758.43 )
 [node name="MarketStall128" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 4106.28, 2758.43 )
 
-[node name="MarketStall125" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 645.863, 2157.66 )
-
-[node name="MarketStall124" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 853.863, 2157.66 )
-
-[node name="MarketStall123" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 1053.86, 2157.66 )
-
-[node name="MarketStall122" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 1261.86, 2157.66 )
-
 [node name="MarketStall121" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 1461.86, 2157.66 )
 
@@ -184,7 +189,7 @@ position = Vector2( 2501.86, 2157.66 )
 position = Vector2( 2701.86, 2157.66 )
 
 [node name="MarketStall114" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 2909.86, 2157.66 )
+position = Vector2( 2866.81, 2159.14 )
 
 [node name="MarketStall16" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 656, 1056 )
@@ -196,25 +201,25 @@ position = Vector2( 864, 1056 )
 position = Vector2( 1064, 1056 )
 
 [node name="MarketStall13" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 1272, 1056 )
+position = Vector2( 1227.46, 1056 )
 
 [node name="MarketStall20" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 1488, 1056 )
+position = Vector2( 1439.01, 1057.48 )
 
 [node name="MarketStall19" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 1696, 1056 )
+position = Vector2( 1657.4, 1058.97 )
 
 [node name="MarketStall18" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 1896, 1056 )
+position = Vector2( 1860.37, 1057.48 )
 
 [node name="MarketStall17" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 2104, 1056 )
+position = Vector2( 2188.62, 1057.48 )
 
 [node name="MarketStall24" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 2312, 1056 )
+position = Vector2( 2389.2, 1056 )
 
 [node name="MarketStall23" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 2520, 1056 )
+position = Vector2( 2555.63, 1056 )
 
 [node name="MarketStall22" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 2720, 1056 )
@@ -244,19 +249,19 @@ position = Vector2( 4184, 1056 )
 position = Vector2( 4384, 1056 )
 
 [node name="MarketStall36" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 3128, 432 )
+position = Vector2( 3074.01, 432 )
 
 [node name="MarketStall35" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 3336, 432 )
+position = Vector2( 3288.9, 430.851 )
 
 [node name="MarketStall33" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 3744, 432 )
 
 [node name="MarketStall32" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 3960, 432 )
+position = Vector2( 3905.96, 432 )
 
 [node name="MarketStall31" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 4168, 432 )
+position = Vector2( 4207.69, 431.156 )
 
 [node name="MarketStall30" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 4368, 432 )
@@ -283,7 +288,7 @@ position = Vector2( 3576, 1736 )
 position = Vector2( 3274.19, 1377.69 )
 
 [node name="MarketStall99" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 2032.73, 1377.54 )
+position = Vector2( 2023.82, 1056.88 )
 
 [node name="MarketStall66" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 1874.7, 2735.67 )
@@ -301,13 +306,13 @@ position = Vector2( 4000, 1736 )
 position = Vector2( 4208, 1736 )
 
 [node name="MarketStall54" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 4408, 1736 )
+position = Vector2( 4370.09, 1736 )
 
 [node name="MarketStall53" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 4616, 1736 )
 
 [node name="MarketStall52" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 4824, 1736 )
+position = Vector2( 4869.95, 1736 )
 
 [node name="MarketStall51" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 5032, 1736 )
@@ -325,7 +330,7 @@ position = Vector2( 3118.48, 2456 )
 position = Vector2( 3326.48, 2456 )
 
 [node name="MarketStall82" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 3526.48, 2456 )
+position = Vector2( 3808.51, 2158.62 )
 
 [node name="MarketStall80" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 3950.48, 2456 )
@@ -352,7 +357,7 @@ position = Vector2( 5362.28, 2758.43 )
 position = Vector2( 4566.48, 2456 )
 
 [node name="MarketStall76" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 4774.48, 2456 )
+position = Vector2( 4353.78, 2158.56 )
 
 [node name="MarketStall75" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 4982.48, 2456 )
@@ -364,40 +369,40 @@ position = Vector2( 5182.48, 2456 )
 position = Vector2( 5390.48, 2456 )
 
 [node name="MarketStall113" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 3125.86, 2157.66 )
+position = Vector2( 3082.81, 2159.14 )
 
 [node name="MarketStall112" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 3333.86, 2157.66 )
+position = Vector2( 3289.32, 2162.11 )
 
 [node name="MarketStall111" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 3533.86, 2157.66 )
+position = Vector2( 3480.42, 2160.63 )
 
 [node name="MarketStall110" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 3741.86, 2157.66 )
+position = Vector2( 3639.43, 2160.63 )
 
 [node name="MarketStall109" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 3957.86, 2157.66 )
+position = Vector2( 3972.71, 2156.18 )
 
 [node name="MarketStall108" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 4165.86, 2157.66 )
+position = Vector2( 4161.41, 2162.11 )
 
 [node name="MarketStall107" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 4365.86, 2157.66 )
+position = Vector2( 4558.79, 2160.34 )
 
 [node name="MarketStall106" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 4573.86, 2157.66 )
+position = Vector2( 4720.34, 2159.36 )
 
 [node name="MarketStall105" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 4781.86, 2157.66 )
+position = Vector2( 4882.32, 2160.7 )
 
 [node name="MarketStall104" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 4989.86, 2157.66 )
+position = Vector2( 5072.05, 2160.7 )
 
 [node name="MarketStall100" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 5189.86, 2157.66 )
+position = Vector2( 5281.19, 2157.66 )
 
 [node name="MarketStall98" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 5397.86, 2157.66 )
+position = Vector2( 5489.19, 2154.62 )
 
 [node name="FenceSide" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 500.731, 2079.66 )
@@ -496,28 +501,28 @@ position = Vector2( 5578.84, 420.862 )
 position = Vector2( 5578.84, 302.676 )
 
 [node name="FenceSide36" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 5509.15, 3040.72 )
+position = Vector2( 5576.66, 3031.25 )
 
 [node name="FenceSide35" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 5509.15, 2921.52 )
+position = Vector2( 5576.66, 2912.05 )
 
 [node name="FenceSide34" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 5509.15, 2803.33 )
+position = Vector2( 5576.66, 2793.87 )
 
 [node name="FenceSide33" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 5508.74, 2684.52 )
+position = Vector2( 5576.25, 2675.05 )
 
 [node name="FenceSide32" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 5508.74, 2565.31 )
+position = Vector2( 5576.25, 2555.84 )
 
 [node name="FenceSide31" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 5508.74, 2447.12 )
+position = Vector2( 5576.25, 2437.66 )
 
 [node name="FenceSide30" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 5508.74, 2328.31 )
+position = Vector2( 5576.25, 2318.84 )
 
 [node name="FenceSide29" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 5508.74, 2209.1 )
+position = Vector2( 5576.25, 2199.63 )
 
 [node name="FenceSide25" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 5579.6, 1727.07 )
@@ -649,19 +654,573 @@ position = Vector2( 6348.2, 1721.62 )
 position = Vector2( 6176.87, 1721.62 )
 
 [node name="FenceFront48" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 5934.5, 2083.25 )
+position = Vector2( 6002.01, 2073.79 )
 
 [node name="FenceFront47" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 5763.71, 2082.92 )
+position = Vector2( 5831.22, 2073.46 )
 
 [node name="FenceFront46" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 5592.38, 2082.92 )
+position = Vector2( 5659.89, 2073.46 )
 
 [node name="FenceFront45" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 6449.36, 2083.25 )
+position = Vector2( 6516.87, 2073.79 )
 
 [node name="FenceFront44" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 6278.57, 2082.92 )
+position = Vector2( 6346.08, 2073.46 )
 
 [node name="FenceFront43" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 6107.24, 2082.92 )
+position = Vector2( 6174.75, 2073.46 )
+
+[node name="Crate" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 1402.67, 400.688 )
+
+[node name="Crate2" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 1460.68, 334.257 )
+
+[node name="Crate3" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 1152.85, 279.99 )
+
+[node name="Crate4" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 1969.36, 236.938 )
+
+[node name="Crate5" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 2569.12, 253.268 )
+
+[node name="Crate6" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 2456.29, 253.268 )
+
+[node name="Crate7" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 3456.89, 248.814 )
+
+[node name="Crate8" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 5507.06, 262.175 )
+
+[node name="Crate9" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 5383.84, 262.175 )
+
+[node name="Crate10" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 5431.35, 317.104 )
+
+[node name="Crate11" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 5501.12, 372.032 )
+
+[node name="Crate12" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 5340.79, 375.002 )
+
+[node name="Crate47" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 4272.07, 971.177 )
+
+[node name="Crate13" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 935.737, 1340.05 )
+
+[node name="Crate14" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 1332.88, 1345.8 )
+
+[node name="Crate15" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 2578.04, 1343.88 )
+
+[node name="Crate16" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 590.393, 954.411 )
+
+[node name="Crate17" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 1952.58, 983.19 )
+
+[node name="Crate18" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 2607.3, 980.724 )
+
+[node name="Crate19" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 605.742, 2182.3 )
+
+[node name="Crate20" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 575.045, 1718.01 )
+
+[node name="Crate29" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 980.193, 1816.94 )
+
+[node name="Crate31" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 1710.4, 2434.08 )
+
+[node name="Crate32" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 2426.48, 2424.66 )
+
+[node name="Crate33" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 1347.65, 2655.5 )
+
+[node name="Crate34" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 958.993, 2641.36 )
+
+[node name="Crate35" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 777.619, 2709.68 )
+
+[node name="Crate36" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 2391.14, 1703.87 )
+
+[node name="Crate37" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 3611.3, 2368.13 )
+
+[node name="Crate38" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 3173.17, 2671.99 )
+
+[node name="Crate39" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 3382.81, 2671.99 )
+
+[node name="Crate40" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 3658.41, 2683.76 )
+
+[node name="Crate41" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 3740.85, 2631.94 )
+
+[node name="Crate42" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 4459.28, 2278.62 )
+
+[node name="Crate43" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 5578.15, 2021.87 )
+
+[node name="Crate44" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 5710.06, 1807.52 )
+
+[node name="Crate45" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 5860.81, 2024.22 )
+
+[node name="Crate46" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 5328.47, 1623.79 )
+
+[node name="Crate30" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 1006.1, 1680.32 )
+
+[node name="Crate21" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 768.821, 1756.38 )
+
+[node name="Crate26" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 807.193, 1827.36 )
+
+[node name="Crate27" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 738.124, 1639.34 )
+
+[node name="Crate28" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 605.742, 1608.65 )
+
+[node name="Crate22" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 768.821, 1936.72 )
+
+[node name="Crate23" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 730.45, 2107.48 )
+
+[node name="Crate24" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 646.032, 1790.91 )
+
+[node name="Crate25" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 630.684, 1969.34 )
+
+[node name="SmallCrate" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 1490, 420.4 )
+
+[node name="SmallCrate2" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 1551.67, 385.333 )
+
+[node name="SmallCrate3" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 1550.46, 460.303 )
+
+[node name="SmallCrate4" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 1376.34, 357.522 )
+
+[node name="SmallCrate5" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 1221.56, 254.742 )
+
+[node name="SmallCrate6" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 2441.63, 336.966 )
+
+[node name="SmallCrate7" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 2483.95, 390.17 )
+
+[node name="SmallCrate8" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 2527.48, 373.242 )
+
+[node name="SmallCrate9" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 3516.59, 330.92 )
+
+[node name="SmallCrate10" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 2415.65, 1022.18 )
+
+[node name="SmallCrate11" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 2136.54, 1009.74 )
+
+[node name="SmallCrate12" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 1594.48, 994.251 )
+
+[node name="SmallCrate13" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 1223.68, 993.74 )
+
+[node name="SmallCrate14" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 1528.56, 992.851 )
+
+[node name="SmallCrate15" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 1140.13, 1104.85 )
+
+[node name="SmallCrate16" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 1077.91, 1105.74 )
+
+[node name="SmallCrate17" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 1015.69, 1107.51 )
+
+[node name="SmallCrate18" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 2847.63, 1774.16 )
+
+[node name="SmallCrate19" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 2847.63, 1720.83 )
+
+[node name="SmallCrate20" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 2847.63, 1685.27 )
+
+[node name="SmallCrate21" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 3111.62, 1695.05 )
+
+[node name="SmallCrate22" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 3433.39, 1703.05 )
+
+[node name="SmallCrate23" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 2556.72, 2221.86 )
+
+[node name="SmallCrate24" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 2392.64, 2065.59 )
+
+[node name="SmallCrate25" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 2151.98, 2104.66 )
+
+[node name="SmallCrate26" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 3403.7, 2142.17 )
+
+[node name="SmallCrate27" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 1576.91, 2210.93 )
+
+[node name="SmallCrate28" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 897.138, 1924.95 )
+
+[node name="SmallCrate29" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 667.422, 1710.86 )
+
+[node name="SmallCrate30" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 543.97, 1920.26 )
+
+[node name="SmallCrate31" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 626.792, 1884.32 )
+
+[node name="SmallCrate32" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 564.285, 2095.29 )
+
+[node name="SmallCrate33" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 903.389, 1728.05 )
+
+[node name="SmallCrate34" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 823.692, 1648.36 )
+
+[node name="SmallCrate35" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 664.297, 1590.54 )
+
+[node name="SmallCrate36" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 965.897, 1613.98 )
+
+[node name="SmallCrate37" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 764.309, 2060.91 )
+
+[node name="SmallCrate38" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 706.49, 1906.2 )
+
+[node name="SmallCrate39" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 4638.26, 1816.48 )
+
+[node name="SmallCrate40" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 4541.59, 1796.08 )
+
+[node name="SmallCrate41" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 4604.1, 1775.92 )
+
+[node name="SmallCrate42" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 4574.42, 1657.63 )
+
+[node name="SmallCrate43" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 4644.19, 1622 )
+
+[node name="SmallCrate44" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 4667.95, 1678.41 )
+
+[node name="SmallCrate45" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 4555.12, 1607.16 )
+
+[node name="SmallCrate46" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 4500.19, 1678.41 )
+
+[node name="SmallCrate47" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 4478.42, 1752.08 )
+
+[node name="SmallCrate48" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 4722.88, 1731.86 )
+
+[node name="SmallCrate49" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 4611.58, 1651.1 )
+
+[node name="SmallCrate50" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 4518.02, 1647.16 )
+
+[node name="SmallCrate51" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 4769.58, 1668.97 )
+
+[node name="CollectEgg" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 587.336, 354.6 )
+
+[node name="CollectEgg2" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 798.625, 254.047 )
+
+[node name="CollectEgg3" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 1244.11, 195.497 )
+
+[node name="CollectEgg4" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 750.258, 698.262 )
+
+[node name="CollectEgg5" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 1426.13, 382.602 )
+
+[node name="CollectEgg6" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 1904.71, 394.058 )
+
+[node name="CollectEgg7" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 2509.3, 233.682 )
+
+[node name="CollectEgg8" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 2753.68, 457.699 )
+
+[node name="CollectEgg9" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 3635.75, 195.497 )
+
+[node name="CollectEgg10" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 3451.19, 765.722 )
+
+[node name="CollectEgg14" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 3823.32, 376.612 )
+
+[node name="CollectEgg15" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 4374.74, 550.071 )
+
+[node name="CollectEgg16" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 4066.89, 842.294 )
+
+[node name="CollectEgg17" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 4446.63, 275.036 )
+
+[node name="CollectEgg18" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 5051.39, 251.596 )
+
+[node name="CollectEgg19" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 5515.51, 201.59 )
+
+[node name="CollectEgg20" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 5365.49, 348.483 )
+
+[node name="CollectEgg21" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 4871.68, 754.783 )
+
+[node name="CollectEgg22" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 5337.36, 631.33 )
+
+[node name="CollectEgg23" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 5287.36, 1112.64 )
+
+[node name="CollectEgg24" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 4663.84, 1250.16 )
+
+[node name="CollectEgg25" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 4732.6, 1154.83 )
+
+[node name="CollectEgg26" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 6024.43, 2044.78 )
+
+[node name="CollectEgg27" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 3951.25, 1098.58 )
+
+[node name="CollectEgg28" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 3188.66, 1342.36 )
+
+[node name="CollectEgg29" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 2871.43, 882.924 )
+
+[node name="CollectEgg30" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 2574.52, 1311.1 )
+
+[node name="CollectEgg31" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 1632.22, 1332.98 )
+
+[node name="CollectEgg56" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 1987.33, 1306.25 )
+z_index = 1
+
+[node name="CollectEgg57" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 2794.3, 1652.46 )
+z_index = 1
+
+[node name="CollectEgg58" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 2957.99, 976.439 )
+z_index = 1
+
+[node name="CollectEgg59" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 1676.75, 2079.73 )
+z_index = 1
+
+[node name="CollectEgg60" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 599.256, 973.824 )
+z_index = 1
+
+[node name="CollectEgg32" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 875.872, 1609.58 )
+
+[node name="CollectEgg33" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 652.406, 1817.41 )
+
+[node name="CollectEgg34" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 610.214, 1643.96 )
+
+[node name="CollectEgg35" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 799.3, 1822.1 )
+
+[node name="CollectEgg36" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 602.4, 2125.27 )
+
+[node name="CollectEgg37" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 1011.83, 1790.85 )
+
+[node name="CollectEgg38" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 541.455, 1842.42 )
+
+[node name="CollectEgg39" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 1038.39, 1667.4 )
+
+[node name="CollectEgg40" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 652.407, 2204.96 )
+
+[node name="CollectEgg41" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 699.287, 2389.36 )
+
+[node name="CollectEgg42" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 1380.62, 2350.29 )
+
+[node name="CollectEgg43" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 2346.37, 1697.09 )
+
+[node name="CollectEgg44" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 2855.8, 1743.97 )
+
+[node name="CollectEgg45" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 3435.56, 1600.2 )
+
+[node name="CollectEgg46" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 4123.15, 1918.99 )
+
+[node name="CollectEgg47" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 3510.57, 2104.95 )
+
+[node name="CollectEgg48" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 3185.53, 1914.3 )
+
+[node name="CollectEgg49" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 2980.82, 1761.16 )
+
+[node name="CollectEgg50" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 4129.4, 1398.61 )
+
+[node name="CollectEgg51" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 4494.06, 1612.82 )
+
+[node name="CollectEgg52" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 3599.25, 1485.76 )
+
+[node name="CollectEgg53" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 2303.72, 1985.12 )
+
+[node name="CollectEgg54" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 5410.64, 1768.42 )
+
+[node name="CollectEgg55" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 5712.14, 1773.13 )
+
+[node name="CollectEgg11" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 2957.33, 363.51 )
+z_index = 1
+
+[node name="CollectEgg12" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 2939.51, 349.509 )
+z_index = 1
+
+[node name="CollectEgg13" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 2972.61, 349.509 )
+z_index = 1
+
+[node name="Sprite" type="Sprite" parent="YSort"]
+position = Vector2( 428.479, 752.265 )
+texture = ExtResource( 10 )
+
+[node name="Sprite2" type="Sprite" parent="YSort"]
+position = Vector2( 354.703, 739.821 )
+texture = ExtResource( 10 )
+
+[node name="Sprite6" type="Sprite" parent="YSort"]
+position = Vector2( 424.923, 811.819 )
+texture = ExtResource( 10 )
+
+[node name="Sprite7" type="Sprite" parent="YSort"]
+position = Vector2( 424.923, 811.819 )
+texture = ExtResource( 10 )
+
+[node name="Sprite3" type="Sprite" parent="YSort"]
+position = Vector2( 246.262, 740.71 )
+texture = ExtResource( 10 )
+
+[node name="Sprite4" type="Sprite" parent="YSort"]
+position = Vector2( 283.595, 786.931 )
+texture = ExtResource( 10 )
+
+[node name="Sprite5" type="Sprite" parent="YSort"]
+position = Vector2( 349.37, 781.598 )
+texture = ExtResource( 10 )
+
+[node name="Sprite8" type="Sprite" parent="YSort"]
+position = Vector2( 227.596, 798.486 )
+texture = ExtResource( 10 )
+
+[node name="Sprite9" type="Sprite" parent="YSort"]
+position = Vector2( 320.038, 806.486 )
+texture = ExtResource( 10 )
+
+[node name="Sprite18" type="Sprite" parent="YSort"]
+position = Vector2( 6230.5, 2137.32 )
+texture = ExtResource( 10 )
+
+[node name="Sprite17" type="Sprite" parent="YSort"]
+position = Vector2( 6290.94, 2138.21 )
+texture = ExtResource( 10 )
+
+[node name="Sprite16" type="Sprite" parent="YSort"]
+position = Vector2( 5930.96, 2144.44 )
+texture = ExtResource( 10 )
+
+[node name="Sprite15" type="Sprite" parent="YSort"]
+position = Vector2( 5974.51, 2185.32 )
+texture = ExtResource( 10 )
+
+[node name="Sprite14" type="Sprite" parent="YSort"]
+position = Vector2( 6026.95, 2142.66 )
+texture = ExtResource( 10 )
+
+[node name="Sprite13" type="Sprite" parent="YSort"]
+position = Vector2( 6085.62, 2171.99 )
+texture = ExtResource( 10 )
+
+[node name="Sprite12" type="Sprite" parent="YSort"]
+position = Vector2( 6151.39, 2166.66 )
+texture = ExtResource( 10 )
+
+[node name="Sprite11" type="Sprite" parent="YSort"]
+position = Vector2( 6044.73, 2188.88 )
+texture = ExtResource( 10 )
+
+[node name="Sprite10" type="Sprite" parent="YSort"]
+position = Vector2( 6258.06, 2177.32 )
+texture = ExtResource( 10 )
