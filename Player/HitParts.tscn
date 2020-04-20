@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Player/HitParts.gd" type="Script" id=1]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.733728, 1 )
+colors = PoolColorArray( 0.800781, 0.559824, 0.375366, 1, 0.682353, 0.321569, 0, 1, 0.682353, 0.321569, 0.0470588, 0 )
+
+[node name="HitParts" type="CPUParticles2D"]
+emitting = false
+one_shot = true
+explosiveness = 0.96
+spread = 180.0
+initial_velocity = 35.0
+initial_velocity_random = 0.33
+angular_velocity = 100.0
+angular_velocity_random = 0.5
+scale_amount = 3.0
+scale_amount_random = 0.1
+color_ramp = SubResource( 1 )
+script = ExtResource( 1 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Scenery/Barn/BarnRoofFront.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenery/Fence/FenceSide.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenery/Barn/BarnDoorBack.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scenery/Destructable.gd" type="Script" id=22]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.524, 31.0884 )
@@ -89,6 +90,8 @@ position = Vector2( 314.668, -744.339 )
 position = Vector2( 675.542, 244.695 )
 collision_layer = 2
 mode = 2
+script = ExtResource( 22 )
+health = 50.0
 
 [node name="Sprite2" type="Sprite" parent="YSort/RigidBody2D"]
 position = Vector2( -0.0614624, -26.7603 )
@@ -161,7 +164,7 @@ position = Vector2( 690.362, -64.8157 )
 position = Vector2( 444.666, -39.1909 )
 
 [node name="Crate" parent="YSort" instance=ExtResource( 11 )]
-position = Vector2( 283.053, -152.062 )
+position = Vector2( 281.466, -152.062 )
 
 [node name="EmptyTrough" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 872.061, -75.083 )
