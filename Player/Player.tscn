@@ -619,6 +619,7 @@ texture = ExtResource( 44 )
 scale = Vector2( 0.996746, 1.00442 )
 
 [node name="Side" type="Sprite" parent="SpriteRoot/WobbleRoot"]
+visible = false
 position = Vector2( 88.2873, 87.6128 )
 scale = Vector2( 0.995, 1.005 )
 offset = Vector2( -216.596, 167.539 )

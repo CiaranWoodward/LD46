@@ -4,20 +4,23 @@ enum ai_state{
 	idle,
 	towards,
 	shoot,
-	runaway
-}
+	runaway,
+	dead
+	}
 
 export var bulletforce : float = 900
 export var spread : float = 0.2
 export var bulletmass : float = 0.1
+export var health : float = 100.0
 
 onready var firetimer = get_node("FireTimer")
 onready var firepoint = get_node("Farmer/Flipper/FirePoint")
 onready var animp = get_node("AnimationPlayer")
 
 onready var enemybullet = preload("res://Enemies/EnemyBullet.tscn")
+onready var blood = preload("res://Enemies/Blood.tscn")
 
-var cur_state = ai_state.idle
+var cur_state = ai_state.shoot
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,9 +38,11 @@ func _process(delta):
 		pass
 
 func _change_ai_state(newstate):
-	pass
+	cur_state = newstate
 
 func _shoot():
+	if cur_state != ai_state.shoot:
+		return
 	var fp = firepoint.get_global_position()
 	var newBullet = enemybullet.instance()
 	if !is_instance_valid(Global.bulletField):
@@ -52,6 +57,25 @@ func _shoot():
 	newBullet.linear_velocity = newforce
 	newBullet.set_dir(newforce.angle())
 	animp.play("Wobble")
+
+func damage(damage : float, gpos : Vector2):
+	health = health - damage
+	
+	if gpos != Vector2.INF:
+		var hp = blood.instance()
+		add_child(hp)
+		hp.set_global_position(gpos)
+		hp.emitting = true
+		if health <= 0:
+			_die()
+
+func _die():
+	self.mass = 20
+	self.collision_layer = 0
+	self.collision_mask = 0
+	self.z_index = -2
+	animp.play("Death")
+	_change_ai_state(ai_state.dead)
 
 func _on_FireTimer_timeout():
 	_shoot()

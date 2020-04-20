@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 onready var line = get_node("Line2D")
+onready var shadow = get_node("Shadow")
 onready var timer = get_node("Timer")
 
 var multiplier : float = 1
@@ -10,7 +11,9 @@ func _ready():
 	pass # Replace with function body.
 
 func _physics_process(delta):
-	line.set_rotation(linear_velocity.angle())
+	var angle = linear_velocity.angle()
+	line.set_rotation(angle)
+	shadow.set_rotation(angle)
 	if linear_velocity.length_squared() < 20:
 		self.queue_free()
 
@@ -19,6 +22,7 @@ func _on_Timer_timeout():
 
 func set_dir(angle : float):
 	line.set_rotation(angle)
+	shadow.set_rotation(angle)
 
 func set_timeout(timeout : float):
 	timer.start(timeout)

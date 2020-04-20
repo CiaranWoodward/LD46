@@ -21,6 +21,14 @@ points = PoolVector2Array( -5, 0, 5, 0 )
 width = 3.0
 default_color = Color( 0.886275, 0.670588, 0.164706, 1 )
 
+[node name="Shadow" type="Line2D" parent="."]
+self_modulate = Color( 0, 0, 0, 0.196078 )
+position = Vector2( 0, 60 )
+z_index = -4
+points = PoolVector2Array( -5, 0, 5, 0 )
+width = 3.0
+default_color = Color( 0.886275, 0.670588, 0.164706, 1 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -4, 0 )
 rotation = -1.5708
