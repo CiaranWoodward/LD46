@@ -30,6 +30,7 @@ func set_rotsprite(dir : int):
 func begin_fire(body : RigidBody2D):
 	parent = body
 	isfiring = true
+	flame.rotate(flame.get_local_mouse_position().angle())
 	flame.emitting = true
 	if fireTimer.is_stopped():
 		fireTimer.start()
