@@ -4,18 +4,26 @@
 [ext_resource path="res://Scenery/Graphics/Crate_@0.5x.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 52.2813, 28.7414 )
+extents = Vector2( 52.1754, 26.9835 )
 
 [node name="Crate" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 0
+mode = 2
+mass = 10.0
 
 [node name="Shadow_05x" type="Sprite" parent="."]
-position = Vector2( 0, 63.3812 )
+position = Vector2( 0.630249, 85.44 )
 scale = Vector2( 1.22032, 1.51853 )
+z_index = -3
 texture = ExtResource( 1 )
 
 [node name="Crate_05x" type="Sprite" parent="."]
-position = Vector2( 0, 20.7312 )
+position = Vector2( 0.630249, 42.79 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 0, 80 )

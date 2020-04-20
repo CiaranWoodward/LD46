@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -6,13 +6,84 @@
 [ext_resource path="res://Player/PlayerBullet.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenery/CollectEgg.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Menu/EggContentCounter.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenery/Hay.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenery/WaterTrough.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenery/Graphics/Ground/Barn_Floor_@0.5x.png" type="Texture" id=9]
+[ext_resource path="res://Scenery/Graphics/Ground/Mud_Floor_@0.5x.png" type="Texture" id=10]
+[ext_resource path="res://Scenery/Crate.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenery/EmptyTrough.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenery/Barn/BarnFront.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenery/Barn/BarnSide.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenery/Barn/BarnDoorFront.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenery/Barn/BarnRoofFrontCorner.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenery/Barn/BarnRoofSide.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenery/Fence/FenceFront.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenery/Barn/BarnRoofFront.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenery/Fence/FenceSide.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scenery/Barn/BarnDoorBack.tscn" type="PackedScene" id=21]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.524, 31.0884 )
 
 [node name="Level" type="Node2D"]
 
+[node name="Node2D" type="Node2D" parent="."]
+z_index = -1000
+z_as_relative = false
+
+[node name="TextureRect" type="TextureRect" parent="Node2D"]
+self_modulate = Color( 0.701961, 0.701961, 0.701961, 1 )
+margin_right = 1000.0
+margin_bottom = 1000.0
+texture = ExtResource( 9 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Node2D"]
+margin_left = -0.603821
+margin_top = -1001.73
+margin_right = 999.396
+margin_bottom = -1.72845
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="YSort" type="YSort" parent="."]
+
+[node name="BarnDoorBack" parent="YSort" instance=ExtResource( 21 )]
+position = Vector2( 204.795, -479.993 )
+
+[node name="BarnDoorFront" parent="YSort" instance=ExtResource( 15 )]
+position = Vector2( 336.575, -473.176 )
+
+[node name="BarnFront" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 542.594, -507.66 )
+
+[node name="BarnRoofFront" parent="YSort" instance=ExtResource( 19 )]
+position = Vector2( 543.368, -540.933 )
+
+[node name="BarnRoofFrontCorner" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( 718.635, -540.848 )
+
+[node name="BarnRoofSide" parent="YSort" instance=ExtResource( 17 )]
+position = Vector2( 789.48, -584.561 )
+
+[node name="BarnSide" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( 783.451, -558.936 )
+
+[node name="BarnFront2" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 693.011, -507.687 )
+
+[node name="FenceFront" parent="YSort" instance=ExtResource( 18 )]
+position = Vector2( 227.242, -694.597 )
+
+[node name="FenceSide" parent="YSort" instance=ExtResource( 20 )]
+position = Vector2( 314.668, -744.339 )
 
 [node name="RigidBody2D" type="RigidBody2D" parent="YSort"]
 position = Vector2( 675.542, 244.695 )
@@ -82,6 +153,18 @@ position = Vector2( -14.9146, 428.481 )
 
 [node name="CollectEgg13" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( -73.7008, 253.63 )
+
+[node name="WaterTrough" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 690.362, -64.8157 )
+
+[node name="Hay" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 444.666, -39.1909 )
+
+[node name="Crate" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 283.053, -152.062 )
+
+[node name="EmptyTrough" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 872.061, -75.083 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

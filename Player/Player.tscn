@@ -573,6 +573,7 @@ _data = {
 radius = 99.0995
 
 [node name="Player" type="RigidBody2D"]
+collision_mask = 71
 mode = 2
 mass = 2.0
 linear_damp = 13.528
