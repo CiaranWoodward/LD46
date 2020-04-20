@@ -1,14 +1,31 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenery/Graphics/Market/ColourLayer_@0.5x.png" type="Texture" id=1]
 [ext_resource path="res://Scenery/Graphics/Market/MarketStall_@0.5x.png" type="Texture" id=2]
+[ext_resource path="res://Scenery/Graphics/Shadow_@0.5x.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 72.4305, 23.9783 )
 
 [node name="MarketStall" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 2
 
-[node name="MarketStall_05x" type="Sprite" parent="."]
-position = Vector2( 139.046, 162.969 )
-texture = ExtResource( 2 )
+[node name="Shadow_05x" type="Sprite" parent="."]
+position = Vector2( 0, 59.599 )
+scale = Vector2( 1.61527, 1.34399 )
+texture = ExtResource( 3 )
 
 [node name="ColourLayer_05x" type="Sprite" parent="."]
-position = Vector2( 406.563, 272.408 )
+position = Vector2( 0, -70.803 )
 texture = ExtResource( 1 )
+
+[node name="MarketStall_05x" type="Sprite" parent="."]
+position = Vector2( 0, -12.383 )
+texture = ExtResource( 2 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 0, 60 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

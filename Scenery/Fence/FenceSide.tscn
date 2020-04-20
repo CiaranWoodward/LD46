@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenery/Graphics/Fence/Fence_Side_@0.5x.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 3.18788, 52.0471 )
+extents = Vector2( 8.97701, 52.0471 )
 
 [node name="FenceSide" type="StaticBody2D"]
 collision_layer = 64
