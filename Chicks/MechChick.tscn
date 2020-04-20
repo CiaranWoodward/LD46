@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Chicks/Graphics/Mech0.png" type="Texture" id=1]
+[ext_resource path="res://Chicks/Graphics/Mech3.png" type="Texture" id=2]
+[ext_resource path="res://Chicks/Graphics/Mech2.png" type="Texture" id=3]
+[ext_resource path="res://Chicks/Graphics/Mech1.png" type="Texture" id=4]
+[ext_resource path="res://Scenery/Graphics/Shadow_@0.5x.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 11.4083
+height = 44.2575
+
+[sub_resource type="Animation" id=3]
+resource_name = "Wobble"
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5, 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1.68179, 0.68302, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 13.1722, 22.1533 ), Vector2( 13.1722, 22.1533 ), Vector2( 13.1722, 25.4704 ), Vector2( 13.1722, 22.1533 ), Vector2( 13.1722, 22.1533 ) ]
+}
+
+[node name="MechChick" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 69
+
+[node name="Shadow_05x" type="Sprite" parent="."]
+position = Vector2( 0, 54.702 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 0, 60 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 13.1722, 22.1533 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+frame = 4
+speed_scale = 0.55
+playing = true
+offset = Vector2( -15.308, 29.9265 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Wobble = SubResource( 3 )
