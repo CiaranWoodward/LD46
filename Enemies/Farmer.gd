@@ -33,7 +33,10 @@ var path_to_player : PoolVector2Array = PoolVector2Array()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	#Randomize timers slightly for performance and beauty
+	firetimer.wait_time *= rand_range(0.9, 1.1)
+	pathtimer.wait_time *= rand_range(0.9, 1.1) 
+	sensetimer.wait_time *= rand_range(0.9, 1.1) 
 	#we start in idle
 	sensetimer.start()
 
@@ -104,15 +107,15 @@ func _move_to_player(delta : float):
 
 func _can_see_player() -> bool:
 	# Is player too far away?
-	if firepoint.get_global_position().distance_to(Global.player.get_global_position()) > perceived_range:
+	if firepoint.get_global_position().distance_to(Global.player.get_heartpos()) > perceived_range:
 		return false
 	# Is there hard scenery between us and player?
 	var space_state = get_world_2d().direct_space_state
-	return space_state.intersect_ray(firepoint.get_global_position(), Global.player.get_global_position(), [self], (1<<1)).empty()
+	return space_state.intersect_ray(firepoint.get_global_position(), Global.player.get_heartpos(), [self], (1<<1)).empty()
 
 func _can_sense_player() -> bool:
 	# Is player really close?
-	var playerdist = firepoint.get_global_position().distance_to(Global.player.get_global_position()) 
+	var playerdist = firepoint.get_global_position().distance_to(Global.player.get_heartpos()) 
 	if playerdist < perceived_range:
 		return true
 	
@@ -122,7 +125,7 @@ func _can_sense_player() -> bool:
 		
 	# Is there hard scenery between us and player?
 	var space_state = get_world_2d().direct_space_state
-	return space_state.intersect_ray(firepoint.get_global_position(), Global.player.get_global_position(), [self], (1<<1)).empty()
+	return space_state.intersect_ray(firepoint.get_global_position(), Global.player.get_heartpos(), [self], (1<<1)).empty()
 	
 
 func _sense():
@@ -133,7 +136,7 @@ func _sense():
 		_change_ai_state(ai_state.towards)
 
 func _aim():
-	var toplayer = Global.player.get_global_position() - firepoint.get_global_position()
+	var toplayer = Global.player.get_heartpos() - firepoint.get_global_position()
 	if toplayer.x > 50:
 		flipper.scale.x = 1
 	elif toplayer.x < -50:
@@ -154,7 +157,7 @@ func _shoot():
 		return
 	Global.bulletField.add_child(newBullet)
 	newBullet.set_global_position(fp)
-	var toplayer = Global.player.get_global_position() - firepoint.get_global_position()
+	var toplayer = Global.player.get_heartpos() - firepoint.get_global_position()
 	
 	if toplayer.y > 50:
 		frontsprite.visible = true

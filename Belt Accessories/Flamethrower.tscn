@@ -25,6 +25,7 @@ description = "Flamethrower"
 cost = 50
 is_weapon = true
 icon_texture = ExtResource( 11 )
+damagemultiplier = 15.0
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 294.949, 5.38506 )

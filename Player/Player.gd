@@ -64,6 +64,9 @@ func _handle_aim(delta):
 	var mousepos = aimPoint.get_local_mouse_position()
 	belt.set_belt_angle(mousepos.angle())
 
+func get_heartpos() -> Vector2:
+	return aimPoint.get_global_position()
+
 func _handle_fire(delta):
 	var lwep = belt.get_left_weapon()
 	var rwep = belt.get_right_weapon()
