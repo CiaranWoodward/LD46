@@ -49,7 +49,10 @@ func _shoot():
 		return
 	Global.bulletField.add_child(newBullet)
 	newBullet.set_global_position(fp)
-	var toplayer = Global.player.get_global_position() - self.get_global_position()
+	var toplayer = Global.player.get_global_position() - firepoint.get_global_position()
+	# Extrapolate player's future position
+	var timetoplayer = toplayer.length() / bulletforce
+	toplayer = toplayer + timetoplayer * Global.player.linear_velocity
 	var newforce = toplayer.normalized() * bulletforce
 	newforce.x = newforce.x * (1 + rand_range(-spread, spread))
 	newforce.y = newforce.y * (1 + rand_range(-spread, spread))
