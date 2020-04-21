@@ -146,8 +146,8 @@ tracks/3/keys = {
 }
 
 [node name="ChickInCage" type="RigidBody2D"]
-collision_layer = 64
-collision_mask = 86
+collision_layer = 2
+collision_mask = 119
 mode = 2
 mass = 10.0
 
@@ -164,21 +164,19 @@ position = Vector2( 0.568787, 44.6052 )
 texture = ExtResource( 3 )
 
 [node name="Free" type="AnimatedSprite" parent="."]
-visible = false
-modulate = Color( 1, 1, 1, 0.985041 )
-position = Vector2( -61.3823, 66.8153 )
+position = Vector2( 5.99371, 39.4157 )
 rotation = -0.0349066
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 4 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="Caged" type="AnimatedSprite" parent="."]
-position = Vector2( 39.2999, 37.3368 )
+visible = false
+position = Vector2( 11.9485, 52.2557 )
 rotation = -0.0349066
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
-frame = 4
 speed_scale = 0.3
 playing = true
 

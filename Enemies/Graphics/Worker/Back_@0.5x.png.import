@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WorkerDead.png-3df944bcfe54073d29cba8528f0538ac.stex"
+path="res://.import/Back_@0.5x.png-45a6be09b102c180c9388ae59cce446b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemies/Graphics/Worker/WorkerDead.png"
-dest_files=[ "res://.import/WorkerDead.png-3df944bcfe54073d29cba8528f0538ac.stex" ]
+source_file="res://Enemies/Graphics/Worker/Back_@0.5x.png"
+dest_files=[ "res://.import/Back_@0.5x.png-45a6be09b102c180c9388ae59cce446b.stex" ]
 
 [params]
 
