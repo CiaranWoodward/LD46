@@ -1,12 +1,22 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenery/Graphics/Shadow_@0.5x.png" type="Texture" id=1]
 [ext_resource path="res://Scenery/Graphics/BatteryFarm/CageFront_@0.5x.png" type="Texture" id=2]
 [ext_resource path="res://Scenery/Graphics/BatteryFarm/CageBack_@0.5x.png" type="Texture" id=3]
 [ext_resource path="res://Chicks/Graphics/Cage0.png" type="Texture" id=4]
 [ext_resource path="res://Chicks/Graphics/Cage1.png" type="Texture" id=5]
+[ext_resource path="res://Chicks/Graphics/Free0.png" type="Texture" id=6]
+[ext_resource path="res://Chicks/Graphics/Free1.png" type="Texture" id=7]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
@@ -14,11 +24,126 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 74.6921, 44.0648 )
 
 [sub_resource type="Animation" id=3]
-resource_name = "Move"
+resource_name = "Caged"
+loop = true
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("Caged:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Caged:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.125, 0.25, 0.35, 0.525, 0.625, 0.7, 0.85 ),
+"transitions": PoolRealArray( 1.6245, 2.37842, 0.535887, 3.13834, 0.659754, 1.7411, 0.732043, 1.6245 ),
+"update": 0,
+"values": [ Vector2( 39.2999, 37.3368 ), Vector2( 43.378, 40.1271 ), Vector2( -30.6722, 62.0202 ), Vector2( 2.167, 44.86 ), Vector2( 46.1683, 63.308 ), Vector2( -34.7503, 24.6731 ), Vector2( -24.4477, 72.1082 ), Vector2( 39.2999, 37.3368 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Caged:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -2.0, -2.0, -2.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Caged:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Free:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Free"
+length = 0.1
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("Free:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 5.99371, 39.4157 ), Vector2( -148.009, 102.043 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Free:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 3.03143, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Free:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Caged:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [node name="ChickInCage" type="RigidBody2D"]
 collision_layer = 64
@@ -38,11 +163,22 @@ position = Vector2( 0, 60 )
 position = Vector2( 0.568787, 44.6052 )
 texture = ExtResource( 3 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -26.1648, 35.8343 )
+[node name="Free" type="AnimatedSprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.985041 )
+position = Vector2( -61.3823, 66.8153 )
+rotation = -0.0349066
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 2 )
-frame = 3
+frames = SubResource( 4 )
+frame = 1
+playing = true
+
+[node name="Caged" type="AnimatedSprite" parent="."]
+position = Vector2( 39.2999, 37.3368 )
+rotation = -0.0349066
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+frame = 4
 speed_scale = 0.3
 playing = true
 
@@ -52,7 +188,9 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Move = SubResource( 3 )
+playback_speed = 0.1
+anims/Caged = SubResource( 3 )
+anims/Free = SubResource( 5 )

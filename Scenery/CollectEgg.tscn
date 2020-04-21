@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Menu/Graphics/Curency Egg.png" type="Texture" id=1]
 [ext_resource path="res://Belt Accessories/Graphics/Machine Gun/Casing.png" type="Texture" id=2]
@@ -24,6 +24,35 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=2]
+resource_name = "Pop"
+length = 0.05
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pop:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Currency Egg:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=3]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -51,7 +80,7 @@ tracks/1/keys = {
 "values": [ -180.0, -180.0, -90.0, 0.0, 90.0, 180.0 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.55
 loop = true
 step = 0.05
@@ -80,7 +109,7 @@ tracks/1/keys = {
 "values": [ -180.0, -90.0, 0.0, 90.0, 180.0 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.3
 loop = true
 tracks/0/type = "value"
@@ -96,44 +125,44 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.9, 1.05 ), Vector2( 1.05, 0.95 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=5]
+[sub_resource type="AnimationNodeAnimation" id=6]
 animation = "Sparkle"
 
-[sub_resource type="AnimationNodeAnimation" id=6]
+[sub_resource type="AnimationNodeAnimation" id=7]
 animation = "Sparkle2"
 
-[sub_resource type="AnimationNodeAnimation" id=7]
+[sub_resource type="AnimationNodeAnimation" id=8]
 animation = "Jiggle"
 
-[sub_resource type="AnimationNodeAnimation" id=8]
+[sub_resource type="AnimationNodeAnimation" id=9]
 animation = "Wobble"
-
-[sub_resource type="AnimationNodeBlend2" id=9]
 
 [sub_resource type="AnimationNodeBlend2" id=10]
 
 [sub_resource type="AnimationNodeBlend2" id=11]
 
-[sub_resource type="AnimationNodeBlendTree" id=12]
-graph_offset = Vector2( 265.138, 0 )
-nodes/Animation/node = SubResource( 8 )
+[sub_resource type="AnimationNodeBlend2" id=12]
+
+[sub_resource type="AnimationNodeBlendTree" id=13]
+graph_offset = Vector2( 0, 101.087 )
+nodes/Animation/node = SubResource( 9 )
 nodes/Animation/position = Vector2( 600, 120 )
-"nodes/Animation 2/node" = SubResource( 5 )
+"nodes/Animation 2/node" = SubResource( 6 )
 "nodes/Animation 2/position" = Vector2( 400, 200 )
-"nodes/Animation 3/node" = SubResource( 6 )
+"nodes/Animation 3/node" = SubResource( 7 )
 "nodes/Animation 3/position" = Vector2( 400, 320 )
-"nodes/Animation 4/node" = SubResource( 7 )
+"nodes/Animation 4/node" = SubResource( 8 )
 "nodes/Animation 4/position" = Vector2( 760, 40 )
-nodes/Blend2/node = SubResource( 11 )
+nodes/Blend2/node = SubResource( 12 )
 nodes/Blend2/position = Vector2( 580, 240 )
-"nodes/Blend2 2/node" = SubResource( 9 )
+"nodes/Blend2 2/node" = SubResource( 10 )
 "nodes/Blend2 2/position" = Vector2( 760, 180 )
-"nodes/Blend2 3/node" = SubResource( 10 )
+"nodes/Blend2 3/node" = SubResource( 11 )
 "nodes/Blend2 3/position" = Vector2( 980, 80 )
 nodes/output/position = Vector2( 1200, 140 )
-node_connections = [ "output", 0, "Blend2 3", "Blend2", 0, "Animation 2", "Blend2", 1, "Animation 3", "Blend2 3", 0, "Animation 4", "Blend2 3", 1, "Blend2 2", "Blend2 2", 0, "Animation", "Blend2 2", 1, "Blend2" ]
+node_connections = [ "output", 0, "Blend2 3", "Blend2", 0, "Animation 2", "Blend2", 1, "Animation 3", "Blend2 2", 0, "Animation", "Blend2 2", 1, "Blend2", "Blend2 3", 0, "Animation 4", "Blend2 3", 1, "Blend2 2" ]
 
-[sub_resource type="CircleShape2D" id=13]
+[sub_resource type="CircleShape2D" id=14]
 
 [node name="CollectEgg" type="Area2D"]
 monitoring = false
@@ -143,12 +172,13 @@ script = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Jiggle = SubResource( 1 )
-anims/Sparkle = SubResource( 2 )
-anims/Sparkle2 = SubResource( 3 )
-anims/Wobble = SubResource( 4 )
+anims/Pop = SubResource( 2 )
+anims/Sparkle = SubResource( 3 )
+anims/Sparkle2 = SubResource( 4 )
+anims/Wobble = SubResource( 5 )
 
 [node name="AnimationTree" type="AnimationTree" parent="AnimationPlayer"]
-tree_root = SubResource( 12 )
+tree_root = SubResource( 13 )
 anim_player = NodePath("..")
 active = true
 parameters/Blend2/blend_amount = 0.5
@@ -156,6 +186,7 @@ parameters/Blend2/blend_amount = 0.5
 "parameters/Blend2 3/blend_amount" = 0.5
 
 [node name="Currency Egg" type="Node2D" parent="."]
+visible = false
 position = Vector2( -10.057, 60 )
 rotation = 3.14159
 
@@ -167,16 +198,16 @@ texture = ExtResource( 3 )
 
 [node name="Egg" type="Sprite" parent="Currency Egg"]
 position = Vector2( -10.3676, -26.7002 )
-rotation = -3.62213
-scale = Vector2( 0.921557, 1.03922 )
+rotation = -2.87701
+scale = Vector2( 0.92507, 1.03747 )
 texture = ExtResource( 1 )
 offset = Vector2( 0.379073, -10.0711 )
 
 [node name="Sparkle2" type="Sprite" parent="Currency Egg"]
 modulate = Color( 1, 0.843137, 0, 1 )
 position = Vector2( -14.2651, -25.085 )
-rotation = 0.879269
-scale = Vector2( 0.47012, 0.47012 )
+rotation = -1.54538
+scale = Vector2( 0.655335, 0.655335 )
 texture = ExtResource( 2 )
 
 [node name="Sparkle2" type="Sprite" parent="Currency Egg/Sparkle2"]
@@ -187,8 +218,8 @@ texture = ExtResource( 2 )
 [node name="Sparkle" type="Sprite" parent="Currency Egg"]
 modulate = Color( 1, 0.843137, 0, 1 )
 position = Vector2( -6.1653, -10.9384 )
-rotation = -0.34614
-scale = Vector2( 1.08054, 1.08054 )
+rotation = 2.39121
+scale = Vector2( 0.761145, 0.761145 )
 texture = ExtResource( 2 )
 
 [node name="Sparkle2" type="Sprite" parent="Currency Egg/Sparkle"]
@@ -197,11 +228,32 @@ rotation = 1.55751
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 13 )
+shape = SubResource( 14 )
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 0.463287, 88.9516 )
 
 [node name="Eggpop" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
+
+[node name="Pop" type="CPUParticles2D" parent="."]
+position = Vector2( -0.174829, 77.0976 )
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.7
+emission_shape = 1
+emission_sphere_radius = 3.0
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 120.0
+angular_velocity = -720.0
+damping = 100.0
+damping_random = 0.24
+scale_amount = 4.0
+scale_amount_random = 0.8
+color = Color( 0.807843, 0.541176, 0.831373, 1 )
+hue_variation = 1.0
+hue_variation_random = 1.0
 [connection signal="finished" from="Eggpop" to="." method="_on_Eggpop_finished"]
