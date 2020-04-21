@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenery/Graphics/Market/ColourLayer_@0.5x.png" type="Texture" id=1]
 [ext_resource path="res://Scenery/Graphics/Market/MarketStall_@0.5x.png" type="Texture" id=2]
 [ext_resource path="res://Scenery/Graphics/Shadow_@0.5x.png" type="Texture" id=3]
+[ext_resource path="res://Scenery/MarketStall.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 72.4305, 23.9783 )
@@ -10,6 +11,7 @@ extents = Vector2( 72.4305, 23.9783 )
 [node name="MarketStall" type="StaticBody2D"]
 collision_layer = 2
 collision_mask = 118
+script = ExtResource( 4 )
 
 [node name="Shadow_05x" type="Sprite" parent="."]
 position = Vector2( 0, 59.599 )
