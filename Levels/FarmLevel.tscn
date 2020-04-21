@@ -130,7 +130,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 6638.13, -2678.92 )
+position = Vector2( -659.551, -1454.22 )
 
 [node name="Camera2D" type="Camera2D" parent="YSort/Player"]
 position = Vector2( 11.1426, 0 )
@@ -3153,9 +3153,11 @@ position = Vector2( 6823.76, -2803.66 )
 
 [node name="GuideChick" parent="YSort" instance=ExtResource( 22 )]
 position = Vector2( -902.539, -1488.77 )
+speech = PoolStringArray( "Hi there!", "Speak to my wife for parts!", "We need to keep those stolen eggs alive!", "" )
 
 [node name="GuideChick2" parent="YSort" instance=ExtResource( 22 )]
 position = Vector2( 3320.17, -1365.46 )
+speech = PoolStringArray( "Good Job!", "Get in the truck!", "" )
 
 [node name="GuideChick3" parent="YSort" instance=ExtResource( 22 )]
 position = Vector2( 6749.43, -2809.54 )
