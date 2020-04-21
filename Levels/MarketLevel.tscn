@@ -1289,9 +1289,11 @@ nextLevel = ExtResource( 17 )
 
 [node name="GuideChick" parent="YSort" instance=ExtResource( 14 )]
 position = Vector2( -20.9294, 604.754 )
+speech = PoolStringArray( "The thieves come here to get money for our babies", "They\'re expecting you though!", "Be careful!", "", "", "" )
 
 [node name="GuideChick2" parent="YSort" instance=ExtResource( 14 )]
 position = Vector2( 6557.93, 1981.77 )
+speech = PoolStringArray( "Amazing job!", "Just one last place to go!", "", "Legends speak of a torturous place", "One where everyone lives in a box", "They can\'t move and their eggs are taken", "", "Come! Let\'s go set them free!", "Hop in the truck!", "", "" )
 
 [node name="MechChick" parent="YSort" instance=ExtResource( 16 )]
 position = Vector2( -38.5124, 382.357 )
