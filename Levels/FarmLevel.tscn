@@ -3147,14 +3147,15 @@ position = Vector2( 6823.76, -2803.66 )
 
 [node name="GuideChick" parent="YSort" instance=ExtResource( 22 )]
 position = Vector2( -902.539, -1488.77 )
-speech = PoolStringArray( "Hi there!", "Speak to my wife for parts!", "We need to keep those stolen eggs alive!", "" )
+speech = PoolStringArray( "Hi there!", "This is my wife", "She\'s a bit mad", "Lost her marbles after they keep stealing our eggs!", "Apparently, they want to eat them!", "", "Please help us", "We tried stealing them back", "But they keep taking them!", "We have no choice but to defeat the thieves!", "Help us keep our babies alive!", "", "My wife is a great mechanic", "Made that suit a while ago", "She\'s too distraught to build anymore", "Bring her eggs and maybe she\'ll cheer up", "", "Good luck!", "", "", "", "", "", "" )
 
 [node name="GuideChick2" parent="YSort" instance=ExtResource( 22 )]
 position = Vector2( 3320.17, -1365.46 )
-speech = PoolStringArray( "Good Job!", "Get in the truck!", "" )
+speech = PoolStringArray( "Good Job so far!", "There\'s still many more to find!", "Don\'t forget to speak to my wife for more parts", "", "" )
 
 [node name="GuideChick3" parent="YSort" instance=ExtResource( 22 )]
 position = Vector2( 6749.43, -2809.54 )
+speech = PoolStringArray( "Great job!", "You found so many!", "Your work isn\'t finished yet though!", "", "There\'s a place they\'ve been taking the eggs", "Hop in the truck", "", "" )
 
 [node name="Truck" parent="YSort" instance=ExtResource( 24 )]
 position = Vector2( 7344.31, -2747.29 )

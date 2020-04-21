@@ -366,9 +366,11 @@ position = Vector2( -268.974, 197.584 )
 
 [node name="GuideChick" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 3631.34, 620.167 )
+speech = PoolStringArray( "We\'re here!", "There are lot\'s of scary humans in there...", "Don\'t go unprepared!", "Ask my wife to make parts", "We believe in you!!!", "", "", "" )
 
 [node name="GuideChick2" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( -39.5322, 95.4538 )
+speech = PoolStringArray( "Can\'t stop until every chick is free!", "Thank you!!!", "", "" )
 
 [node name="MechChick" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 3550.4, 626.819 )
