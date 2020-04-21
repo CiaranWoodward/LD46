@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenery/Graphics/BatteryFarm/Floor_@0.5x.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Chicks/MechChick.tscn" type="PackedScene" id=12]
 [ext_resource path="res://LevelNavMesh.gd" type="Script" id=13]
 [ext_resource path="res://Enemies/Worker.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Menu/HUD.tscn" type="PackedScene" id=15]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 2795.51, 670.26, 2970.97, 833.9, 2986.07, 1052.93, 2804.81, 1045.37, 2070.08, 935.582, 2653.76, 1694.3, 2648.72, 2323.69, 2034.44, 2273.34, 2039.48, 1737.1, 1868.29, 1689.27, 1887.04, 1735.83, 288.87, 786.953, 91.6402, 27.5251, 1906.44, 13.3806, 1886.3, 874.055, 306.599, 852.327, 2812.36, 1143.56, 2809.84, 1331.78, 2487.6, 1326.74, 2017.22, 1299.52, 2027.29, 1172.23, 93.8563, 786.953, 311.031, 971.995, 1888.82, 1302.04, 308.815, 1210.65, 328.76, 1310.33, 3085.03, 682.848, 3079.99, 828.865, 2150.65, 489.978, 2268.97, 11.6465, 2804.72, 28.6429, 2795.51, 579.629, 2145.61, 16.6816, 1703.26, 1894.43, 309.45, 1776.73, 320.974, 1441.07, 1878.36, 1525.63, 1720.88, 2002.69, 1700.74, 2307.31, 275.813, 2307.31, 270.778, 2236.82, 276.722, 1892.53, 2477.53, 1505.49, 2085.19, 495.013, 1884.52, 1866.74, 2027.29, 958.24 )
@@ -651,3 +652,5 @@ script = ExtResource( 13 )
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="LevelNavMesh"]
 navpoly = SubResource( 1 )
+
+[node name="HUD" parent="." instance=ExtResource( 15 )]
