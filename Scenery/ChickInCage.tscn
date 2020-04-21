@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenery/Graphics/Shadow_@0.5x.png" type="Texture" id=1]
 [ext_resource path="res://Scenery/Graphics/BatteryFarm/CageFront_@0.5x.png" type="Texture" id=2]
@@ -7,8 +7,9 @@
 [ext_resource path="res://Chicks/Graphics/Cage1.png" type="Texture" id=5]
 [ext_resource path="res://Chicks/Graphics/Free0.png" type="Texture" id=6]
 [ext_resource path="res://Chicks/Graphics/Free1.png" type="Texture" id=7]
+[ext_resource path="res://Scenery/ChickInCage.gd" type="Script" id=8]
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
@@ -16,7 +17,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
@@ -24,11 +25,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 74.6921, 44.0648 )
 
-[sub_resource type="Animation" id=3]
-resource_name = "Caged"
+[sub_resource type="Animation" id=4]
 loop = true
 step = 0.025
 tracks/0/type = "value"
@@ -144,12 +144,49 @@ tracks/3/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("CageFront_05x:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CageBack_05x:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Shadow_05x:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [node name="ChickInCage" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 119
 mode = 2
 mass = 10.0
+script = ExtResource( 8 )
 
 [node name="Shadow_05x" type="Sprite" parent="."]
 position = Vector2( 0, 58.3196 )
@@ -164,19 +201,20 @@ position = Vector2( 0.568787, 44.6052 )
 texture = ExtResource( 3 )
 
 [node name="Free" type="AnimatedSprite" parent="."]
-position = Vector2( 5.99371, 39.4157 )
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -148.009, 102.043 )
 rotation = -0.0349066
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 4 )
-frame = 3
+frames = SubResource( 6 )
+frame = 4
 playing = true
 
 [node name="Caged" type="AnimatedSprite" parent="."]
-visible = false
-position = Vector2( 11.9485, 52.2557 )
+position = Vector2( 39.2999, 37.3368 )
 rotation = -0.0349066
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 1 )
+frames = SubResource( 7 )
+frame = 3
 speed_scale = 0.3
 playing = true
 
@@ -185,10 +223,10 @@ position = Vector2( 0.568787, -3.4128 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource( 2 )
+shape = SubResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 0.1
-anims/Caged = SubResource( 3 )
+anims/Caged = SubResource( 4 )
 anims/Free = SubResource( 5 )
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -131,7 +131,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( -579.551, -1494.22 )
+position = Vector2( 6100.45, -2414.22 )
 
 [node name="BarnSide" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( -1024.02, 1085.18 )
@@ -3124,6 +3124,27 @@ position = Vector2( -800, -480 )
 [node name="Farmer3" parent="YSort" instance=ExtResource( 20 )]
 position = Vector2( 1280, 1600 )
 
+[node name="Farmer9" parent="YSort" instance=ExtResource( 20 )]
+position = Vector2( 4260.45, 705.778 )
+
+[node name="Farmer10" parent="YSort" instance=ExtResource( 20 )]
+position = Vector2( 4060.45, 1025.78 )
+
+[node name="Farmer11" parent="YSort" instance=ExtResource( 20 )]
+position = Vector2( 6420.45, 1665.78 )
+
+[node name="Farmer13" parent="YSort" instance=ExtResource( 20 )]
+position = Vector2( 5900.45, 345.778 )
+
+[node name="Farmer14" parent="YSort" instance=ExtResource( 20 )]
+position = Vector2( 6380.45, -54.2218 )
+
+[node name="Farmer15" parent="YSort" instance=ExtResource( 20 )]
+position = Vector2( 6620.45, -1654.22 )
+
+[node name="Farmer12" parent="YSort" instance=ExtResource( 20 )]
+position = Vector2( 4220.45, 1385.78 )
+
 [node name="Farmer6" parent="YSort" instance=ExtResource( 20 )]
 position = Vector2( 1680, -160 )
 
@@ -3142,6 +3163,9 @@ position = Vector2( -811.916, -1642.15 )
 [node name="MechChick2" parent="YSort" instance=ExtResource( 21 )]
 position = Vector2( 3397.5, -1361.8 )
 
+[node name="MechChick4" parent="YSort" instance=ExtResource( 21 )]
+position = Vector2( -419.551, 2105.78 )
+
 [node name="MechChick3" parent="YSort" instance=ExtResource( 21 )]
 position = Vector2( 6823.76, -2803.66 )
 
@@ -3152,6 +3176,10 @@ speech = PoolStringArray( "Hi there!", "This is my wife", "She\'s a bit mad", "L
 [node name="GuideChick2" parent="YSort" instance=ExtResource( 22 )]
 position = Vector2( 3320.17, -1365.46 )
 speech = PoolStringArray( "Good Job so far!", "There\'s still many more to find!", "Don\'t forget to speak to my wife for more parts", "", "" )
+
+[node name="GuideChick4" parent="YSort" instance=ExtResource( 22 )]
+position = Vector2( -419.551, 1985.78 )
+speech = PoolStringArray( "You look hurt!", "Talk to my wife for free repairs", "She\'ll also bank your eggs", "", "" )
 
 [node name="GuideChick3" parent="YSort" instance=ExtResource( 22 )]
 position = Vector2( 6749.43, -2809.54 )

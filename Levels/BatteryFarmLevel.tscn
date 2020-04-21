@@ -25,10 +25,6 @@ position = Vector2( -273.98, -47.8173 )
 
 [node name="Bottom" type="Node2D" parent="."]
 z_index = -1000
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
 
 [node name="TextureRect" type="TextureRect" parent="Bottom"]
 margin_left = -1704.0
@@ -62,10 +58,6 @@ __meta__ = {
 }
 
 [node name="YSort" type="YSort" parent="."]
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 3893.49, 675.744 )

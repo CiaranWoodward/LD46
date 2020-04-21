@@ -103,7 +103,10 @@ position = Vector2( 2704, 432 )
 position = Vector2( 2912, 432 )
 
 [node name="MarketStall72" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 1458.19, 2300.06 )
+position = Vector2( 1440, 2240 )
+
+[node name="MarketStall78" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 1520, 2360 )
 
 [node name="MarketStall63" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 2544, 1736 )
@@ -1247,6 +1250,9 @@ position = Vector2( 5800, 1840 )
 [node name="Farmer3" parent="YSort" instance=ExtResource( 13 )]
 position = Vector2( 4720, 1840 )
 
+[node name="Farmer15" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 4400, 1880 )
+
 [node name="Farmer4" parent="YSort" instance=ExtResource( 13 )]
 position = Vector2( 2920, 2000 )
 
@@ -1256,11 +1262,17 @@ position = Vector2( 760, 2280 )
 [node name="Farmer6" parent="YSort" instance=ExtResource( 13 )]
 position = Vector2( 3120, 1320 )
 
+[node name="Farmer14" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 2680, 1400 )
+
 [node name="Farmer9" parent="YSort" instance=ExtResource( 13 )]
 position = Vector2( 3720, 360 )
 
 [node name="Farmer10" parent="YSort" instance=ExtResource( 13 )]
 position = Vector2( 4400, 360 )
+
+[node name="Farmer16" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 4160, 360 )
 
 [node name="Farmer11" parent="YSort" instance=ExtResource( 13 )]
 position = Vector2( 2080, 360 )
@@ -1270,6 +1282,9 @@ position = Vector2( 2960, 520 )
 
 [node name="Farmer7" parent="YSort" instance=ExtResource( 13 )]
 position = Vector2( 1040, 1360 )
+
+[node name="Farmer13" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 640, 1360 )
 
 [node name="Farmer8" parent="YSort" instance=ExtResource( 13 )]
 position = Vector2( 1480, 1360 )
@@ -1293,7 +1308,7 @@ speech = PoolStringArray( "Amazing job!", "Just one last place to go!", "", "Leg
 position = Vector2( -38.5124, 382.357 )
 
 [node name="MechChick2" parent="YSort" instance=ExtResource( 16 )]
-position = Vector2( 6502.46, 1776.03 )
+position = Vector2( 6320, 1800 )
 
 [node name="FenceSide21" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( -63.8822, 302.155 )
@@ -1306,6 +1321,10 @@ position = Vector2( 6599.26, 1956.54 )
 
 [node name="LevelNavMesh" type="Navigation2D" parent="."]
 script = ExtResource( 12 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="LevelNavMesh"]
 navpoly = SubResource( 1 )

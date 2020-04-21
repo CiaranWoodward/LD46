@@ -239,6 +239,7 @@ mass = 2.0
 physics_material_override = SubResource( 1 )
 script = ExtResource( 6 )
 speed = 3000.0
+perceived_range = 800.0
 
 [node name="Dead_05x" type="Sprite" parent="."]
 visible = false
