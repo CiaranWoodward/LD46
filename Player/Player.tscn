@@ -591,7 +591,7 @@ linear_damp = 13.528
 angular_damp = 100.0
 script = ExtResource( 2 )
 speed = 10000.0
-maxhealth = 300.0
+maxhealth = 200.0
 
 [node name="Smoke" type="CPUParticles2D" parent="."]
 position = Vector2( 2.43839, -14.1426 )
@@ -820,4 +820,10 @@ stream = ExtResource( 47 )
 
 [node name="Ding2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 48 )
+
+[node name="Camera" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 1.5, 1.5 )
+process_mode = 0
+smoothing_enabled = true
 [connection signal="area_entered" from="EggCollect" to="BeltPath" method="_on_EggCollect_area_entered"]

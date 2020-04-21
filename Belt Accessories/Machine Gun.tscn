@@ -222,7 +222,7 @@ colors = PoolColorArray( 1, 0.496399, 0.128906, 1, 0.576471, 0.454902, 0.160784,
 [node name="Machine Gun" type="Node2D"]
 script = ExtResource( 10 )
 description = "Machine Gun"
-cost = 60
+cost = 40
 is_weapon = true
 icon_texture = ExtResource( 11 )
 bulletforce = 1000.0

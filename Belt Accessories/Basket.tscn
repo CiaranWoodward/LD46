@@ -23,6 +23,7 @@ radius = 18.0
 [node name="Basket" type="KinematicBody2D"]
 collision_mask = 32
 script = ExtResource( 14 )
+cost = 4
 icon_texture = ExtResource( 15 )
 egg_capacity = 12
 

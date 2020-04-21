@@ -12,6 +12,8 @@ func _ready():
 func _process(delta):
 	if enabled:
 		if Input.is_action_just_released("interact"):
+			Global.mod_eggcount(Global.get_eggcontent())
+			Global.clear_eggcontent()
 			var root = get_tree().get_root()
 			Global.curScene = root.get_child(root.get_child_count() - 1)
 			Global.oldpos = Global.player.get_global_position()
