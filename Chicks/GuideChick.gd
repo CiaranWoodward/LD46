@@ -19,10 +19,10 @@ func _on_TextTimer_timeout():
 		return
 	
 	if speech[curSpeech].length() == 0:
-		get_node("TextBox").visible = false
+		get_node("tx/TextBox").visible = false
 	else:
-		get_node("TextBox").visible = true
+		get_node("tx/TextBox").visible = true
 	
-	get_node("TextBox/Label").text = speech[curSpeech]
+	get_node("tx/TextBox/Label").text = speech[curSpeech]
 	
 	curSpeech = (curSpeech + 1) % speech.size()

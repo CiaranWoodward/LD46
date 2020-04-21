@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenery/Truck_Front_@0.5x.png" type="Texture" id=1]
 [ext_resource path="res://Scenery/Truck_@0.5x.png" type="Texture" id=2]
 [ext_resource path="res://Scenery/Graphics/Shadow_@0.5x.png" type="Texture" id=3]
+[ext_resource path="res://Scenery/Truck.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 200.543, 50.8513 )
@@ -13,7 +14,11 @@ extents = Vector2( 128.869, 21.1674 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 115.837, 4.5159 )
 
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 80, 80 )
+
 [node name="Truck" type="StaticBody2D"]
+script = ExtResource( 4 )
 
 [node name="Shadow_05x" type="Sprite" parent="."]
 position = Vector2( -4.34387, 130.144 )
@@ -43,3 +48,34 @@ shape = SubResource( 2 )
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
 position = Vector2( -167.964, -44.1628 )
 shape = SubResource( 3 )
+
+[node name="LevelExit" type="Area2D" parent="."]
+monitorable = false
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelExit"]
+position = Vector2( -200, 0 )
+shape = SubResource( 4 )
+
+[node name="p" type="Node2D" parent="."]
+visible = false
+z_index = 1000
+
+[node name="prompt" type="ColorRect" parent="p"]
+margin_left = -240.0
+margin_top = -200.0
+margin_right = -200.0
+margin_bottom = -160.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="p/prompt"]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "E"
+align = 1
+valign = 1
+[connection signal="body_entered" from="LevelExit" to="." method="_on_LevelExit_body_entered"]
+[connection signal="body_exited" from="LevelExit" to="." method="_on_LevelExit_body_exited"]
