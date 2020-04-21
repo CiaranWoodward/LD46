@@ -1,7 +1,8 @@
 extends MarginContainer
 
 onready var mouseGrab = get_node("MouseGrab")
-onready var nextScene = preload("res://Level.tscn")
+
+onready var player = preload("res://Player/Player.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,4 +16,12 @@ func _on_item_bought(itemButton):
 	mouseGrab.bind(itemButton.cost, itemButton.texture, itemButton.sceneTarget, itemButton.is_weapon)
 
 func _on_BattleButton_pressed():
-	get_tree().change_scene_to(nextScene)
+	var root = get_tree().get_root()
+	var thisscene = root.get_child(root.get_child_count() - 1)
+	root.remove_child(thisscene)
+	root.add_child(Global.curScene)
+	thisscene.call_deferred("free")
+	
+	var newplayer = player.instance()
+	Global.curScene.find_node("YSort").add_child(newplayer)
+	newplayer.set_global_position(Global.oldpos)

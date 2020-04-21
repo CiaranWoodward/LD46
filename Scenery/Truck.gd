@@ -12,6 +12,7 @@ func _process(delta):
 	if enabled:
 		if Input.is_action_just_released("interact"):
 			get_tree().change_scene_to(nextLevel)
+			get_tree().get_root()
 
 func _on_LevelExit_body_entered(body : Node2D):
 	if body.has_method("get_heartpos"):

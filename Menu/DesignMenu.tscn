@@ -121,15 +121,16 @@ margin_right = 590.0
 margin_bottom = 500.0
 
 [node name="EggCounter" parent="HBoxContainer/BuildPanel/VBoxContainer" instance=ExtResource( 6 )]
+margin_right = 95.0
 
 [node name="EggContentCounter" parent="HBoxContainer/BuildPanel/VBoxContainer" instance=ExtResource( 14 )]
-margin_top = 39.0
-margin_right = 84.0
-margin_bottom = 74.0
+margin_top = 43.0
+margin_right = 117.0
+margin_bottom = 78.0
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/BuildPanel"]
-margin_left = 480.0
-margin_top = 460.0
+margin_left = 436.0
+margin_top = 453.0
 margin_right = 590.0
 margin_bottom = 500.0
 size_flags_horizontal = 8
@@ -142,8 +143,8 @@ custom_constants/margin_bottom = 5
 [node name="BattleButton" type="Button" parent="HBoxContainer/BuildPanel/MarginContainer"]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 105.0
-margin_bottom = 35.0
+margin_right = 149.0
+margin_bottom = 42.0
 rect_min_size = Vector2( 100, 30 )
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -159,10 +160,10 @@ script = ExtResource( 5 )
 texture = ExtResource( 4 )
 
 [node name="EggCome" type="AcceptDialog" parent="."]
-margin_left = 376.0
-margin_top = 237.0
-margin_right = 647.0
-margin_bottom = 363.0
+margin_left = 282.0
+margin_top = 183.0
+margin_right = 741.0
+margin_bottom = 417.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 popup_exclusive = true

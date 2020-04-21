@@ -12,6 +12,8 @@ var navmesh : Navigation2D = null
 var eggcapacity = 0
 var eggcontent = 0
 var playerhealth : int = 100 setget set_playerhealth, get_playerhealth
+var curScene = null
+var oldpos = Vector2.INF
 
 func reset():
 	eggcount = 0
