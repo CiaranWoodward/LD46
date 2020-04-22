@@ -27,6 +27,7 @@ cost = 10
 is_weapon = true
 icon_texture = ExtResource( 18 )
 spread = 0.15
+damage = 20.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 

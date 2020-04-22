@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Menu/EggContentCounter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Menu/EggCounter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Menu/HealthCounter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Chicks/Graphics/Cage0.png" type="Texture" id=4]
+[ext_resource path="res://Menu/Gameover.gd" type="Script" id=5]
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -14,13 +16,31 @@ __meta__ = {
 }
 
 [node name="EggCounter" parent="VBoxContainer" instance=ExtResource( 2 )]
+margin_right = 95.0
 
 [node name="EggContentCounter" parent="VBoxContainer" instance=ExtResource( 1 )]
-margin_top = 39.0
-margin_right = 84.0
-margin_bottom = 74.0
+margin_top = 43.0
+margin_right = 117.0
+margin_bottom = 78.0
 
 [node name="HealthCounter" parent="VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 78.0
-margin_right = 75.0
-margin_bottom = 113.0
+margin_top = 86.0
+margin_right = 102.0
+margin_bottom = 121.0
+
+[node name="Gameover" type="Sprite" parent="."]
+visible = false
+position = Vector2( 712, 424 )
+scale = Vector2( 1.55143, 1.55143 )
+texture = ExtResource( 4 )
+script = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="Gameover"]
+margin_left = -72.1916
+margin_top = 46.4088
+margin_right = 51.8084
+margin_bottom = 71.4088
+text = "Game Over"
+__meta__ = {
+"_edit_use_anchors_": false
+}

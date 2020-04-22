@@ -591,7 +591,6 @@ linear_damp = 13.528
 angular_damp = 100.0
 script = ExtResource( 2 )
 speed = 10000.0
-maxhealth = 200.0
 
 [node name="Smoke" type="CPUParticles2D" parent="."]
 position = Vector2( 2.43839, -14.1426 )

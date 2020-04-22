@@ -68,7 +68,7 @@ position = Vector2( 0, 60 )
 position = Vector2( 13.1722, 22.1533 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
-frame = 5
+frame = 1
 speed_scale = 0.55
 playing = true
 offset = Vector2( -15.308, 29.9265 )
@@ -89,15 +89,25 @@ shape = SubResource( 4 )
 one_way_collision = true
 
 [node name="p" type="Node2D" parent="."]
-visible = false
 position = Vector2( 221, 92.35 )
 z_index = 1000
+
+[node name="back" type="ColorRect" parent="p"]
+visible = false
+margin_left = -240.0
+margin_top = -200.0
+margin_right = -200.0
+margin_bottom = -160.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="prompt" type="ColorRect" parent="p"]
 margin_left = -240.0
 margin_top = -200.0
 margin_right = -200.0
 margin_bottom = -160.0
+color = Color( 1, 1, 1, 0.392157 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

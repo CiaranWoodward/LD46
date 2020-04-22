@@ -25,10 +25,11 @@ func _process(delta):
 func _on_BMZone_body_entered(body):
 	if body.has_method("get_heartpos"):
 		enabled = true
-		get_node("p").visible = true
+		get_node("p/back").visible = true
 
 
 func _on_BMZone_body_exited(body):
 	if body.has_method("get_heartpos"):
 		enabled = false
-		get_node("p").visible = false
+		get_node("p/back").visible = false
+		
