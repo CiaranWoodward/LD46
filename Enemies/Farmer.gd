@@ -213,6 +213,9 @@ func damage(damage : float, gpos : Vector2):
 	
 	thud.pitch_scale = rand_range(0.8, 1.2)
 	thud.play()
+	
+	if cur_state == ai_state.idle:
+		_change_ai_state(ai_state.shoot)
 
 func _die():
 	self.mass = 20
